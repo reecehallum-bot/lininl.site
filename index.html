@@ -31,7 +31,7 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .nav-email{font-weight:300;font-size:11px;letter-spacing:0.14em;color:var(--ink-dim);text-decoration:none;transition:color 0.5s;}
 .nav-email:hover{color:var(--ink-low);}
 .hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 0 60px;border-bottom:1px solid var(--rule);text-align:center;}
-.hero-copy{position:relative;max-width:540px;margin-top:28px;padding:18px 24px 12px;}
+.hero-copy{position:relative;max-width:540px;margin-top:28px;padding:18px 24px 12px;will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden;}
 .hero-copy::before{content:'';position:absolute;inset:-28px -36px -18px;background:radial-gradient(ellipse at center,rgba(5,7,12,0.58) 0%,rgba(5,7,12,0.3) 44%,rgba(5,7,12,0) 78%);pointer-events:none;z-index:-1;filter:blur(8px);}
 .hero-title{font-style:italic;font-weight:300;font-size:clamp(24px,4vw,36px);letter-spacing:-0.02em;line-height:1.18;color:rgba(216,226,240,0.92);text-shadow:0 0 30px rgba(157,111,212,0.12);}
 .hero-sub{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-low);opacity:0.72;margin-top:14px;}
@@ -54,10 +54,10 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .track:first-child{border-top:1px solid var(--rule);}
 .track:hover{border-color:var(--rule-mid);}
 .track-row{display:grid;grid-template-columns:72px 1fr;gap:24px;padding:24px 0;align-items:start;}
-.art{width:72px;height:72px;background:var(--bg2);border:1px solid var(--rule);position:relative;transition:border-color 0.5s,box-shadow 0.5s;}
-.art::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;border:1px solid rgba(216,226,240,0.1);}
-.art::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,rgba(157,111,212,0.1) 0%,transparent 100%);}
-.track.playing .art{border-color:rgba(157,111,212,0.4);box-shadow:0 0 16px rgba(157,111,212,0.15);}
+.art{width:72px;height:72px;background:var(--bg2) center/cover no-repeat;border:1px solid var(--rule);position:relative;transition:border-color 0.5s,box-shadow 0.5s,transform 0.4s;overflow:hidden;}
+.art::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,0.08),rgba(7,9,15,0.42));}
+.art::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,rgba(157,111,212,0.18) 0%,transparent 100%);mix-blend-mode:screen;}
+.track.playing .art{border-color:rgba(157,111,212,0.4);box-shadow:0 0 16px rgba(157,111,212,0.15);transform:scale(1.02);}
 .track-info{min-width:0;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
 .track:hover .track-info{transform:translateX(6px);}
 .track-title-row{display:flex;align-items:center;gap:10px;}
@@ -98,8 +98,8 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .bottom-player.visible{transform:translateY(0);}
 .player-progress-bar{position:absolute;top:0;left:0;height:1px;width:0%;background:var(--purple);transition:width 0.1s linear;box-shadow:0 0 6px rgba(157,111,212,0.6);}
 .player-inner{max-width:660px;margin:0 auto;padding:0 40px;height:72px;display:grid;grid-template-columns:48px 1fr auto auto;align-items:center;gap:16px;}
-.player-art{width:44px;height:44px;background:var(--bg3);border:1px solid var(--rule);position:relative;flex-shrink:0;}
-.player-art::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;border:1px solid rgba(157,111,212,0.2);}
+.player-art{width:44px;height:44px;background:var(--bg3) center/cover no-repeat;border:1px solid var(--rule);position:relative;flex-shrink:0;overflow:hidden;}
+.player-art::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,0.06),rgba(7,9,15,0.36));}
 .player-meta{min-width:0;}
 .player-kicker{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:3px;}
 .player-title{font-style:italic;font-weight:300;font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-0.01em;}
@@ -135,30 +135,30 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     </div>
   </section>
   <section class="demos" id="demos">
-    <p class="section-label">Demos</p>
+    <p class="section-label">Selected Demos</p>
     <div class="tabs">
       <span class="tab active" onclick="switchTab('male',this)">Male Vocal</span>
       <span class="tab" onclick="switchTab('female',this)">Female Vocal</span>
     </div>
     <div class="track-list active" id="tab-male">
-      <div class="track" data-src="astronaut.mp3" data-title="Astronaut" data-gender="Male Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/astronaut.mp3" data-title="Astronaut" data-gender="Male Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Astronaut</p></div><p class="track-desc">The loneliness of being somewhere no one else can follow.</p><div class="track-meta"><span class="track-chip">Cinematic pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Isolation / scale</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
-      <div class="track" data-src="last-good-year.mp3" data-title="Last Good Year" data-gender="Male Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/last-good-year.mp3" data-title="Last Good Year" data-gender="Male Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Last Good Year</p></div><p class="track-desc">Nostalgia as a form of self-deception.</p><div class="track-meta"><span class="track-chip">Alt-pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Memory / denial</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
-      <div class="track" data-src="medication.mp3" data-title="Medication" data-gender="Male Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/medication.mp3" data-title="Medication" data-gender="Male Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Medication</p></div><p class="track-desc">Numbing something that was trying to tell you something.</p><div class="track-meta"><span class="track-chip">Dark pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Dissociation / ache</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
     </div>
     <div class="track-list" id="tab-female">
-      <div class="track" data-src="main-character-energy.mp3" data-title="Main Character Energy" data-gender="Female Vocal" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">The exhaustion of performing your own life for an audience of one.</p><div class="track-meta"><span class="track-chip">Concept pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Image / self-myth</span></div><p class="track-request">Full track available on request</p></div></div>
+      <div class="track" data-src="audio/i-support-my-own-delusion.mp3" data-title="I Support My Own Delusion" data-gender="Female Vocal" data-mood="Female vocal · Concept pop" data-art="images/i-support-my-own-delusion.jpg" onclick="loadTrack(this)">
+        <div class="track-row"><div class="art" style="background-image:url('images/i-support-my-own-delusion.jpg')"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">I Support My Own Delusion</p></div><p class="track-desc">Romantic self-mythology pushed past the point of reason.</p><div class="track-meta"><span class="track-chip">Concept pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Delusion / desire</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
-      <div class="track" data-src="speak-to-universe.mp3" data-title="I'd Like to Speak to the Universe" data-gender="Female Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/speak-to-universe.mp3" data-title="I'd Like to Speak to the Universe" data-gender="Female Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">I'd Like to Speak to the Universe</p></div><p class="track-desc">A plea to something larger than yourself, dressed as a love song.</p><div class="track-meta"><span class="track-chip">Cinematic pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Longing / cosmos</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
-      <div class="track" data-src="manic-pixie.mp3" data-title="Manic Pixie Dream Girl" data-gender="Female Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/manic-pixie.mp3" data-title="Manic Pixie Dream Girl" data-gender="Female Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Manic Pixie Dream Girl</p></div><p class="track-desc">The archetype, rewritten from the inside.</p><div class="track-meta"><span class="track-chip">Left-of-centre pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Archetype / reclaiming</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
     </div>
@@ -210,7 +210,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
   <div class="player-progress-bar" id="playerBar"></div>
   <div class="player-seek" onclick="seekPlayer(event)"></div>
   <div class="player-inner">
-    <div class="player-art"></div>
+    <div class="player-art" id="playerArt"></div>
     <div class="player-meta"><p class="player-kicker">Now Playing</p><p class="player-title" id="playerTitle">—</p><p class="player-gender" id="playerGender">—</p></div>
     <button class="player-btn" id="playerBtn" onclick="togglePlay()"><span class="play-icon"></span><div class="pause-icon"><span></span><span></span></div></button>
     <span class="player-duration" id="playerDur">—:—</span>
@@ -465,21 +465,71 @@ let sfLastFrame=0;
   requestAnimationFrame(renderSF);
 })(performance.now());
 
-// ── ECLIPSE SMOOTH PARALLAX ──
-let eclipseCurrentY=window.scrollY*0.07;
-let eclipseCurrentScale=Math.max(0.82,1-window.scrollY*0.0003);
+// ── ECLIPSE HERO LOCK / RELEASE ──
+let eclipseCurrentY=0;
+let eclipseCurrentScale=1;
+let eclipseCurrentOpacity=1;
+let heroCopyCurrentY=0;
 const eclipseEl=document.getElementById('eclipse');
+const heroEl=document.querySelector('.hero');
 const heroCopyEl=document.querySelector('.hero-copy');
+
+function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+
 (function animateEclipse(now){
+  const vh=window.innerHeight||1;
+  const scroll=window.scrollY||window.pageYOffset||0;
+  const heroStart=heroEl?heroEl.offsetTop:0;
+  const localScroll=Math.max(0,scroll-heroStart);
+  const lockEnd=vh*0.4;
+  const releaseEnd=vh*0.8;
   const breathe=1+Math.sin(now*0.00042)*0.016;
-  const targetY=window.scrollY*0.07;
-  const targetScale=Math.max(0.82,1-window.scrollY*0.0003)*breathe;
-  eclipseCurrentY+=(targetY-eclipseCurrentY)*0.12;
-  eclipseCurrentScale+=(targetScale-eclipseCurrentScale)*0.12;
-  if(eclipseEl)eclipseEl.style.transform=`translateY(${eclipseCurrentY}px) scale(${eclipseCurrentScale})`;
+
+  let targetY=0;
+  let targetScale=1;
+  let targetOpacity=1;
+
+  if(localScroll<=lockEnd){
+    targetY=localScroll;
+    targetScale=1;
+    targetOpacity=1;
+  }else if(localScroll<=releaseEnd){
+    const releaseProgress=(localScroll-lockEnd)/(releaseEnd-lockEnd);
+    targetY=lockEnd-(releaseProgress*18);
+    targetScale=1-(releaseProgress*0.15);
+    targetOpacity=1-(releaseProgress*0.58);
+  }else{
+    targetY=lockEnd-18;
+    targetScale=0.85;
+    targetOpacity=0.42;
+  }
+
+  targetScale*=breathe;
+
+  // Smooth the eclipse motion a touch more for desktop trackpads / wheel scrolling
+  eclipseCurrentY+=(targetY-eclipseCurrentY)*0.085;
+  eclipseCurrentScale+=(targetScale-eclipseCurrentScale)*0.085;
+  eclipseCurrentOpacity+=(targetOpacity-eclipseCurrentOpacity)*0.11;
+
+  if(eclipseEl){
+    eclipseEl.style.transform=`translate3d(0, ${eclipseCurrentY.toFixed(2)}px, 0) scale(${eclipseCurrentScale.toFixed(4)})`;
+    eclipseEl.style.opacity=eclipseCurrentOpacity.toFixed(3);
+  }
+
   if(heroCopyEl){
-    const textOffset=window.scrollY*0.045;
-    heroCopyEl.style.transform=`translateY(${textOffset}px)`;
+    const heroTextLock=Math.min(localScroll,lockEnd)*0.08;
+    const heroTextRelease=Math.max(0,localScroll-lockEnd)*0.03;
+    const heroCopyTargetY=heroTextLock+heroTextRelease;
+
+    // Lerp the text too, so it doesn't feel more 'attached to scroll ticks' than the eclipse.
+    heroCopyCurrentY+=(heroCopyTargetY-heroCopyCurrentY)*0.12;
+
+    // Snap microscopically small deltas to avoid shimmer/jitter.
+    if(Math.abs(heroCopyTargetY-heroCopyCurrentY)<0.02){
+      heroCopyCurrentY=heroCopyTargetY;
+    }
+
+    heroCopyEl.style.transform=`translate3d(0, ${heroCopyCurrentY.toFixed(2)}px, 0)`;
   }
   requestAnimationFrame(animateEclipse);
 })(performance.now());
@@ -494,6 +544,8 @@ function switchTab(tab,el){
 
 // ── AUDIO ──
 const audio=new Audio();
+audio.preload='metadata';
+audio.volume=1;
 let currentTrack=null,rafId=null;
 const bottomPlayer=document.getElementById('bottomPlayer');
 const playerBtn=document.getElementById('playerBtn');
@@ -501,47 +553,129 @@ const playerTitle=document.getElementById('playerTitle');
 const playerGender=document.getElementById('playerGender');
 const playerBar=document.getElementById('playerBar');
 const playerDur=document.getElementById('playerDur');
+const playerArt=document.getElementById('playerArt');
+
+const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+let playerReady=false;
+
+function setPlayerArt(src){
+  if(!playerArt) return;
+  if(src){
+    playerArt.style.backgroundImage=`url('${src}')`;
+  }else{
+    playerArt.style.backgroundImage='none';
+  }
+}
+
+audio.addEventListener('loadedmetadata',()=>{
+  playerReady=true;
+  if(audio.duration && Number.isFinite(audio.duration)){
+    playerDur.textContent='0:00 / '+fmt(audio.duration);
+  }
+});
+audio.addEventListener('ended',()=>{
+  playerBtn.classList.remove('playing');
+  if(currentTrack)currentTrack.classList.remove('playing');
+  playerBar.style.width='0%';
+  if(audio.duration && Number.isFinite(audio.duration)){
+    playerDur.textContent=fmt(audio.duration)+' / '+fmt(audio.duration);
+  }else{
+    playerDur.textContent='—:—';
+  }
+  cancelAnimationFrame(rafId);
+});
+audio.addEventListener('pause',()=>{playerBtn.classList.remove('playing'); if(currentTrack) currentTrack.classList.remove('playing');});
+audio.addEventListener('play',()=>{playerBtn.classList.add('playing'); if(currentTrack) currentTrack.classList.add('playing');});
+
+function fadeInAudio(){
+  audio.volume=0.05;
+  const fade=setInterval(()=>{
+    if(audio.paused){clearInterval(fade);return;}
+    if(audio.volume>=0.96){
+      audio.volume=1;
+      clearInterval(fade);
+      return;
+    }
+    audio.volume=Math.min(1,audio.volume+0.08);
+  },35);
+}
 
 function loadTrack(el){
-  if(currentTrack)currentTrack.classList.remove('playing');
+  const sameTrack = currentTrack===el && audio.src.includes(el.dataset.src);
+  if(currentTrack && currentTrack!==el) currentTrack.classList.remove('playing');
+
   currentTrack=el;
   el.classList.add('playing');
   playerTitle.textContent=el.dataset.title;
-  playerGender.textContent=el.dataset.gender;
+  playerGender.textContent=el.dataset.mood || el.dataset.gender;
+  setPlayerArt(el.dataset.art || '');
   bottomPlayer.classList.add('visible');
-  playerBar.style.transition='width 0.4s cubic-bezier(0.16,1,0.3,1)';
-  playerBar.style.width='100%';
-  setTimeout(()=>{playerBar.style.transition='width 0.1s linear';playerBar.style.width='0%';},420);
-  audio.src=el.dataset.src;
-  audio.load();
-  audio.play().catch(()=>{});
-  playerBtn.classList.add('playing');
-  audio.onended=()=>{playerBtn.classList.remove('playing');if(currentTrack)currentTrack.classList.remove('playing');playerBar.style.width='0%';playerDur.textContent='—:—';cancelAnimationFrame(rafId);};
-  tick();
+
+  if(!sameTrack){
+    cancelAnimationFrame(rafId);
+    playerBar.style.transition='width 0.28s cubic-bezier(0.16,1,0.3,1)';
+    playerBar.style.width='0%';
+    playerDur.textContent='Loading…';
+    audio.pause();
+    audio.currentTime=0;
+    audio.src=el.dataset.src;
+    audio.load();
+  }
+
+  const playPromise = audio.play();
+  if(playPromise && typeof playPromise.then === 'function'){
+    playPromise.then(()=>{fadeInAudio(); tick();}).catch(()=>{
+      playerBtn.classList.remove('playing');
+      playerDur.textContent='Tap to play';
+    });
+  }else{
+    fadeInAudio();
+    tick();
+  }
 }
 
 function togglePlay(){
   if(!audio.src)return;
-  if(audio.paused){audio.play();playerBtn.classList.add('playing');if(currentTrack)currentTrack.classList.add('playing');tick();}
-  else{audio.pause();playerBtn.classList.remove('playing');if(currentTrack)currentTrack.classList.remove('playing');cancelAnimationFrame(rafId);}
+  if(audio.paused){
+    const playPromise = audio.play();
+    if(playPromise && typeof playPromise.then === 'function'){
+      playPromise.then(()=>{ if(currentTrack) currentTrack.classList.add('playing'); tick(); }).catch(()=>{});
+    }else{
+      if(currentTrack) currentTrack.classList.add('playing');
+      tick();
+    }
+  } else {
+    audio.pause();
+    if(currentTrack) currentTrack.classList.remove('playing');
+    cancelAnimationFrame(rafId);
+  }
 }
 
 function tick(){
   cancelAnimationFrame(rafId);
   rafId=requestAnimationFrame(function loop(){
-    if(audio.duration){
+    if(audio.duration && Number.isFinite(audio.duration)){
       playerBar.style.width=(audio.currentTime/audio.duration*100)+'%';
-      const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
       playerDur.textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration);
     }
-    rafId=requestAnimationFrame(loop);
+    if(!audio.paused){
+      rafId=requestAnimationFrame(loop);
+    }
   });
 }
 
 function seekPlayer(e){
   if(!audio.duration)return;
   const rect=e.currentTarget.getBoundingClientRect();
-  audio.currentTime=((e.clientX-rect.left)/rect.width)*audio.duration;
+  audio.currentTime=Math.max(0, Math.min(audio.duration, ((e.clientX-rect.left)/rect.width)*audio.duration));
+  if(audio.paused && currentTrack){
+    const playPromise = audio.play();
+    if(playPromise && typeof playPromise.then === 'function'){
+      playPromise.then(()=>tick()).catch(()=>{});
+    } else {
+      tick();
+    }
+  }
 }
 
 // ── CANVAS ECLIPSE ──
