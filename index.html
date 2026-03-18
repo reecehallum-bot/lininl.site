@@ -30,8 +30,8 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 @keyframes dotPulse{0%,100%{opacity:0.65;text-shadow:0 0 6px rgba(157,111,212,0.5);}50%{opacity:1;text-shadow:0 0 14px rgba(157,111,212,0.9),0 0 24px rgba(157,111,212,0.4);}}
 .nav-email{font-weight:300;font-size:11px;letter-spacing:0.14em;color:var(--ink-dim);text-decoration:none;transition:color 0.5s;}
 .nav-email:hover{color:var(--ink-low);}
-.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 0 60px;border-bottom:1px solid var(--rule);text-align:center;}
-.hero-copy{position:relative;max-width:540px;margin-bottom:32px;padding:18px 24px 12px;will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden;}
+.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px 0 40px;border-bottom:1px solid var(--rule);text-align:center;}
+.hero-copy{position:relative;max-width:540px;margin-top:20px;padding:18px 24px 12px;will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden;}
 .hero-copy::before{content:'';position:absolute;inset:-28px -36px -18px;background:radial-gradient(ellipse at center,rgba(5,7,12,0.58) 0%,rgba(5,7,12,0.3) 44%,rgba(5,7,12,0) 78%);pointer-events:none;z-index:-1;filter:blur(8px);}
 .hero-title{font-style:italic;font-weight:300;font-size:clamp(19px,3.2vw,29px);letter-spacing:-0.02em;line-height:1.18;color:rgba(216,226,240,0.92);text-shadow:0 0 30px rgba(157,111,212,0.12);}
 .hero-sub{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-low);opacity:0.72;margin-top:14px;}
@@ -40,7 +40,7 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .hero-cta:hover{color:var(--purple);border-bottom-color:var(--purple);}
 .hero-cta:hover::after{transform:scaleX(1);opacity:0.65;}
 @keyframes ctaShimmer{0%,100%{text-shadow:0 0 0 rgba(157,111,212,0);opacity:0.96;}50%{text-shadow:0 0 10px rgba(157,111,212,0.18);opacity:1;}}
-.eclipse-canvas{width:340px;height:340px;flex-shrink:0;}
+.eclipse-canvas{width:280px;height:280px;flex-shrink:0;}
 .section-label{font-size:10px;letter-spacing:0.32em;color:var(--ink-low);margin-bottom:32px;display:flex;align-items:center;gap:18px;text-transform:uppercase;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--rule);}
 .demos{padding:88px 0 0;}
@@ -128,12 +128,12 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     <a href="mailto:hello@liminl.music" class="nav-email">hello@liminl.music</a>
   </nav>
   <section class="hero">
+    <canvas id="eclipse" class="eclipse-canvas"></canvas>
     <div class="hero-copy">
       <p class="hero-title">Story-led conceptual music exploring identity, relationships, and the unknown.</p>
       <p class="hero-sub">Songwriter · Producer · Topliner</p>
       <a href="#demos" class="hero-cta">Listen to demos</a>
     </div>
-    <canvas id="eclipse" class="eclipse-canvas"></canvas>
   </section>
   <section class="demos" id="demos">
     <p class="section-label">Selected Demos</p>
