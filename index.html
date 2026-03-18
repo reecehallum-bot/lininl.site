@@ -796,12 +796,16 @@ setTimeout(spawnStar,2000);
 setInterval(()=>{spawnStar();},5000);
 
 // ── LANE CARDS STAGGER ──
-const laneObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('lane-visible');laneObs.unobserve(e.target);}
-  });
-},{threshold:0.15});
-document.querySelectorAll('.lane-card').forEach(c=>laneObs.observe(c));
+if(window.innerWidth<=720){
+  document.querySelectorAll('.lane-card').forEach(c=>c.classList.add('lane-visible'));
+}else{
+  const laneObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('lane-visible');laneObs.unobserve(e.target);}
+    });
+  },{threshold:0.15});
+  document.querySelectorAll('.lane-card').forEach(c=>laneObs.observe(c));
+}
 
 // ── ALIEN ──
 
