@@ -862,11 +862,17 @@ let ssLastFrame=0;
     ssCtx.beginPath();ssCtx.moveTo(tx,ty);ssCtx.lineTo(hx,hy);
     ssCtx.strokeStyle=gr;ssCtx.lineWidth=1;ssCtx.stroke();
   }
+  if(alienState.active){
+    alienState.x+=alienState.vx;alienState.y+=alienState.vy;
+    alienState.frame++;
+    drawAlien(ssCtx,alienState.x,alienState.y,alienState.frame);
+    if(alienState.x<-60||alienState.x>W+60||alienState.y<-60||alienState.y>H+60)alienState.active=false;
+  }
   requestAnimationFrame(renderSS);
 })(performance.now());
 
 setTimeout(spawnStar,2000);
-setInterval(()=>{spawnStar();},5000);
+setInterval(()=>{spawnStar();},20000);
 
 
 // ── ALIEN ──
