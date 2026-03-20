@@ -376,11 +376,14 @@ function rebuildStarClusters(){
 rebuildStarClusters();
 window.addEventListener('resize',rebuildStarClusters);
 let sfLastScrollY=window.scrollY,sfScrollSpeed=0,sfTargetSpeed=0;
+let cachedHeroRect=heroCopy?heroCopy.getBoundingClientRect():null;
 window.addEventListener('scroll',()=>{
   const delta=Math.abs(window.scrollY-sfLastScrollY);
   sfTargetSpeed=BASE_SPEED+delta*0.08;
   sfLastScrollY=window.scrollY;
+  cachedHeroRect=heroCopy?heroCopy.getBoundingClientRect():null;
 },{passive:true});
+window.addEventListener('resize',()=>{cachedHeroRect=heroCopy?heroCopy.getBoundingClientRect():null;});
 let vpY=0;
 function spawnPoint(W=sfCanvas.width,H=sfCanvas.height){
   const zoneRoll=Math.random();
@@ -465,7 +468,7 @@ let sfLastFrame=0;
   vpY+=(targetVpY-vpY)*0.06;
   const cx=W/2,cy=H/2+vpY;
   const scrollProgress=Math.min(1,window.scrollY/Math.max(window.innerHeight,1));
-  const heroRect=heroCopy?heroCopy.getBoundingClientRect():null;
+  const heroRect=cachedHeroRect;
   sfCtx.clearRect(0,0,W,H);
   flashTimer--;
   if(flashTimer<=0){
@@ -560,12 +563,16 @@ const heroEl=document.querySelector('.hero');
 const heroCopyEl=document.querySelector('.hero-copy');
 
 function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+let cachedHeroStart=heroEl?heroEl.offsetTop:0;
+window.addEventListener('resize',()=>{cachedHeroStart=heroEl?heroEl.offsetTop:0;});
+let eclipseLastFrame=0;
 
 (function animateEclipse(now){
+  if(now-eclipseLastFrame<frameLimiter(30)){requestAnimationFrame(animateEclipse);return;}
+  eclipseLastFrame=now;
   const vh=window.innerHeight||1;
   const scroll=window.scrollY||window.pageYOffset||0;
-  const heroStart=heroEl?heroEl.offsetTop:0;
-  const localScroll=Math.max(0,scroll-heroStart);
+  const localScroll=Math.max(0,scroll-cachedHeroStart);
   const lockEnd=vh*0.4;
   const releaseEnd=vh*0.8;
   const breathe=1+Math.sin(now*0.00042)*0.016;
@@ -930,11 +937,11 @@ function drawAlien(ctx,x,y,frame){
   const ufo = document.getElementById('ufoContainer');
   if(!ufo) return;
   let ticking = false;
+  const ufoSection = ufo.closest('.about');
   window.addEventListener('scroll', function(){
     if(!ticking){
       requestAnimationFrame(function(){
-        const section = ufo.closest('.about');
-        const rect = section.getBoundingClientRect();
+        const rect = ufoSection.getBoundingClientRect();
         const vh = window.innerHeight;
         const progress = 1 - (rect.top + rect.height) / (vh + rect.height);
         const clampedProgress = Math.max(0, Math.min(1, progress));
@@ -944,7 +951,7 @@ function drawAlien(ctx,x,y,frame){
       });
       ticking = true;
     }
-  });
+  }, {passive: true});
 })();
 
 // Render alien inside shooting stars loop — already handled above via alienState
