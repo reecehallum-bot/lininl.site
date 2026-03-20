@@ -788,7 +788,7 @@ function toggleMute(){
 // ── DISCO UFO ──
 (function(){
   let actx,analyser,fdata;
-  let bassHist=new Float32Array(45).fill(0),bhIdx=0;
+  let bassHist=new Float32Array(40).fill(20),bhIdx=0;
   let lastBeat=0;
   let dTarget=0,dAmt=0;
   let dCurR=157,dCurG=111,dCurB=212;
@@ -802,7 +802,7 @@ function toggleMute(){
       actx=new(window.AudioContext||window.webkitAudioContext)();
       analyser=actx.createAnalyser();
       analyser.fftSize=512;
-      analyser.smoothingTimeConstant=0.70;
+      analyser.smoothingTimeConstant=0.50;
       actx.createMediaElementSource(audio).connect(analyser);
       analyser.connect(actx.destination);
       fdata=new Uint8Array(analyser.frequencyBinCount);
@@ -815,8 +815,8 @@ function toggleMute(){
     let bass=0;
     for(let i=0;i<8;i++)bass+=fdata[i];
     bass/=8;
-    bassHist[bhIdx%45]=bass;bhIdx++;
-    const avg=bassHist.reduce((a,b)=>a+b,0)/45;
+    bassHist[bhIdx%40]=bass;bhIdx++;
+    const avg=bassHist.reduce((a,b)=>a+b,0)/40;
     const now=performance.now();
     if(bass>avg*1.28&&bass>12&&now-lastBeat>230){
       lastBeat=now;
