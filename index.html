@@ -116,12 +116,12 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .player-scrubber-wrap{position:absolute;top:0;left:0;right:0;height:20px;z-index:1;}
 .player-scrubber{--pct:0%;-webkit-appearance:none;appearance:none;display:block;width:100%;height:20px;margin:0;padding:0;border:none;outline:none;background:transparent;cursor:pointer;}
 .player-scrubber::-webkit-slider-runnable-track{height:3px;background:linear-gradient(to right,var(--purple) var(--pct),rgba(157,111,212,0.18) var(--pct));border-radius:1px;}
-.player-scrubber::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--purple);box-shadow:0 0 8px rgba(157,111,212,0.5);margin-top:-5.5px;opacity:0;transition:opacity 0.15s;}
-.player-scrubber:hover::-webkit-slider-thumb,.player-scrubber:active::-webkit-slider-thumb{opacity:1;}
+.player-scrubber::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--purple);box-shadow:0 0 6px rgba(157,111,212,0.4);margin-top:-3.5px;opacity:0.35;transition:opacity 0.15s,transform 0.15s;}
+.player-scrubber:hover::-webkit-slider-thumb,.player-scrubber:active::-webkit-slider-thumb{opacity:1;transform:scale(1.2);}
 .player-scrubber::-moz-range-track{height:3px;background:rgba(157,111,212,0.18);border:none;}
 .player-scrubber::-moz-range-progress{height:3px;background:var(--purple);}
-.player-scrubber::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--purple);border:none;box-shadow:0 0 8px rgba(157,111,212,0.5);opacity:0;transition:opacity 0.15s;}
-.player-scrubber:hover::-moz-range-thumb,.player-scrubber:active::-moz-range-thumb{opacity:1;}
+.player-scrubber::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--purple);border:none;box-shadow:0 0 6px rgba(157,111,212,0.4);opacity:0.35;transition:opacity 0.15s,transform 0.15s;}
+.player-scrubber:hover::-moz-range-thumb,.player-scrubber:active::-moz-range-thumb{opacity:1;transform:scale(1.2);}
 .player-inner{max-width:660px;margin:0 auto;padding:0 40px;height:72px;display:grid;grid-template-columns:48px 1fr auto auto auto;align-items:center;gap:16px;}
 .player-art{width:44px;height:44px;background:var(--bg3) center/cover no-repeat;border:1px solid var(--rule);position:relative;flex-shrink:0;overflow:hidden;}
 .player-art::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,0.06),rgba(7,9,15,0.36));}
@@ -186,7 +186,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="track" data-src="audio/main-character-energy.mp3" data-title="Main Character Energy" data-gender="Male Vocal" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">Living like it's a movie — just without an audience.</p><div class="track-meta"><span class="track-chip">Indie Pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Ego / Self-Awareness</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
-      <div class="track" data-src="audio/version-of-me.mp3" data-title="Version of Me" data-gender="Male Vocal" onclick="loadTrack(this)">
+      <div class="track" data-src="audio/version-of-me.mp3" data-title="Version of Me" data-gender="Male Vocal" data-art="images/version-of-me.jpg" onclick="loadTrack(this)">
         <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Version of Me</p></div><p class="track-desc">Loved for being easy — until I finally spoke.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Self-Suppression / Identity</span></div><p class="track-request">Full track available on request</p></div></div>
       </div>
     </div>
