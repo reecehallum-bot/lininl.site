@@ -53,6 +53,7 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .hero-copy::before{content:'';position:absolute;inset:-28px -36px -18px;background:radial-gradient(ellipse at center,rgba(5,7,12,0.58) 0%,rgba(5,7,12,0.3) 44%,rgba(5,7,12,0) 78%);pointer-events:none;z-index:-1;filter:blur(8px);}
 .hero-sub{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-low);opacity:0.72;}
 .demos-positioning{font-style:italic;font-weight:300;font-size:clamp(19px,3.2vw,29px);letter-spacing:-0.02em;line-height:1.18;color:rgba(216,226,240,0.92);text-shadow:0 0 30px rgba(157,111,212,0.12);margin-bottom:64px;}
+.hero-tagline{font-style:italic;font-weight:300;font-size:14px;color:rgba(216,226,240,0.5);line-height:1.6;letter-spacing:0.03em;margin-top:14px;}
 .hero-cta{position:relative;display:inline-block;margin-top:30px;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-bottom:6px;border-bottom:1px solid rgba(157,111,212,0.32);transition:border-color 0.4s,color 0.4s;animation:ctaShimmer 8.5s ease-in-out infinite;}
 .hero-cta::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:linear-gradient(90deg,rgba(157,111,212,0),rgba(157,111,212,0.85),rgba(157,111,212,0));transform:scaleX(0.42);transform-origin:center;opacity:0.26;transition:transform 0.45s ease,opacity 0.45s ease;}
 .hero-cta:hover{color:var(--purple);border-bottom-color:var(--purple);}
@@ -194,6 +195,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     <div class="hero-copy">
       <h1 class="sr-only">Liminl. — Songwriter, Producer &amp; Topliner</h1>
       <p class="hero-sub">Songwriter · Producer · Topliner</p>
+      <p class="hero-tagline">Concept-first songs. Built for artists, screen, and emotional ambiguity.</p>
       <a href="#demos" class="hero-cta">Listen</a>
     </div>
   </section>
@@ -206,29 +208,29 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     </div>
     <div class="track-list active" id="tab-male">
       <div class="track" data-src="audio/main-character-energy.mp3" data-title="Main Character Energy" data-gender="Male Vocal" data-art="images/main-character-energy.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">Living like it's a movie — just without an audience.</p><div class="track-meta"><span class="track-chip">Indie Pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Ego / Self-Awareness</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">Living like it's a movie — just without an audience.</p><div class="track-meta"><span class="track-chip">Indie Pop</span><span class="track-chip">Ego / Self-Awareness</span></div></div></div>
       </div>
       <div class="track" data-src="audio/version-of-me.mp3" data-title="Version of Me" data-gender="Male Vocal" data-art="images/version-of-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Version of Me</p></div><p class="track-desc">Loved for being easy — until I finally spoke.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Self-Suppression / Identity</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Version of Me</p></div><p class="track-desc">Loved for being easy — until I finally spoke.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Self-Suppression / Identity</span></div></div></div>
       </div>
       <div class="track" data-src="audio/you-almost-loved-me.mp3" data-title="You Almost Loved Me" data-gender="Male Vocal" data-art="images/you-almost-loved-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Almost Loved Me</p></div><p class="track-desc">The kind of relationship that never breaks — just never fully arrives.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Male vocal</span><span class="track-chip">Situationship / Restraint</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Almost Loved Me</p></div><p class="track-desc">The kind of relationship that never breaks — just never fully arrives.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Situationship / Restraint</span></div></div></div>
       </div>
     </div>
     <div class="track-list" id="tab-female">
       <div class="track" data-src="audio/what-do-we-sing-for.mp3" data-title="What Do We Sing For?" data-gender="Female Vocal" data-art="images/what-do-we-sing-for.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">What Do We Sing For?</p></div><p class="track-desc">Performing for the noise — forgetting what it was ever meant to mean.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Identity / Validation</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">What Do We Sing For?</p></div><p class="track-desc">Performing for the noise — forgetting what it was ever meant to mean.</p><div class="track-meta"><span class="track-chip">Alt Pop</span><span class="track-chip">Identity / Validation</span></div></div></div>
       </div>
       <div class="track" data-src="audio/devils-backbone.mp3" data-title="Devil's Backbone" data-gender="Female Vocal" data-art="images/devils-backbone.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Devil's Backbone</p></div><p class="track-desc">I told you not to fall for me — you liked that part most.</p><div class="track-meta"><span class="track-chip">Dark Pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Temptation / Self-Aware</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Devil's Backbone</p></div><p class="track-desc">I told you not to fall for me — you liked that part most.</p><div class="track-meta"><span class="track-chip">Dark Pop</span><span class="track-chip">Temptation / Self-Aware</span></div></div></div>
       </div>
       <div class="track" data-src="audio/you-ghosted-me.mp3" data-title="You Ghosted Me" data-gender="Female Vocal" data-art="images/you-ghosted-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Ghosted Me</p></div><p class="track-desc">You didn't disappear — you just stopped replying.</p><div class="track-meta"><span class="track-chip">Indie Pop</span><span class="track-chip">Female vocal</span><span class="track-chip">Ghosting / Irony</span></div><p class="track-request">Full track available on request</p></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Ghosted Me</p></div><p class="track-desc">You didn't disappear — you just stopped replying.</p><div class="track-meta"><span class="track-chip">Indie Pop</span><span class="track-chip">Ghosting / Irony</span></div></div></div>
       </div>
     </div>
     <div class="demos-footer">
-      <a href="mailto:hello@liminl.music" class="demos-cta">Request a full track — hello@liminl.music</a>
-      <p class="demos-disclaimer">These demos are shared for evaluation purposes only. Unauthorised use, reproduction, sampling, or distribution is not permitted.</p>
+      <a href="mailto:hello@liminl.music" class="demos-cta">Like what you hear? Full tracks are a message away — hello@liminl.music</a>
+      <p class="demos-disclaimer">Shared for listening only — please don't reproduce, sample, or distribute without permission.</p>
     </div>
   </section>
 
@@ -249,7 +251,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
         <p class="offer-title">Available for</p>
         <div class="offer-list">
           <div class="offer-item">Toplining & co-writing</div>
-          <div class="offer-item">Artist development conversations</div>
+          <div class="offer-item">Artist & project development</div>
           <div class="offer-item">Sync, screen, and concept-led briefs</div>
           <div class="offer-item">Private demos on request</div>
         </div>
@@ -285,7 +287,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
   </section>
   <section class="contact">
     <a href="mailto:hello@liminl.music" class="contact-link">hello@liminl.music</a>
-    <p class="contact-note">Co-writing · Toplining · Sync / enquiries</p>
+    <p class="contact-note">Co-writing · Toplining · Sync · General enquiries</p>
     <div class="social-links">
       <a href="https://www.instagram.com/liminl.music" class="social-link" target="_blank" rel="noopener">Instagram</a>
       <span class="social-divider">·</span>
