@@ -829,7 +829,6 @@ function resizeSS(){
   const W=window.innerWidth,H=window.innerHeight;
   ssScale=Math.min(window.devicePixelRatio||1, PERF.staticDpr);
   ssCanvas.width=Math.round(W*ssScale);ssCanvas.height=Math.round(H*ssScale);
-  if(typeof ssCtx!=='undefined')ssCtx.setTransform(ssScale,0,0,ssScale,0,0);
 }
 
 resizeSS();window.addEventListener('resize',resizeSS);
@@ -837,7 +836,7 @@ const ssCtx=ssCanvas.getContext('2d'),sStars=[];
 ssCtx.setTransform(ssScale,0,0,ssScale,0,0);
 const alienState={x:-100,y:-100,vx:0,vy:0,active:false,frame:0,trail:[]};
 function spawnStar(){
-  const W=ssCanvas.width,H=ssCanvas.height;
+  const W=window.innerWidth,H=window.innerHeight;
   const x1=Math.random()*W*0.65,y1=Math.random()*H*0.38;
   const len=100+Math.random()*90,ang=(18+Math.random()*14)*Math.PI/180;
   sStars.push({x1,y1,x2:x1+Math.cos(ang)*len,y2:y1+Math.sin(ang)*len,born:performance.now(),dur:580+Math.random()*280});
@@ -873,7 +872,7 @@ setInterval(()=>{spawnStar();},5000);
 // ── ALIEN ──
 
 function spawnAlien(){
-  const W=ssCanvas.width,H=ssCanvas.height;
+  const W=window.innerWidth,H=window.innerHeight;
   const edge=Math.floor(Math.random()*4);
   let x,y,vx,vy;
   const spd=1.8+Math.random()*1.4;
