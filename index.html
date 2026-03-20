@@ -141,11 +141,11 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .player-scrubber::-moz-range-progress{height:3px;background:var(--purple);}
 .player-scrubber::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--purple);border:none;box-shadow:0 0 6px rgba(157,111,212,0.4);opacity:0.35;transition:opacity 0.15s,transform 0.15s;}
 .player-scrubber:hover::-moz-range-thumb,.player-scrubber:active::-moz-range-thumb{opacity:1;transform:scale(1.2);}
-.player-inner{max-width:660px;margin:0 auto;padding:0 20px;height:72px;display:grid;grid-template-columns:48px 1fr 136px;align-items:center;gap:16px;}
-.player-controls{display:flex;align-items:center;gap:10px;flex-shrink:0;}
-.player-art{width:44px;height:44px;background:var(--bg3) center/cover no-repeat;border:1px solid var(--rule);position:relative;flex-shrink:0;overflow:hidden;border-radius:50%;box-shadow:inset 0 0 0 9px rgba(0,0,0,0.82),inset 0 0 0 10px rgba(255,255,255,0.04);}
-.player-art::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,0.06),rgba(7,9,15,0.36));}
-.player-art::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--bg);border:1px solid rgba(157,111,212,0.35);}
+.player-inner{max-width:660px;margin:0 auto;padding:0 20px;height:72px;display:grid;grid-template-columns:48px 1fr 126px;align-items:center;gap:16px;}
+.player-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-shrink:0;}
+.player-art{width:44px;height:44px;background:var(--bg3) center/cover no-repeat;border:1px solid rgba(157,111,212,0.2);position:relative;flex-shrink:0;overflow:hidden;border-radius:50%;}
+.player-art::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 46%,#0b0d15 47%);z-index:1;}
+.player-art::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:#0b0d15;border:1px solid rgba(157,111,212,0.4);z-index:2;}
 @keyframes spin-record{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 .player-art.spinning{animation:spin-record 4s linear infinite;}
 .player-meta{min-width:0;}
@@ -159,7 +159,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .pause-icon span{display:block;width:3px;height:11px;background:currentColor;border-radius:1px;}
 .player-btn.playing .play-icon{display:none;}
 .player-btn.playing .pause-icon{display:flex;}
-.player-duration{font-size:10px;color:var(--ink-dim);letter-spacing:0.06em;flex-shrink:0;min-width:44px;width:44px;text-align:right;}
+.player-duration{font-size:10px;color:var(--ink-dim);letter-spacing:0.06em;flex-shrink:0;min-width:34px;width:34px;text-align:right;font-variant-numeric:tabular-nums;}
 .vol-on,.vol-off{display:block;pointer-events:none;}.player-btn.muted .vol-on{display:none;}.player-btn:not(.muted) .vol-off{display:none;}
 @media(max-width:720px){.player-inner{padding:0 16px;}.about-grid{grid-template-columns:1fr;}.ufo-container{width:140px;top:35px;right:20px;}.ufo-img{width:140px;height:140px;}.ufo-beam{width:54px;height:82px;bottom:-26px;}.lane-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:0 40px 8px;margin-left:-40px;margin-right:-40px;scrollbar-width:none;-ms-overflow-style:none;}.lane-grid::-webkit-scrollbar{display:none;}.lane-card{flex:0 0 80%;scroll-snap-align:start;}nav{padding:24px 0 20px;}}
 @media(max-width:520px){.wrap{padding:0 22px;}.ufo-container{width:130px;top:35px;right:20px;}.ufo-img{width:130px;height:130px;}.eclipse-canvas{width:280px;height:280px;}.hero{min-height:78vh;}.hero-copy{margin-top:18px;padding:14px 14px 10px;}.hero-copy::before{inset:-18px -16px -14px;filter:blur(6px);}.contact{text-align:left;}.contact-note{text-align:left;}footer{text-align:left;}.player-inner{padding:0 16px;gap:12px;grid-template-columns:44px 1fr 82px;}.player-duration{display:none;}.tabs{gap:18px;}.social-links{justify-content:flex-start;}.swipe-hint{text-align:left;}.lane-grid{padding-left:22px;padding-right:22px;margin-left:-22px;margin-right:-22px;}.hero-ctas{justify-content:center;}}
@@ -679,7 +679,7 @@ function setPlayerArt(src){
 audio.addEventListener('loadedmetadata',()=>{
   playerReady=true;
   if(audio.duration && Number.isFinite(audio.duration)){
-    playerDur.textContent='0:00 / '+fmt(audio.duration);
+    playerDur.textContent='0:00';
   }
 });
 audio.addEventListener('ended',()=>{
@@ -687,11 +687,7 @@ audio.addEventListener('ended',()=>{
   if(playerArt)playerArt.classList.remove('spinning');
   if(currentTrack)currentTrack.classList.remove('playing');
   playerScrubber.value=0;playerScrubber.style.setProperty('--pct','0%');
-  if(audio.duration && Number.isFinite(audio.duration)){
-    playerDur.textContent=fmt(audio.duration)+' / '+fmt(audio.duration);
-  }else{
-    playerDur.textContent='—:—';
-  }
+  playerDur.textContent='—:—';
   cancelAnimationFrame(rafId);
 });
 audio.addEventListener('pause',()=>{playerBtn.classList.remove('playing'); if(playerArt)playerArt.classList.remove('spinning'); if(currentTrack) currentTrack.classList.remove('playing');});
@@ -725,7 +721,7 @@ function loadTrack(el){
   if(!sameTrack){
     cancelAnimationFrame(rafId);
     playerScrubber.value=0;playerScrubber.style.setProperty('--pct','0%');
-    playerDur.textContent='Loading…';
+    playerDur.textContent='—:—';
     audio.pause();
     audio.currentTime=0;
     audio.src=el.dataset.src;
@@ -736,7 +732,7 @@ function loadTrack(el){
   if(playPromise && typeof playPromise.then === 'function'){
     playPromise.then(()=>{fadeInAudio(); tick();}).catch(()=>{
       playerBtn.classList.remove('playing');
-      playerDur.textContent='Tap to play';
+      playerDur.textContent='—:—';
     });
   }else{
     fadeInAudio();
@@ -768,7 +764,7 @@ function tick(){
       const pct=audio.currentTime/audio.duration;
       playerScrubber.value=Math.round(pct*1000);
       playerScrubber.style.setProperty('--pct',(pct*100)+'%');
-      playerDur.textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration);
+      playerDur.textContent=fmt(audio.currentTime);
     }
     if(!audio.paused){
       rafId=requestAnimationFrame(loop);
