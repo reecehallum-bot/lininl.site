@@ -809,6 +809,7 @@ function toggleMute(){
     }catch(e){}
   };
 
+  let _dbgT=0;
   window.discoTick=function(){
     if(!analyser)return;
     analyser.getByteFrequencyData(fdata);
@@ -818,6 +819,7 @@ function toggleMute(){
     bassHist[bhIdx%40]=bass;bhIdx++;
     const avg=bassHist.reduce((a,b)=>a+b,0)/40;
     const now=performance.now();
+    if(now-_dbgT>2000){_dbgT=now;console.log('[disco] bass='+bass.toFixed(1)+' avg='+avg.toFixed(1)+' ratio='+(avg>0?(bass/avg).toFixed(2):'n/a')+' ctx='+actx.state);}
     if(bass>avg*1.28&&bass>12&&now-lastBeat>230){
       lastBeat=now;
       dTarget=1.0;
