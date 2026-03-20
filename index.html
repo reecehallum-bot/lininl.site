@@ -93,6 +93,12 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .demos-cta:hover{color:var(--purple);}
 .demos-disclaimer{font-size:9px;letter-spacing:0.1em;color:var(--ink-dim);line-height:1.6;max-width:480px;}
 .lanes,.about{padding:80px 0;}
+.about-wrap{position:relative;}
+.ufo-container{position:absolute;top:-60px;right:-40px;width:160px;z-index:2;pointer-events:none;will-change:transform;}
+.ufo-img{width:160px;height:160px;object-fit:contain;display:block;animation:ufoFloat 6s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(157,111,212,0.35)) drop-shadow(0 0 40px rgba(157,111,212,0.15));}
+.ufo-beam{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:60px;height:90px;background:linear-gradient(180deg,rgba(157,111,212,0.22) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulse 6s ease-in-out infinite;pointer-events:none;}
+@keyframes ufoFloat{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-14px) rotate(1.5deg);}66%{transform:translateY(-7px) rotate(-0.5deg);}}
+@keyframes beamPulse{0%,100%{opacity:0.6;transform:translateX(-50%) scaleX(1);}33%{opacity:1;transform:translateX(-50%) scaleX(1.1);}66%{opacity:0.7;transform:translateX(-50%) scaleX(0.95);}}
 .lane-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}
 .lane-card{padding:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:linear-gradient(180deg,rgba(11,13,21,0.5),rgba(15,17,32,0.35));min-height:220px;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;}
 @media(hover:hover){.lane-card:hover{transform:translateY(-4px);border-top-color:rgba(157,111,212,0.28);border-bottom-color:rgba(157,111,212,0.28);box-shadow:0 8px 28px rgba(157,111,212,0.08);}}
@@ -218,7 +224,12 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 
   <section class="about">
     <p class="section-label">About</p>
-    <div class="about-grid">
+    <div class="about-wrap">
+      <div class="ufo-container" id="ufoContainer">
+        <div class="ufo-beam"></div>
+        <img src="images/reece-ufo.png" alt="" class="ufo-img" id="ufoImg">
+      </div>
+      <div class="about-grid">
       <div>
         <p><em>Some things exist in the space between — a feeling without a name, an idea that hasn't become a song yet. That's where I work.</em></p>
         <p>I'm Reece. Songwriter, producer and topliner based in Aotearoa, New Zealand. I write concept-first songs for artists moving between intimacy, scale, and emotional ambiguity.</p>
@@ -233,6 +244,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
           <div class="offer-item">Private demos on request</div>
         </div>
       </aside>
+    </div>
     </div>
   </section>
   <section class="lanes">
@@ -893,6 +905,28 @@ function drawAlien(ctx,x,y,frame){
     ctx.closePath();ctx.fillStyle=grad;ctx.fill();
   }
 }
+
+// UFO scroll parallax
+(function(){
+  const ufo = document.getElementById('ufoContainer');
+  if(!ufo) return;
+  let ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        const section = ufo.closest('.about');
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const progress = 1 - (rect.top + rect.height) / (vh + rect.height);
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        const drift = (clampedProgress - 0.5) * 60;
+        ufo.style.transform = 'translateY(' + drift + 'px)';
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
 
 // Render alien inside shooting stars loop — already handled above via alienState
 // Just need the update logic here since renderSS references alienState
