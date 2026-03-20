@@ -898,8 +898,9 @@ function spawnAlien(){
   const heroEl=document.querySelector('.hero');
   const heroBottom=heroEl?heroEl.offsetTop+heroEl.offsetHeight:H*0.9;
   const minY=heroBottom-window.scrollY+20;
-  if(minY>=H-40)return; // hero fills viewport, skip
-  const safeY=()=>minY+Math.random()*(H-minY-20);
+  const maxY=H-90; // stay clear of player at bottom
+  if(minY>=maxY)return;
+  const safeY=()=>minY+Math.random()*(maxY-minY);
   const spd=1.2+Math.random()*0.8;
   let x,y,vx,vy;
   if(Math.random()<0.5){x=-20;vx=spd;y=safeY();vy=0;}
