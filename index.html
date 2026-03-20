@@ -802,7 +802,7 @@ function toggleMute(){
       actx=new(window.AudioContext||window.webkitAudioContext)();
       analyser=actx.createAnalyser();
       analyser.fftSize=512;
-      analyser.smoothingTimeConstant=0.50;
+      analyser.smoothingTimeConstant=0.22;
       actx.createMediaElementSource(audio).connect(analyser);
       analyser.connect(actx.destination);
       fdata=new Uint8Array(analyser.frequencyBinCount);
@@ -814,8 +814,8 @@ function toggleMute(){
     if(!analyser)return;
     analyser.getByteFrequencyData(fdata);
     let bass=0;
-    for(let i=0;i<8;i++)bass+=fdata[i];
-    bass/=8;
+    for(let i=1;i<5;i++)bass+=fdata[i];
+    bass/=4;
     bassHist[bhIdx%40]=bass;bhIdx++;
     const avg=bassHist.reduce((a,b)=>a+b,0)/40;
     const now=performance.now();
@@ -825,13 +825,14 @@ function toggleMute(){
       dTarget=1.0;
       const c=COLS[Math.floor(Math.random()*COLS.length)];
       dTgtR=c[0];dTgtG=c[1];dTgtB=c[2];
+      dCurR=c[0];dCurG=c[1];dCurB=c[2];
     }
     if(dAmt<dTarget){dAmt+=(dTarget-dAmt)*0.22;}
     dTarget=Math.max(0,dTarget-0.018);
     dAmt=Math.min(dAmt,dTarget+0.08);
-    dCurR+=(dTgtR-dCurR)*0.07;
-    dCurG+=(dTgtG-dCurG)*0.07;
-    dCurB+=(dTgtB-dCurB)*0.07;
+    dCurR+=(dTgtR-dCurR)*0.25;
+    dCurG+=(dTgtG-dCurG)*0.25;
+    dCurB+=(dTgtB-dCurB)*0.25;
     if(dTarget<0.05){
       dTgtR+=(PURPLE[0]-dTgtR)*0.04;
       dTgtG+=(PURPLE[1]-dTgtG)*0.04;
