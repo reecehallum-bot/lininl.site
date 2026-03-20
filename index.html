@@ -788,8 +788,12 @@ function toggleMute(){
 // ── DISCO UFO ──
 (function(){
   let actx,analyser,fdata;
-  let bassHist=new Float32Array(30).fill(0),bhIdx=0;
-  let lastBeat=0,dCol=null,dAmt=0;
+  let bassHist=new Float32Array(60).fill(0),bhIdx=0;
+  let lastBeat=0;
+  let dTarget=0,dAmt=0;
+  let dCurR=157,dCurG=111,dCurB=212;
+  let dTgtR=157,dTgtG=111,dTgtB=212;
+  const PURPLE=[157,111,212];
   const COLS=[[80,210,255],[255,100,200],[255,210,80],[130,255,100],[255,80,120],[80,140,255],[255,160,40],[180,80,255]];
 
   window.initDisco=function(){
@@ -798,7 +802,7 @@ function toggleMute(){
       actx=new(window.AudioContext||window.webkitAudioContext)();
       analyser=actx.createAnalyser();
       analyser.fftSize=512;
-      analyser.smoothingTimeConstant=0.5;
+      analyser.smoothingTimeConstant=0.82;
       actx.createMediaElementSource(audio).connect(analyser);
       analyser.connect(actx.destination);
       fdata=new Uint8Array(analyser.frequencyBinCount);
@@ -809,41 +813,43 @@ function toggleMute(){
     if(!analyser)return;
     analyser.getByteFrequencyData(fdata);
     let bass=0;
-    for(let i=1;i<5;i++)bass+=fdata[i];
+    for(let i=2;i<6;i++)bass+=fdata[i];
     bass/=4;
-    bassHist[bhIdx%30]=bass;bhIdx++;
-    const avg=bassHist.reduce((a,b)=>a+b,0)/30;
+    bassHist[bhIdx%60]=bass;bhIdx++;
+    const avg=bassHist.reduce((a,b)=>a+b,0)/60;
     const now=performance.now();
-    if(bass>avg*1.35&&bass>28&&now-lastBeat>210){
+    if(bass>avg*1.5&&bass>38&&now-lastBeat>300){
       lastBeat=now;
-      dCol=COLS[Math.floor(Math.random()*COLS.length)];
-      dAmt=1.0;
+      dTarget=1.0;
+      const c=COLS[Math.floor(Math.random()*COLS.length)];
+      dTgtR=c[0];dTgtG=c[1];dTgtB=c[2];
     }
-    if(dAmt>0){
-      dAmt=Math.max(0,dAmt-0.04);
-      applyGlow(dCol,dAmt);
-    }else{
-      applyGlow(null,0);
+    if(dAmt<dTarget){dAmt+=(dTarget-dAmt)*0.22;}
+    dTarget=Math.max(0,dTarget-0.018);
+    dAmt=Math.min(dAmt,dTarget+0.08);
+    dCurR+=(dTgtR-dCurR)*0.07;
+    dCurG+=(dTgtG-dCurG)*0.07;
+    dCurB+=(dTgtB-dCurB)*0.07;
+    if(dTarget<0.05){
+      dTgtR+=(PURPLE[0]-dTgtR)*0.04;
+      dTgtG+=(PURPLE[1]-dTgtG)*0.04;
+      dTgtB+=(PURPLE[2]-dTgtB)*0.04;
     }
+    applyGlow(dAmt);
   };
 
-  function applyGlow(col,amt){
+  function applyGlow(amt){
     const img=document.getElementById('ufoImg');
     const beam=document.querySelector('.ufo-beam');
     if(!img)return;
-    if(!amt){
-      img.style.filter='';
-      if(beam)beam.style.background='';
-      return;
-    }
-    const[r,g,b]=col;
-    img.style.filter=`drop-shadow(0 0 ${18+amt*28}px rgba(${r},${g},${b},${(0.45+amt*0.55).toFixed(2)})) drop-shadow(0 0 ${40+amt*60}px rgba(${r},${g},${b},${(0.15+amt*0.45).toFixed(2)}))`;
-    if(beam)beam.style.background=`linear-gradient(180deg,rgba(${r},${g},${b},${(0.28+amt*0.52).toFixed(2)}) 0%,rgba(${r},${g},${b},0) 100%)`;
+    const r=Math.round(dCurR),g=Math.round(dCurG),b=Math.round(dCurB);
+    if(amt<0.01){img.style.filter='';if(beam)beam.style.background='';return;}
+    img.style.filter=`drop-shadow(0 0 ${18+amt*28}px rgba(${r},${g},${b},${(0.35+amt*0.65).toFixed(2)})) drop-shadow(0 0 ${40+amt*60}px rgba(${r},${g},${b},${(0.12+amt*0.43).toFixed(2)}))`;
+    if(beam)beam.style.background=`linear-gradient(180deg,rgba(${r},${g},${b},${(0.22+amt*0.58).toFixed(2)}) 0%,rgba(${r},${g},${b},0) 100%)`;
   }
 
   window.discoReset=function(){
-    dAmt=0;
-    applyGlow(null,0);
+    dTarget=0;
   };
 })();
 
