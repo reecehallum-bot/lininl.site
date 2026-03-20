@@ -54,7 +54,9 @@ nav{padding:36px 0 32px;display:flex;align-items:baseline;justify-content:space-
 .hero-sub{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--ink-low);opacity:0.72;}
 .demos-positioning{font-style:italic;font-weight:300;font-size:clamp(19px,3.2vw,29px);letter-spacing:-0.02em;line-height:1.42;color:rgba(216,226,240,0.92);text-shadow:0 0 30px rgba(157,111,212,0.12);margin-bottom:64px;}
 .hero-tagline{font-style:italic;font-weight:300;font-size:14px;color:rgba(216,226,240,0.5);line-height:1.6;letter-spacing:0.03em;margin-top:14px;}
+.hero-ctas{display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
 .hero-cta{position:relative;display:inline-block;margin-top:30px;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-bottom:6px;border-bottom:1px solid rgba(157,111,212,0.32);transition:border-color 0.4s,color 0.4s;animation:ctaShimmer 8.5s ease-in-out infinite;}
+.hero-cta--secondary{color:var(--ink-low);border-bottom-color:rgba(157,111,212,0.16);animation:none;}
 .hero-cta::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:linear-gradient(90deg,rgba(157,111,212,0),rgba(157,111,212,0.85),rgba(157,111,212,0));transform:scaleX(0.42);transform-origin:center;opacity:0.26;transition:transform 0.45s ease,opacity 0.45s ease;}
 .hero-cta:hover{color:var(--purple);border-bottom-color:var(--purple);}
 .hero-cta:hover::after{transform:scaleX(1);opacity:0.65;}
@@ -195,13 +197,16 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     <div class="hero-copy">
       <h1 class="sr-only">Liminl. — Songwriter, Producer &amp; Topliner</h1>
       <p class="hero-sub">Songwriter · Producer · Topliner</p>
-      <p class="hero-tagline">Concept-first songs. Built for artists, screen, and emotional ambiguity.</p>
-      <a href="#demos" class="hero-cta">Listen</a>
+      <p class="hero-tagline">Songs that start with an idea and live in the in-between.</p>
+      <div class="hero-ctas">
+        <a href="#demos" class="hero-cta">Listen</a>
+        <a href="mailto:hello@liminl.music" class="hero-cta hero-cta--secondary">Request Full Tracks</a>
+      </div>
     </div>
   </section>
   <section class="demos" id="demos">
     <p class="demos-positioning">Not just hooks.<br>Songs built around a clear idea —<br>a character, a world, and something at stake.</p>
-    <h2 class="section-label">Demo Samples</h2>
+    <h2 class="section-label">Selected Work</h2>
     <div class="tabs">
       <span class="tab active" onclick="switchTab('male',this)">Male Vocal</span>
       <span class="tab" onclick="switchTab('female',this)">Female Vocal</span>
@@ -243,9 +248,8 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     <div class="about-wrap">
       <div class="about-grid">
       <div>
-        <p><em>Some things exist in the space between — a feeling without a name, an idea that hasn't become a song yet. That's where I work.</em></p>
-        <p>I'm Reece. Songwriter, producer and topliner based in Aotearoa, New Zealand. I write concept-first songs for artists moving between intimacy, scale, and emotional ambiguity.</p>
-        <p><em>liminl<span style="color:var(--purple)">.</span></em> is where those songs gather: cinematic pop, left-of-centre ideas, and demos built to start conversations with artists, managers, and collaborators.</p>
+        <p>I'm Reece — songwriter, producer and topliner based in Aotearoa, New Zealand.</p>
+        <p>My work sits between artist records and screen — focused on concept, emotional tension, and songs with a clear point of view.</p>
       </div>
       <aside class="offer-card">
         <p class="offer-title">Available for</p>
@@ -260,7 +264,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     </div>
   </section>
   <section class="lanes">
-    <h2 class="section-label">How I Work</h2>
+    <h2 class="section-label">Songwriting Lanes</h2>
     <div class="lane-grid">
       <article class="lane-card">
         <p class="lane-kicker">01</p>
@@ -287,7 +291,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
   </section>
   <section class="contact">
     <a href="mailto:hello@liminl.music" class="contact-link">hello@liminl.music</a>
-    <p class="contact-note">Co-writing · Toplining · Sync · General enquiries</p>
+    <p class="contact-note">Looking for your next record — or something you can't quite name yet?<br>Let's make it.</p>
     <div class="social-links">
       <a href="https://www.instagram.com/liminl.music" class="social-link" target="_blank" rel="noopener">Instagram</a>
       <span class="social-divider">·</span>
