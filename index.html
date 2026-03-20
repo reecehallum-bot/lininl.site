@@ -834,7 +834,7 @@ function resizeSS(){
 resizeSS();window.addEventListener('resize',resizeSS);
 const ssCtx=ssCanvas.getContext('2d'),sStars=[];
 ssCtx.setTransform(ssScale,0,0,ssScale,0,0);
-const alienState={x:-100,y:-100,vx:0,vy:0,active:false,frame:0,trail:[]};
+const alienState={x:-100,y:-100,baseY:-100,vx:0,vy:0,active:false,frame:0,type:0};
 function spawnStar(){
   const W=window.innerWidth,H=window.innerHeight;
   const x1=Math.random()*W*0.65,y1=Math.random()*H*0.38;
@@ -863,10 +863,12 @@ let ssLastFrame=0;
     ssCtx.strokeStyle=gr;ssCtx.lineWidth=1;ssCtx.stroke();
   }
   if(alienState.active){
-    alienState.x+=alienState.vx;alienState.y+=alienState.vy;
+    alienState.x+=alienState.vx;
+    alienState.baseY+=alienState.vy;
     alienState.frame++;
-    drawAlien(ssCtx,alienState.x,alienState.y,alienState.frame);
-    if(alienState.x<-60||alienState.x>W+60||alienState.y<-60||alienState.y>H+60)alienState.active=false;
+    const drawY=alienState.baseY+Math.sin(alienState.frame*0.055)*11;
+    drawAlien(ssCtx,alienState.x,drawY,alienState.frame);
+    if(alienState.x<-60||alienState.x>W+60||alienState.baseY<-60||alienState.baseY>H+60)alienState.active=false;
   }
   requestAnimationFrame(renderSS);
 })(performance.now());
@@ -876,54 +878,50 @@ setInterval(()=>{spawnStar();},20000);
 
 
 // ── ALIEN ──
+const INVADERS=[
+  {color:'100,255,130',glow:'rgba(100,255,130,0.7)',frames:[
+    [[0,0,1,0,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,0,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[1,0,1,1,1,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,1,0,1],[0,0,0,1,1,0,1,1,0,0,0]],
+    [[0,0,1,0,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,1,0,0,0],[0,0,1,1,1,1,1,1,1,0,0],[0,1,1,0,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,1],[1,0,1,1,1,1,1,1,1,0,1],[1,0,1,0,0,0,0,0,1,0,1],[0,1,0,0,1,0,1,0,0,1,0]]
+  ]},
+  {color:'255,110,220',glow:'rgba(255,110,220,0.7)',frames:[
+    [[0,0,0,1,1,1,1,0,0,0,0],[0,1,1,1,1,1,1,1,1,0,0],[1,1,0,1,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,0],[0,1,1,0,1,1,0,1,1,0,0],[0,0,1,1,1,1,1,1,0,0,0],[0,0,1,0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1,0,0,0]],
+    [[0,0,0,1,1,1,1,0,0,0,0],[0,1,1,1,1,1,1,1,1,0,0],[1,1,0,1,1,1,1,0,1,1,0],[1,1,1,1,1,1,1,1,1,1,0],[0,1,1,0,1,1,0,1,1,0,0],[0,0,1,1,1,1,1,1,0,0,0],[0,1,0,0,0,0,0,0,1,0,0],[1,0,0,0,0,0,0,0,0,1,0]]
+  ]},
+  {color:'80,210,255',glow:'rgba(80,210,255,0.7)',frames:[
+    [[0,1,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,1,0,0],[0,1,1,1,1,1,1,1,1,1,0],[1,1,0,1,1,1,1,0,1,1,1],[1,1,1,1,1,1,1,1,1,1,1],[0,1,1,1,0,1,0,1,1,1,0],[0,0,1,0,0,0,0,0,1,0,0],[1,0,0,0,0,0,0,0,0,0,1]],
+    [[0,1,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,1,0,0],[0,1,1,1,1,1,1,1,1,1,0],[1,1,0,1,1,1,1,0,1,1,1],[1,1,1,1,1,1,1,1,1,1,1],[0,1,1,1,0,1,0,1,1,1,0],[0,1,0,0,0,0,0,0,0,1,0],[0,0,1,0,0,0,0,0,1,0,0]]
+  ]}
+];
 
 function spawnAlien(){
   const W=window.innerWidth,H=window.innerHeight;
-  const edge=Math.floor(Math.random()*4);
+  const heroEl=document.querySelector('.hero');
+  const heroBottom=heroEl?heroEl.offsetTop+heroEl.offsetHeight:H*0.9;
+  const minY=heroBottom-window.scrollY+20;
+  if(minY>=H-40)return; // hero fills viewport, skip
+  const safeY=()=>minY+Math.random()*(H-minY-20);
+  const spd=1.2+Math.random()*0.8;
   let x,y,vx,vy;
-  const spd=1.8+Math.random()*1.4;
-  if(edge===0){x=Math.random()*W;y=-20;vx=(Math.random()-0.5)*1.2;vy=spd;}
-  else if(edge===1){x=W+20;y=Math.random()*H;vx=-spd;vy=(Math.random()-0.5)*1.2;}
-  else if(edge===2){x=Math.random()*W;y=H+20;vx=(Math.random()-0.5)*1.2;vy=-spd;}
-  else{x=-20;y=Math.random()*H;vx=spd;vy=(Math.random()-0.5)*1.2;}
-  alienState.x=x;alienState.y=y;alienState.vx=vx;alienState.vy=vy;
-  alienState.active=true;alienState.frame=0;alienState.trail=[];
+  if(Math.random()<0.5){x=-20;vx=spd;y=safeY();vy=0;}
+  else{x=W+20;vx=-spd;y=safeY();vy=0;}
+  alienState.x=x;alienState.baseY=y;alienState.vx=vx;alienState.vy=vy;
+  alienState.active=true;alienState.frame=0;alienState.type=Math.floor(Math.random()*3);
 }
 
 function drawAlien(ctx,x,y,frame){
-  const ang=Math.atan2(alienState.vy,alienState.vx);
-  const sz=16;
+  const inv=INVADERS[alienState.type];
+  const af=Math.floor(frame/18)%2;
+  const grid=inv.frames[af];
+  const px=2,rows=grid.length,cols=grid[0].length;
+  const ox=x-cols*px/2,oy=y-rows*px/2;
   ctx.save();
-  ctx.translate(x,y);
-  ctx.rotate(ang);
-  // engine trail
-  const tl=28+Math.sin(frame*0.18)*7;
-  const tg=ctx.createLinearGradient(-sz-tl,0,-sz,0);
-  tg.addColorStop(0,'rgba(157,111,212,0)');
-  tg.addColorStop(1,'rgba(157,111,212,0.55)');
-  ctx.beginPath();ctx.moveTo(-sz,-3);ctx.lineTo(-sz-tl,0);ctx.lineTo(-sz,3);
-  ctx.fillStyle=tg;ctx.fill();
-  // hull
-  ctx.shadowColor='rgba(180,150,230,0.85)';ctx.shadowBlur=10;
-  ctx.beginPath();
-  ctx.moveTo(sz,0);
-  ctx.lineTo(sz*0.25,-sz*0.42);
-  ctx.lineTo(-sz,0);
-  ctx.lineTo(sz*0.25,sz*0.42);
-  ctx.closePath();
-  ctx.fillStyle='rgba(210,195,235,0.92)';ctx.fill();
-  ctx.strokeStyle='rgba(255,255,255,0.55)';ctx.lineWidth=0.5;ctx.stroke();
-  // wing details
-  ctx.shadowBlur=0;
-  ctx.strokeStyle='rgba(157,111,212,0.5)';ctx.lineWidth=0.5;
-  ctx.beginPath();
-  ctx.moveTo(sz*0.1,-sz*0.28);ctx.lineTo(-sz*0.45,-sz*0.14);
-  ctx.moveTo(sz*0.1,sz*0.28);ctx.lineTo(-sz*0.45,sz*0.14);
-  ctx.stroke();
-  // porthole
-  ctx.shadowColor='rgba(210,235,255,1)';ctx.shadowBlur=7;
-  ctx.beginPath();ctx.arc(sz*0.18,0,sz*0.19,0,Math.PI*2);
-  ctx.fillStyle='rgba(210,235,255,0.95)';ctx.fill();
+  ctx.shadowColor=inv.glow;ctx.shadowBlur=8;
+  for(let r=0;r<rows;r++){for(let c=0;c<cols;c++){
+    if(!grid[r][c])continue;
+    const t=1-(r/(rows-1))*0.35;
+    ctx.fillStyle=`rgba(${inv.color},${t})`;
+    ctx.fillRect(ox+c*px,oy+r*px,px-0.5,px-0.5);
+  }}
   ctx.restore();
 }
 
