@@ -788,7 +788,7 @@ function toggleMute(){
 // ── DISCO UFO ──
 (function(){
   let actx,analyser,fdata;
-  let bassHist=new Float32Array(90).fill(0),bhIdx=0;
+  let fastEMA=0,slowEMA=0,prevBass=0;
   let lastBeat=0;
   let dTarget=0,dAmt=0;
   let dCurR=157,dCurG=111,dCurB=212;
@@ -816,17 +816,18 @@ function toggleMute(){
     let bass=0;
     for(let i=1;i<5;i++)bass+=fdata[i];
     bass/=4;
-    bassHist[bhIdx%40]=bass;bhIdx++;
-    const avg=bassHist.reduce((a,b)=>a+b,0)/90;
+    fastEMA=fastEMA*0.6+bass*0.4;
+    slowEMA=slowEMA*0.97+bass*0.03;
     const now=performance.now();
-    if(now-_dbgT>2000){_dbgT=now;console.log('[disco] bass='+bass.toFixed(1)+' avg='+avg.toFixed(1)+' ratio='+(avg>0?(bass/avg).toFixed(2):'n/a')+' ctx='+actx.state);}
-    if(bass>avg*1.15&&bass>6&&now-lastBeat>230){
+    if(now-_dbgT>2000){_dbgT=now;console.log('[disco] bass='+bass.toFixed(1)+' fast='+fastEMA.toFixed(1)+' slow='+slowEMA.toFixed(1)+' ratio='+(slowEMA>0?(fastEMA/slowEMA).toFixed(2):'n/a')+' ctx='+actx.state);}
+    if(bass>prevBass&&fastEMA>slowEMA*1.4&&bass>6&&now-lastBeat>230){
       lastBeat=now;
       dTarget=1.0;
       const c=COLS[Math.floor(Math.random()*COLS.length)];
       dTgtR=c[0];dTgtG=c[1];dTgtB=c[2];
       dCurR=c[0];dCurG=c[1];dCurB=c[2];
     }
+    prevBass=bass;
     if(dAmt<dTarget){dAmt+=(dTarget-dAmt)*0.22;}
     dTarget=Math.max(0,dTarget-0.018);
     dAmt=Math.min(dAmt,dTarget+0.08);
