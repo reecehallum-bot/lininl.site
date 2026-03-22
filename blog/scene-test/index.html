@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Most Songs Fail the "Scene Test" — Liminl Blog</title>
+<meta name="description" content="If you stripped the production away, could you point to a specific moment and say: this is what's happening? If you can't picture it, it probably isn't there.">
+<link rel="canonical" href="https://liminl.music/blog/scene-test/">
+<style>
+:root {
+  --bg:       #07090f;
+  --bg2:      #0b0d15;
+  --bg3:      #0f1120;
+  --purple:   #9d6fd4;
+  --ink:      #d8e2f0;
+  --ink-low:  #8896a8;
+  --ink-dim:  #3a4a5a;
+  --rule:     rgba(216,226,240,0.07);
+  --rule-mid: rgba(216,226,240,0.12);
+  --ink-hi:    rgba(216,226,240,0.92);
+  --ink-med:   rgba(216,226,240,0.68);
+  --ink-faint: rgba(216,226,240,0.55);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,serif;font-weight:400;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden;}
+.veil{position:fixed;inset:0;background:#000;z-index:900;pointer-events:none;animation:unveil 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;}
+@keyframes unveil{to{opacity:0;}}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.76' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");background-size:256px;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse 110% 100% at 50% 50%,transparent 35%,rgba(0,0,0,0.65) 100%);pointer-events:none;z-index:1;}
+.wrap{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 40px;}
+nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--rule);}
+.logo{font-style:italic;font-weight:300;font-size:16px;letter-spacing:0.22em;color:var(--ink-low);text-decoration:none;}
+.logo-dot{color:var(--purple);text-shadow:0 0 10px rgba(157,111,212,0.7);animation:dotPulse 8s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:0.65;text-shadow:0 0 6px rgba(157,111,212,0.5);}50%{opacity:1;text-shadow:0 0 14px rgba(157,111,212,0.9),0 0 24px rgba(157,111,212,0.4);}}
+.nav-links{display:flex;align-items:baseline;gap:24px;}
+.nav-email{font-weight:300;font-size:11px;letter-spacing:0.14em;color:var(--ink-low);text-decoration:none;transition:color 0.5s;}
+.nav-email:hover{color:var(--ink);}
+
+/* Post layout */
+.post-wrap{padding:64px 0 80px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color 0.4s;margin-bottom:48px;}
+.back-link:hover{color:var(--purple);}
+.back-link svg{transition:transform 0.3s;}
+.back-link:hover svg{transform:translateX(-3px);}
+.post-meta{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:16px;}
+.post-title{font-style:italic;font-weight:300;font-size:clamp(26px,5vw,42px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:48px;text-wrap:balance;}
+
+/* Body text */
+.post-body{font-weight:300;font-size:17px;color:var(--ink-low);line-height:1.85;max-width:580px;}
+.post-body p{margin-bottom:20px;text-wrap:pretty;}
+.post-body p:last-child{margin-bottom:0;}
+.post-body em{font-style:italic;color:var(--ink);}
+.post-body strong{font-weight:400;color:var(--ink-hi);}
+.post-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
+.post-body a:hover{border-bottom-color:var(--purple);}
+
+/* Section headings */
+.post-body h2{font-style:italic;font-weight:300;font-size:clamp(18px,3vw,24px);letter-spacing:-0.01em;line-height:1.3;color:var(--ink-med);margin:52px 0 20px;}
+.post-body h2:first-child{margin-top:0;}
+
+/* Blockquote */
+.post-body blockquote{border-left:1px solid rgba(157,111,212,0.35);margin:28px 0;padding:4px 0 4px 24px;color:var(--ink-med);font-style:italic;}
+.post-body blockquote p{margin-bottom:0;}
+
+/* Horizontal rule as section break */
+.post-body hr{border:none;border-top:1px solid var(--rule);margin:48px 0;}
+
+/* Lists */
+.post-body ul,.post-body ol{padding-left:0;list-style:none;margin-bottom:20px;display:grid;gap:10px;}
+.post-body ul li,.post-body ol li{font-size:17px;color:var(--ink-low);font-weight:300;padding-left:20px;position:relative;line-height:1.75;}
+.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--ink-dim);}
+.post-body ol{counter-reset:ol;}
+.post-body ol li{counter-increment:ol;}
+.post-body ol li::before{content:counter(ol) '.';position:absolute;left:0;color:var(--ink-dim);font-size:14px;top:2px;}
+
+/* Stacked short lines (poem-style) */
+.post-body .lines{display:grid;gap:4px;margin-bottom:20px;}
+.post-body .lines span{display:block;font-style:italic;color:var(--ink-med);font-size:17px;font-weight:300;}
+
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
+.footer-text{font-size:11px;color:var(--ink-dim);letter-spacing:0.14em;text-transform:uppercase;}
+@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}}
+</style>
+</head>
+<body>
+<div class="veil"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="wrap">
+  <nav>
+    <a href="/" class="logo">liminl<span class="logo-dot">.</span></a>
+    <div class="nav-links">
+      <a href="/blog/" class="nav-email">Blog</a>
+      <a href="mailto:hello@liminl.music" class="nav-email">hello@liminl.music</a>
+    </div>
+  </nav>
+
+  <div class="post-wrap">
+    <a href="/blog/" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All posts
+    </a>
+
+    <div class="post-meta">March 2026</div>
+    <h1 class="post-title">Why Most Songs Fail the &ldquo;Scene Test&rdquo;</h1>
+
+    <div class="post-body">
+
+      <p>Most songs sound fine.</p>
+      <p>Good production. Decent melody. Lyrics that kind of make sense.</p>
+      <p>But nothing happens.</p>
+      <p>You listen, and by the end of it, you&rsquo;re in the exact same place you started. No shift. No moment. No memory.</p>
+      <p>That&rsquo;s what I think of as failing the scene test.</p>
+
+      <hr>
+
+      <h2>What is the &ldquo;scene test&rdquo;?</h2>
+
+      <p>If you stripped the production away&hellip; could you point to a specific moment and say:</p>
+
+      <blockquote><p>&ldquo;This is what&rsquo;s happening.&rdquo;</p></blockquote>
+
+      <p>Not what the song is about. Not the general vibe.</p>
+      <p>A moment. Something you could film. Something a character could do or say.</p>
+      <p>If you can&rsquo;t picture it, it probably isn&rsquo;t there.</p>
+
+      <hr>
+
+      <h2>The problem: feelings without behaviour</h2>
+
+      <p>A lot of songs live entirely in internal language:</p>
+
+      <div class="lines">
+        <span>&ldquo;I miss you&rdquo;</span>
+        <span>&ldquo;I&rsquo;m broken&rdquo;</span>
+        <span>&ldquo;I can&rsquo;t let go&rdquo;</span>
+        <span>&ldquo;You meant everything&rdquo;</span>
+      </div>
+
+      <p>They&rsquo;re not wrong. They&rsquo;re just&hellip; unplayable.</p>
+      <p>There&rsquo;s no action. No setting. No interaction.</p>
+      <p>It&rsquo;s like watching a film where the character just narrates how they feel for three minutes.</p>
+
+      <hr>
+
+      <h2>What passes the scene test?</h2>
+
+      <p>A song passes when it gives you something you can see. Not just emotion &mdash; behaviour.</p>
+
+      <p>Instead of:</p>
+      <blockquote><p>&ldquo;I miss you&rdquo;</p></blockquote>
+      <p>You get:</p>
+      <blockquote><p>&ldquo;I still take the long way home past your street&rdquo;</p></blockquote>
+
+      <p>Instead of:</p>
+      <blockquote><p>&ldquo;You don&rsquo;t care anymore&rdquo;</p></blockquote>
+      <p>You get:</p>
+      <blockquote><p>&ldquo;You read the message and changed the subject&rdquo;</p></blockquote>
+
+      <p>Now we&rsquo;re in a scene. There&rsquo;s a place, an action, an implied relationship. The emotion is still there &mdash; it&rsquo;s just embedded.</p>
+
+      <hr>
+
+      <h2>Why this matters (more than you think)</h2>
+
+      <p>Scenes create:</p>
+
+      <ol>
+        <li><strong>Memory.</strong> We remember images and moments, not abstract statements.</li>
+        <li><strong>Relatability.</strong> People don&rsquo;t need the exact same story &mdash; they just need something specific enough to map onto their own life.</li>
+        <li><strong>Movement.</strong> A scene implies change. Something is happening, even if it&rsquo;s subtle.</li>
+      </ol>
+
+      <p>Without that, songs feel like loops.</p>
+
+      <hr>
+
+      <h2>The hidden layer: songs should move</h2>
+
+      <p>Most songs repeat the same idea three times. Verse &rarr; chorus &rarr; verse &rarr; chorus. Same message, different phrasing.</p>
+      <p>But the best songs shift.</p>
+      <p>The chorus might mean something different by the second time you hear it. The character reveals something. Or contradicts themselves. Or realises something they didn&rsquo;t at the start.</p>
+      <p>That&rsquo;s not just songwriting. That&rsquo;s storytelling.</p>
+
+      <hr>
+
+      <h2>A simple test you can use</h2>
+
+      <p>Take any song you&rsquo;ve written and ask:</p>
+
+      <div class="lines">
+        <span>What is the moment?</span>
+        <span>What is the action?</span>
+        <span>What would the camera see?</span>
+      </div>
+
+      <p>If the answer is unclear, you don&rsquo;t need better lyrics. You need a scene.</p>
+
+      <hr>
+
+      <h2>Where I come at this from</h2>
+
+      <p>I tend to approach songs like small narrative systems. Something starts. Something unfolds. Something lands.</p>
+      <p>That comes from working across both music and film &mdash; where tension, pacing, and payoff matter just as much as the idea itself.</p>
+      <p>Not every song needs to be cinematic. But every song needs something to happen.</p>
+
+      <hr>
+
+      <h2>The shift</h2>
+
+      <p>You don&rsquo;t need more complex writing. You need:</p>
+
+      <div class="lines">
+        <span>fewer generalisations</span>
+        <span>more behaviour</span>
+        <span>clearer moments</span>
+      </div>
+
+      <p>Because the goal isn&rsquo;t to describe a feeling. It&rsquo;s to place someone inside it.</p>
+
+      <hr>
+
+      <p>If a listener can&rsquo;t picture anything&hellip; they won&rsquo;t stay.</p>
+
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-text">Liminl &mdash; &copy; 2026</p>
+  </footer>
+</div>
+</body>
+</html>
