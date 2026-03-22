@@ -178,16 +178,17 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 @media(orientation:landscape) and (max-height:500px){.hero{min-height:auto;padding:50px 0;}.eclipse-canvas{width:200px;height:200px;}}
 /* ── FAQ ── */
 .faq{padding:80px 0;}
-.faq-item{border-top:1px solid var(--rule);}
+.faq-item{border-top:1px solid var(--rule);transition:border-color 0.35s;}
 .faq-item:last-child{border-bottom:1px solid var(--rule);}
-.faq-toggle{width:100%;background:transparent;border:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:24px 0;text-align:left;}
-.faq-q{font-style:italic;font-weight:300;font-size:clamp(15px,2.2vw,18px);color:var(--ink-low);line-height:1.5;letter-spacing:0.01em;transition:color 0.4s;}
-.faq-icon{flex-shrink:0;font-size:18px;font-weight:300;color:var(--ink-dim);line-height:1;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),color 0.4s;}
-.faq-toggle:hover .faq-q{color:var(--ink);}
-.faq-toggle.open .faq-q{color:var(--ink);}
-.faq-toggle.open .faq-icon{transform:rotate(45deg);color:var(--purple);}
+.faq-item:has(.faq-toggle.open){border-top-color:rgba(157,111,212,0.2);}
+.faq-toggle{width:100%;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;text-align:left;}
+.faq-q{font-style:italic;font-weight:300;font-size:clamp(14px,2vw,17px);color:var(--ink-low);line-height:1.45;letter-spacing:0.01em;transition:color 0.35s;}
+.faq-chevron{flex-shrink:0;width:14px;height:14px;color:var(--ink-dim);transition:transform 0.42s cubic-bezier(0.16,1,0.3,1),color 0.35s;}
+.faq-toggle:hover .faq-q,.faq-toggle.open .faq-q{color:var(--ink-hi);}
+.faq-toggle:hover .faq-chevron{color:var(--ink-low);}
+.faq-toggle.open .faq-chevron{transform:rotate(180deg);color:var(--purple);}
 .faq-body{max-height:0;overflow:hidden;transition:max-height 0.42s cubic-bezier(0.16,1,0.3,1);}
-.faq-body p{font-weight:300;font-size:15px;color:var(--ink-low);line-height:1.8;letter-spacing:0.02em;padding-bottom:24px;}
+.faq-body p{font-weight:300;font-size:14px;color:var(--ink-faint);line-height:1.85;letter-spacing:0.02em;padding:2px 0 22px 16px;border-left:1px solid rgba(157,111,212,0.28);}
 </style>
 <script type="application/ld+json">
 {
@@ -231,14 +232,6 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a topliner?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A topliner writes the vocal melody and lyrics over a produced track. Where a producer builds the sonic world, a topliner gives it a voice — finding the phrase, the hook, the emotional centre that makes a track into a song."
-      }
-    },
     {
       "@type": "Question",
       "name": "What does 'concept-led' mean?",
@@ -413,18 +406,8 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
-          <span class="faq-q">What is a topliner?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body" role="region">
-          <p>A topliner writes the vocal melody and lyrics over a produced track. Where a producer builds the sonic world, a topliner gives it a voice — finding the phrase, the hook, the emotional centre that makes a track into a song.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">What does 'concept-led' mean?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>It means the song starts from something — a character, a tension, a specific feeling or situation — not just a genre or a mood board. Every production choice serves the story. It's the difference between a song that sounds like a vibe and a song that means something.</p>
@@ -434,7 +417,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">What genres do you work in?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>Primarily pop and its surrounding territories — cinematic emotional pop, conceptual left-of-centre pop, and hypnotic dark pop. I also write specifically for sync and screen, where emotion has to land fast and carry a scene. If your project lives between genres or is hard to label, that's usually a good sign.</p>
@@ -444,7 +427,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">Do you work with independent artists?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>Yes. Most of what I do is with independent artists and early-stage projects. You don't need label backing or a big budget — you just need to have something to say.</p>
@@ -454,7 +437,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">Do you work internationally?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>Yes — most of my collaborations happen remotely. I'm based in Aotearoa, New Zealand, but location hasn't been a barrier. If the project's right, we'll figure out the timezone.</p>
@@ -464,7 +447,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">Who owns the music we make together?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>That depends on the type of collaboration and what we agree upfront. For custom toplines and co-writes, ownership terms are always discussed and agreed before we start — nothing is assumed. If you have questions about how this works, bring them to the first conversation.</p>
@@ -474,7 +457,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">What does the co-writing process look like?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>Usually it starts with a conversation — references, the feeling you're after, where the project is sitting right now. From there I'll bring ideas to the session or draft something between sessions depending on how we're working. The shape of it adapts to what the project needs.</p>
@@ -484,7 +467,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
       <div class="faq-item">
         <button class="faq-toggle" onclick="toggleFaq(this)" aria-expanded="false">
           <span class="faq-q">How do I start a project?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-body" role="region">
           <p>Send an email to hello@liminl.music. Tell me what you're working on — even if it's vague. A reference, a feeling, a fragment of an idea is enough to start the conversation.</p>
