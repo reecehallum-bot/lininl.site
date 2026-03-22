@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Makes a Song Feel Like a Moment, Not a Loop — liminl. Journal</title>
+<meta name="description" content="A lot of songs feel good. They loop well. But they don't take you anywhere. Here's what separates a loop from a moment — and how to write songs that move.">
+<link rel="canonical" href="https://liminl.music/journal/song-moments/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://liminl.music/journal/song-moments/">
+<meta property="og:title" content="What Makes a Song Feel Like a Moment, Not a Loop — liminl.">
+<meta property="og:description" content="A lot of songs feel good — but they don't take you anywhere. The difference between a loop and a moment is movement.">
+<meta property="og:image" content="https://liminl.music/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:site_name" content="liminl.">
+<meta property="article:published_time" content="2026-03-22">
+<meta property="article:author" content="Reece Hallum">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Makes a Song Feel Like a Moment, Not a Loop — liminl.">
+<meta name="twitter:description" content="A lot of songs feel good — but they don't take you anywhere. The difference between a loop and a moment is movement.">
+<meta name="twitter:image" content="https://liminl.music/og-image.jpg">
+<meta name="twitter:creator" content="@liminl.music">
+
+<style>
+:root {
+  --bg:       #07090f;
+  --bg2:      #0b0d15;
+  --bg3:      #0f1120;
+  --purple:   #9d6fd4;
+  --ink:      #d8e2f0;
+  --ink-low:  #8896a8;
+  --ink-dim:  #3a4a5a;
+  --rule:     rgba(216,226,240,0.07);
+  --rule-mid: rgba(216,226,240,0.12);
+  --ink-hi:    rgba(216,226,240,0.92);
+  --ink-med:   rgba(216,226,240,0.68);
+  --ink-faint: rgba(216,226,240,0.55);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,serif;font-weight:400;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden;}
+.veil{position:fixed;inset:0;background:#000;z-index:900;pointer-events:none;animation:unveil 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;}
+@keyframes unveil{to{opacity:0;}}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.76' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");background-size:256px;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse 110% 100% at 50% 50%,transparent 35%,rgba(0,0,0,0.65) 100%);pointer-events:none;z-index:1;}
+.wrap{position:relative;z-index:2;max-width:660px;margin:0 auto;padding:0 40px;}
+nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--rule);}
+.logo{font-style:italic;font-weight:300;font-size:16px;letter-spacing:0.22em;color:var(--ink-low);text-decoration:none;}
+.logo-dot{color:var(--purple);text-shadow:0 0 10px rgba(157,111,212,0.7);animation:dotPulse 8s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:0.65;text-shadow:0 0 6px rgba(157,111,212,0.5);}50%{opacity:1;text-shadow:0 0 14px rgba(157,111,212,0.9),0 0 24px rgba(157,111,212,0.4);}}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-email{font-weight:300;font-size:11px;letter-spacing:0.14em;color:var(--ink-low);text-decoration:none;transition:color 0.5s,text-shadow 0.5s;}
+.nav-email:hover{color:var(--ink);}
+.nav-active{color:var(--ink);text-shadow:0 0 12px rgba(157,111,212,0.45);}
+.nav-icon{display:flex;align-items:center;color:var(--ink-low);text-decoration:none;transition:color 0.5s;}
+.nav-icon:hover{color:var(--ink);}
+
+/* Post layout */
+.post-wrap{padding:64px 0 80px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;transition:color 0.4s;margin-bottom:48px;}
+.back-link:hover{color:var(--purple);}
+.back-link svg{transition:transform 0.3s;}
+.back-link:hover svg{transform:translateX(-3px);}
+.post-meta{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:16px;}
+.post-title{font-style:italic;font-weight:300;font-size:clamp(26px,5vw,42px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:48px;text-wrap:balance;}
+
+/* Body text */
+.post-body{font-weight:400;font-size:17px;color:var(--ink-med);line-height:1.85;max-width:580px;}
+.post-body p{margin-bottom:20px;text-wrap:pretty;}
+.post-body p:last-child{margin-bottom:0;}
+.post-body em{font-style:italic;color:var(--ink);}
+.post-body strong{font-weight:400;color:var(--ink-hi);}
+.post-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
+.post-body a:hover{border-bottom-color:var(--purple);}
+
+/* Section headings */
+.post-body h2{font-style:italic;font-weight:300;font-size:clamp(21px,3.5vw,26px);letter-spacing:-0.02em;line-height:1.3;color:var(--ink);margin:52px 0 20px;}
+.post-body h2:first-child{margin-top:0;}
+
+/* Blockquote */
+.post-body blockquote{border-left:1px solid rgba(157,111,212,0.35);margin:28px 0;padding:4px 0 4px 24px;color:var(--ink-med);font-style:italic;}
+.post-body blockquote p{margin-bottom:0;}
+
+/* Lists */
+.post-body ul,.post-body ol{padding-left:0;list-style:none;margin-bottom:20px;display:grid;gap:10px;}
+.post-body ul li,.post-body ol li{font-size:17px;color:var(--ink-med);font-weight:400;padding-left:20px;position:relative;line-height:1.75;}
+.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--ink-dim);}
+.post-body ol{counter-reset:ol;}
+.post-body ol li{counter-increment:ol;}
+.post-body ol li::before{content:counter(ol) '.';position:absolute;left:0;color:var(--ink-dim);font-size:14px;top:2px;}
+
+/* Stacked short lines (poem-style) */
+.post-body .lines{display:grid;gap:4px;margin-bottom:20px;}
+.post-body .lines span{display:block;font-style:italic;color:var(--ink-med);font-size:17px;font-weight:300;}
+
+footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
+.footer-text{font-size:11px;color:var(--ink-dim);letter-spacing:0.14em;text-transform:uppercase;}
+@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Makes a Song Feel Like a Moment, Not a Loop",
+  "description": "A lot of songs feel good — but they don't take you anywhere. The difference between a loop and a moment is movement.",
+  "author": {
+    "@type": "Person",
+    "name": "Reece Hallum",
+    "url": "https://liminl.music"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "liminl.",
+    "url": "https://liminl.music"
+  },
+  "datePublished": "2026-03-22",
+  "url": "https://liminl.music/journal/song-moments/",
+  "image": "https://liminl.music/og-image.jpg",
+  "mainEntityOfPage": "https://liminl.music/journal/song-moments/"
+}
+</script>
+</head>
+<body>
+<div class="veil"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="wrap">
+  <nav>
+    <a href="/" class="logo">liminl<span class="logo-dot">.</span></a>
+    <div class="nav-links">
+      <a href="/journal/" class="nav-email nav-active">Journal</a>
+      <a href="mailto:hello@liminl.music" class="nav-icon" aria-label="Email">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M1 4.5L7.5 9L14 4.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="post-wrap">
+    <a href="/journal/" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All posts
+    </a>
+
+    <div class="post-meta">March 2026</div>
+    <h1 class="post-title">What Makes a Song Feel Like a Moment, Not a Loop</h1>
+
+    <div class="post-body">
+
+      <p>A lot of songs feel good.</p>
+
+      <div class="lines">
+        <span>They sound right.</span>
+        <span>They loop well.</span>
+        <span>You could leave them on in the background and not question anything.</span>
+      </div>
+
+      <p>But they don't take you anywhere.</p>
+      <p>You start the song, and three minutes later, you're in the same emotional place you began.</p>
+      <p>That's not a moment.</p>
+      <p>That's a loop.</p>
+
+      <h2>The difference is movement</h2>
+
+      <p>A moment has direction.</p>
+      <p>Something shifts:</p>
+
+      <ul>
+        <li>a realisation</li>
+        <li>a contradiction</li>
+        <li>a reveal</li>
+        <li>a loss of control</li>
+      </ul>
+
+      <p>A loop just restates the same idea in slightly different ways.</p>
+      <p>Verse, chorus, verse, chorus&hellip;</p>
+
+      <div class="lines">
+        <span>Same feeling.</span>
+        <span>Same meaning.</span>
+        <span>No change.</span>
+      </div>
+
+      <h2>Why loops are so common</h2>
+
+      <p>Because they're easy to write.</p>
+      <p>You find a strong line or idea, and then:</p>
+
+      <ul>
+        <li>you rephrase it</li>
+        <li>you decorate it</li>
+        <li>you escalate the production</li>
+      </ul>
+
+      <p>But the meaning never moves.</p>
+
+      <div class="lines">
+        <span>The chorus hits harder sonically&hellip;</span>
+        <span>but it doesn't land differently emotionally.</span>
+      </div>
+
+      <h2>What a moment actually is</h2>
+
+      <p>A moment is when the song means something new.</p>
+      <p>Not because the words are different &mdash; but because the context has changed.</p>
+      <p>The same line can hit three different ways depending on where you place it.</p>
+
+      <h2>The chorus problem</h2>
+
+      <p>Most choruses are written like statements:</p>
+
+      <blockquote>
+        <p>&ldquo;I need you&rdquo;</p>
+        <p>&ldquo;I'm not over you&rdquo;</p>
+        <p>&ldquo;This is who I am&rdquo;</p>
+      </blockquote>
+
+      <p>They land once.</p>
+      <p>After that, they just repeat.</p>
+
+      <h2>The shift: progressive meaning</h2>
+
+      <p>The best songs let the chorus evolve.</p>
+
+      <div class="lines">
+        <span>Same words.</span>
+        <span>Different meaning.</span>
+      </div>
+
+      <p><strong>First chorus:</strong> What the character believes.</p>
+      <p><strong>Second chorus:</strong> Cracks start to show.</p>
+      <p><strong>Final chorus:</strong> What's actually true.</p>
+
+      <p>Nothing changed on the surface.</p>
+      <p>But everything changed underneath.</p>
+
+      <h2>Example (simple)</h2>
+
+      <p>Let's say your hook is:</p>
+
+      <blockquote><p>&ldquo;You said you'd stay&rdquo;</p></blockquote>
+
+      <p><strong>First chorus:</strong> It's trust. Maybe even comfort.</p>
+      <p><strong>Second chorus:</strong> It's doubt. Something feels off.</p>
+      <p><strong>Final chorus:</strong> It's accusation. Or acceptance that they didn't.</p>
+
+      <div class="lines">
+        <span>Same line.</span>
+        <span>Different moment.</span>
+      </div>
+
+      <h2>How to build this (practically)</h2>
+
+      <p>You don't need more lyrics.</p>
+      <p>You need context shifts.</p>
+
+      <ol>
+        <li><strong>Change what the character knows.</strong> Give them new information between sections.</li>
+        <li><strong>Change the situation.</strong> Move the scene: before the argument &rarr; after. Before the text &rarr; after. Before the night &rarr; morning after.</li>
+        <li><strong>Let them contradict themselves.</strong> That's where things feel human.</li>
+      </ol>
+
+      <h2>The test</h2>
+
+      <p>Ask:</p>
+
+      <blockquote>
+        <p>Does anything new happen between sections?</p>
+        <p>Or am I just restating the same idea louder?</p>
+      </blockquote>
+
+      <p>If nothing changes&hellip; you don't have a moment yet.</p>
+
+      <h2>Where I come at this from</h2>
+
+      <p>I tend to think of songs less like structures and more like systems.</p>
+
+      <div class="lines">
+        <span>Something sets it in motion.</span>
+        <span>Something shifts.</span>
+        <span>Something lands.</span>
+      </div>
+
+      <p>That's as true in film as it is in music.</p>
+      <p>If nothing changes, there's no reason for the scene &mdash; or the song &mdash; to exist.</p>
+
+      <h2>The takeaway</h2>
+
+      <p>A loop sounds good.</p>
+      <p>A moment stays with you.</p>
+
+      <h2>Final thought</h2>
+
+      <p>If your chorus only works once&hellip; it's not finished yet.</p>
+
+      <p>If you're working on something that feels close but not quite landing &mdash; <a href="mailto:hello@liminl.music">I'm always up for jumping into early-stage ideas</a> and shaping them into something that moves.</p>
+
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-text">liminl. &mdash; &copy; 2026</p>
+  </footer>
+</div>
+</body>
+</html>
