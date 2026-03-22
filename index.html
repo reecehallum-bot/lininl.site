@@ -936,7 +936,6 @@ function initTabFromHash(){
   const hash=window.location.hash;
   const tabs=document.querySelectorAll('.tab');
   if(hash==='#written-for-her'){switchTab('female',tabs[1]);}
-  else{history.replaceState(null,'','#written-for-him');}
 }
 initTabFromHash();
 
