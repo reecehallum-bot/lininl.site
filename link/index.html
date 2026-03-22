@@ -56,7 +56,6 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:center;bord
 
 /* Profile header */
 .profile{padding:48px 0 36px;text-align:center;}
-.profile-name{font-style:italic;font-weight:300;font-size:clamp(26px,6vw,38px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:10px;}
 .profile-role{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-low);}
 
 /* Section label */
@@ -76,6 +75,15 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:center;bord
 .link-arrow{flex-shrink:0;color:var(--ink-dim);transition:color 0.4s,transform 0.3s;}
 .link-card:hover .link-arrow{color:var(--purple);transform:translateX(2px);}
 
+/* Post cards (journal entries) */
+.post-card{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--bg2);border:1px solid var(--rule-mid);border-radius:4px;text-decoration:none;color:var(--ink);transition:border-color 0.4s,transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;}
+.post-card:hover{border-color:var(--purple);transform:translateY(-1px);box-shadow:0 4px 24px rgba(157,111,212,0.1);}
+.post-body{flex:1;min-width:0;}
+.post-date{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-low);margin-bottom:6px;}
+.post-title{font-style:italic;font-weight:300;font-size:15px;letter-spacing:-0.01em;color:var(--ink);line-height:1.4;margin-bottom:7px;transition:color 0.4s,text-shadow 0.4s;}
+.post-card:hover .post-title{color:var(--purple);text-shadow:0 0 20px rgba(157,111,212,0.4);}
+.post-excerpt{font-size:12px;line-height:1.6;color:var(--ink-faint);letter-spacing:0.01em;}
+
 footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
 .footer-text{font-size:11px;color:var(--ink-dim);letter-spacing:0.14em;text-transform:uppercase;}
 @media(max-width:480px){.wrap{padding:0 18px;}.profile{padding:36px 0 28px;}}
@@ -92,7 +100,6 @@ footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
   </nav>
 
   <div class="profile">
-    <h1 class="profile-name">Reece Hallum</h1>
     <p class="profile-role">songwriter &middot; topliner</p>
   </div>
 
@@ -114,71 +121,28 @@ footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
         <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-
-    <!-- UPDATE: Replace # with your Spotify artist URL e.g. https://open.spotify.com/artist/YOUR_ID -->
-    <a href="#" class="link-card">
-      <div class="link-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.1"/>
-          <path d="M5 6.5c1.7-0.5 3.3-0.5 5 0M5.5 8.5c1.3-0.4 2.7-0.4 4 0M6 10.5c1-0.3 2-0.3 3 0" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="link-text">
-        <div class="link-label">Spotify</div>
-        <div class="link-sub">Stream my releases</div>
-      </div>
-      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
   </div>
 
   <div class="section-label">Journal</div>
   <div class="link-list">
-    <a href="/journal/" class="link-card">
-      <div class="link-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2.5" y="1.5" width="11" height="13" rx="1" stroke="currentColor" stroke-width="1.1"/>
-          <line x1="5" y1="5.5" x2="11" y2="5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-          <line x1="5" y1="8" x2="11" y2="8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-          <line x1="5" y1="10.5" x2="8.5" y2="10.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-        </svg>
+    <a href="/journal/song-moments/" class="post-card">
+      <div class="post-body">
+        <div class="post-date">March 2026</div>
+        <div class="post-title">What Makes a Song Feel Like a Moment, Not a Loop</div>
+        <div class="post-excerpt">A lot of songs feel good — but they don&rsquo;t take you anywhere. Here&rsquo;s what separates a loop from a moment.</div>
       </div>
-      <div class="link-text">
-        <div class="link-label">Read the journal</div>
-        <div class="link-sub">Notes from the room</div>
-      </div>
-      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:2px;flex-shrink:0;">
         <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
 
-    <a href="/journal/song-moments/" class="link-card">
-      <div class="link-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 2L9.5 6H14L10.5 8.5L12 12.5L8 10L4 12.5L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-        </svg>
+    <a href="/journal/scene-test/" class="post-card">
+      <div class="post-body">
+        <div class="post-date">March 2026</div>
+        <div class="post-title">Why Most Songs Fail the &ldquo;Scene Test&rdquo;</div>
+        <div class="post-excerpt">If you stripped the production away, could you point to a specific moment? Not the vibe &mdash; a moment. Something you could film.</div>
       </div>
-      <div class="link-text">
-        <div class="link-label">What Makes a Song Feel Like a Moment</div>
-        <div class="link-sub">March 2026</div>
-      </div>
-      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-
-    <a href="/journal/scene-test/" class="link-card">
-      <div class="link-icon">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 2L9.5 6H14L10.5 8.5L12 12.5L8 10L4 12.5L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="link-text">
-        <div class="link-label">Why Most Songs Fail the &ldquo;Scene Test&rdquo;</div>
-        <div class="link-sub">March 2026</div>
-      </div>
-      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top:2px;flex-shrink:0;">
         <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
