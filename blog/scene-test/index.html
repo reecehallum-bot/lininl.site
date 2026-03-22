@@ -36,6 +36,8 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-betwe
 .nav-links{display:flex;align-items:baseline;gap:24px;}
 .nav-email{font-weight:300;font-size:11px;letter-spacing:0.14em;color:var(--ink-low);text-decoration:none;transition:color 0.5s;}
 .nav-email:hover{color:var(--ink);}
+.nav-icon{display:flex;align-items:center;color:var(--ink-low);text-decoration:none;transition:color 0.5s;}
+.nav-icon:hover{color:var(--ink);}
 
 /* Post layout */
 .post-wrap{padding:64px 0 80px;}
@@ -89,7 +91,12 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     <a href="/" class="logo">liminl<span class="logo-dot">.</span></a>
     <div class="nav-links">
       <a href="/blog/" class="nav-email">Blog</a>
-      <a href="mailto:hello@liminl.music" class="nav-email">hello@liminl.music</a>
+      <a href="mailto:hello@liminl.music" class="nav-icon" aria-label="Email">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M1 4.5L7.5 9L14 4.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </a>
     </div>
   </nav>
 
