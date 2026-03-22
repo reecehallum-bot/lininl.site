@@ -61,9 +61,9 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-betwe
 .hero-sub{font-size:11px;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-low);opacity:0.72;}
 .demos-positioning{font-style:normal;font-weight:300;font-size:clamp(18px,2.4vw,23px);letter-spacing:-0.02em;line-height:1.42;color:var(--ink-hi);text-shadow:0 0 30px rgba(157,111,212,0.12);margin-bottom:64px;}
 .demos-between{font-style:italic;color:var(--purple);text-shadow:0 0 10px rgba(157,111,212,0.7);}
-.hero-ctas{display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:center;}
-.hero-cta{position:relative;display:inline-block;margin-top:30px;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-bottom:6px;border-bottom:1px solid rgba(157,111,212,0.32);transition:border-color 0.4s,color 0.4s;animation:ctaShimmer 8.5s ease-in-out infinite;}
-.hero-cta--secondary{color:var(--ink-low);border-bottom-color:rgba(157,111,212,0.16);animation:none;}
+.hero-ctas{display:flex;flex-direction:column;gap:16px;align-items:center;margin-top:28px;}
+.hero-cta{position:relative;display:inline-block;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding-bottom:6px;border-bottom:1px solid rgba(157,111,212,0.32);transition:border-color 0.4s,color 0.4s;animation:ctaShimmer 8.5s ease-in-out infinite;}
+.hero-cta--secondary{color:var(--ink-dim);border-bottom:none;font-size:9px;letter-spacing:0.18em;animation:none;padding-bottom:0;}
 .hero-cta::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:linear-gradient(90deg,rgba(157,111,212,0),rgba(157,111,212,0.85),rgba(157,111,212,0));transform:scaleX(0.42);transform-origin:center;opacity:0.26;transition:transform 0.45s ease,opacity 0.45s ease;}
 .hero-cta:hover{color:var(--purple);border-bottom-color:var(--purple);}
 .hero-cta:hover::after{transform:scaleX(1);opacity:0.65;}
@@ -98,6 +98,7 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-betwe
 .track-meta{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:10px;}
 .track-chip{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-low);padding:5px 8px;border:1px solid var(--rule);background:rgba(11,13,21,0.45);}
 .track:hover .track-desc{color:var(--ink-low);}
+.track-context{display:block;font-size:12px;color:var(--ink-dim);margin-top:5px;letter-spacing:0.01em;line-height:1.55;font-style:normal;}
 .track-request{font-size:10px;letter-spacing:0.18em;color:var(--ink-dim);margin-top:8px;opacity:0.75;text-transform:uppercase;}
 .demos-footer{padding:40px 0 0;display:flex;flex-direction:column;gap:12px;}
 .demos-cta{font-size:15px;letter-spacing:0.02em;color:var(--ink-low);text-decoration:none;transition:color 0.4s;align-self:flex-start;border-bottom:1px solid var(--rule);padding-bottom:4px;line-height:1.6;}.demos-cta .demos-cta-name{font-style:italic;font-weight:300;color:var(--ink) !important;letter-spacing:0.22em;}.demos-cta .demos-cta-dot{color:var(--purple) !important;text-shadow:0 0 10px rgba(157,111,212,0.7);}
@@ -324,7 +325,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     </div>
     <div class="hero-copy">
       <h1 class="hero-headline">Songs built from character, tension, and unresolved states.</h1>
-      <p class="hero-sub">Songwriter · Topliner · Co-Writer — Aotearoa, New Zealand</p>
+      <p class="hero-sub">Songwriter · Topliner · Co-Writer<br><span style="opacity:0.5;letter-spacing:0.18em;">Aotearoa, New Zealand</span></p>
       <div class="hero-ctas">
         <a href="#demos" class="hero-cta">Hear the Work</a>
         <a href="mailto:hello@liminl.music" class="hero-cta hero-cta--secondary">Start a Conversation</a>
@@ -340,29 +341,28 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
     </div>
     <div class="track-list active" id="tab-male">
       <div class="track" data-src="audio/main-character-energy.mp3" data-title="Main Character Energy" data-gender="Male Vocal" data-art="images/main-character-energy.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">Living like it's a movie — just without an audience. A pop song about self-mythology and the loneliness of performing yourself.</p><div class="track-meta"><span class="track-chip">Ego / Self-Awareness</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Main Character Energy</p></div><p class="track-desc">Living like it's a movie — just without an audience.<span class="track-context">A pop song about self-mythology and the loneliness of performing yourself.</span></p><div class="track-meta"><span class="track-chip">Ego / Self-Awareness</span></div></div></div>
       </div>
       <div class="track" data-src="audio/version-of-me.mp3" data-title="Version of Me" data-gender="Male Vocal" data-art="images/version-of-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Version of Me</p></div><p class="track-desc">Loved for being easy — until I finally spoke. Identity suppression as a love language — and what happens when it stops.</p><div class="track-meta"><span class="track-chip">Self-Suppression / Identity</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Version of Me</p></div><p class="track-desc">Loved for being easy — until I finally spoke.<span class="track-context">Identity suppression as a love language — and what happens when it stops.</span></p><div class="track-meta"><span class="track-chip">Self-Suppression / Identity</span></div></div></div>
       </div>
       <div class="track" data-src="audio/you-almost-loved-me.mp3" data-title="You Almost Loved Me" data-gender="Male Vocal" data-art="images/you-almost-loved-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Almost Loved Me</p></div><p class="track-desc">The kind of relationship that never breaks — just never fully arrives. Situationship without resolution — for the artist who knows the feeling.</p><div class="track-meta"><span class="track-chip">Situationship / Restraint</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Almost Loved Me</p></div><p class="track-desc">The kind of relationship that never breaks — just never fully arrives.<span class="track-context">Situationship without resolution — for the artist who knows the feeling.</span></p><div class="track-meta"><span class="track-chip">Situationship / Restraint</span></div></div></div>
       </div>
     </div>
     <div class="track-list" id="tab-female">
       <div class="track" data-src="audio/what-do-we-sing-for.mp3" data-title="What Do We Sing For?" data-gender="Female Vocal" data-art="images/what-do-we-sing-for.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">What Do We Sing For?</p></div><p class="track-desc">Performing for the noise — forgetting what it was ever meant to mean. Artist identity and validation — written for someone who's started to question the whole thing.</p><div class="track-meta"><span class="track-chip">Identity / Validation</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">What Do We Sing For?</p></div><p class="track-desc">Performing for the noise — forgetting what it was ever meant to mean.<span class="track-context">Artist identity and validation — written for someone who's started to question the whole thing.</span></p><div class="track-meta"><span class="track-chip">Identity / Validation</span></div></div></div>
       </div>
       <div class="track" data-src="audio/devils-backbone.mp3" data-title="Devil's Backbone" data-gender="Female Vocal" data-art="images/devils-backbone.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Devil's Backbone</p></div><p class="track-desc">I told you not to fall for me — you liked that part most. Self-aware seduction — with just enough darkness to make it interesting.</p><div class="track-meta"><span class="track-chip">Temptation / Self-Aware</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">Devil's Backbone</p></div><p class="track-desc">I told you not to fall for me — you liked that part most.<span class="track-context">Self-aware seduction — with just enough darkness to make it interesting.</span></p><div class="track-meta"><span class="track-chip">Temptation / Self-Aware</span></div></div></div>
       </div>
       <div class="track" data-src="audio/you-ghosted-me.mp3" data-title="You Ghosted Me" data-gender="Female Vocal" data-art="images/you-ghosted-me.jpg" onclick="loadTrack(this)">
-        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Ghosted Me</p></div><p class="track-desc">You didn't disappear — you just stopped replying. The modern breakup, reframed — dry, precise, and a little bit funny.</p><div class="track-meta"><span class="track-chip">Ghosting / Irony</span></div></div></div>
+        <div class="track-row"><div class="art"></div><div class="track-info"><div class="track-title-row"><span class="playing-dot"></span><p class="track-title">You Ghosted Me</p></div><p class="track-desc">You didn't disappear — you just stopped replying.<span class="track-context">The modern breakup, reframed — dry, precise, and a little bit funny.</span></p><div class="track-meta"><span class="track-chip">Ghosting / Irony</span></div></div></div>
       </div>
     </div>
-    <p class="track-request">If something fits — or nearly fits — it's worth a message. These can be adapted.</p>
     <div class="demos-footer">
-      <a href="mailto:hello@liminl.music" class="demos-cta">These are fragments — the full tracks, stems, and alternate versions are available on request. If something fits, or nearly fits, reach out: hello@<span class="demos-cta-name">liminl</span><span class="demos-cta-dot">.</span>music</a>
+      <a href="mailto:hello@liminl.music" class="demos-cta">Full tracks and stems available on request — hello@<span class="demos-cta-name">liminl</span><span class="demos-cta-dot">.</span>music</a>
       <p class="demos-disclaimer">Shared for listening only — please don't reproduce, sample, or distribute without permission.</p>
     </div>
   </section>
