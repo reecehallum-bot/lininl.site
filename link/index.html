@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reece Hallum — Links</title>
+<meta name="description" content="Songwriter and topliner. Demos, journal, and more.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://liminl.music/link/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liminl.music/link/">
+<meta property="og:title" content="Reece Hallum — Links">
+<meta property="og:description" content="Songwriter and topliner. Demos, journal, and more.">
+<meta property="og:image" content="https://liminl.music/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:site_name" content="liminl.">
+
+<style>
+:root {
+  --bg:       #07090f;
+  --bg2:      #0b0d15;
+  --bg3:      #0f1120;
+  --purple:   #9d6fd4;
+  --ink:      #d8e2f0;
+  --ink-low:  #8896a8;
+  --ink-dim:  #3a4a5a;
+  --rule:     rgba(216,226,240,0.07);
+  --rule-mid: rgba(216,226,240,0.12);
+  --ink-hi:    rgba(216,226,240,0.92);
+  --ink-med:   rgba(216,226,240,0.68);
+  --ink-faint: rgba(216,226,240,0.55);
+  --fs-2xs: 11px;
+  --fs-xs:  12px;
+  --fs-sm:  14px;
+  --fs-base: 15px;
+  --ls-wide: 0.12em;
+  --ls-wider: 0.18em;
+  --ls-caps: 0.32em;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,serif;font-weight:400;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:hidden;}
+.veil{position:fixed;inset:0;background:#000;z-index:900;pointer-events:none;animation:unveil 1.8s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;}
+@keyframes unveil{to{opacity:0;}}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.76' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.038'/%3E%3C/svg%3E");background-size:256px;}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse 110% 100% at 50% 50%,transparent 35%,rgba(0,0,0,0.65) 100%);pointer-events:none;z-index:1;}
+.wrap{position:relative;z-index:2;max-width:440px;margin:0 auto;padding:0 28px;}
+nav{padding:32px 0;display:flex;align-items:baseline;justify-content:center;border-bottom:1px solid var(--rule);}
+.logo{font-style:italic;font-weight:300;font-size:16px;letter-spacing:0.22em;color:var(--ink-low);text-decoration:none;}
+.logo-dot{color:var(--purple);text-shadow:0 0 10px rgba(157,111,212,0.7);animation:dotPulse 8s ease-in-out infinite;}
+@keyframes dotPulse{0%,100%{opacity:0.65;text-shadow:0 0 6px rgba(157,111,212,0.5);}50%{opacity:1;text-shadow:0 0 14px rgba(157,111,212,0.9),0 0 24px rgba(157,111,212,0.4);}}
+
+/* Profile header */
+.profile{padding:48px 0 36px;text-align:center;}
+.profile-name{font-style:italic;font-weight:300;font-size:clamp(26px,6vw,38px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:10px;}
+.profile-role{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-low);}
+
+/* Section label */
+.section-label{font-size:11px;letter-spacing:0.32em;color:var(--ink-low);margin-bottom:16px;margin-top:36px;display:flex;align-items:center;gap:14px;text-transform:uppercase;}
+.section-label::before,.section-label::after{content:'';flex:1;height:1px;background:var(--rule);}
+
+/* Link cards */
+.link-list{display:flex;flex-direction:column;gap:10px;padding-bottom:64px;}
+.link-card{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--bg2);border:1px solid var(--rule-mid);border-radius:4px;text-decoration:none;color:var(--ink);transition:border-color 0.4s,transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;}
+.link-card:hover{border-color:var(--purple);transform:translateY(-1px);box-shadow:0 4px 24px rgba(157,111,212,0.1);}
+.link-icon{flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-low);background:var(--bg3);border-radius:3px;transition:color 0.4s;}
+.link-card:hover .link-icon{color:var(--purple);}
+.link-text{flex:1;min-width:0;}
+.link-label{font-weight:300;font-size:15px;letter-spacing:-0.01em;color:var(--ink);transition:color 0.4s,text-shadow 0.4s;}
+.link-card:hover .link-label{color:var(--purple);text-shadow:0 0 20px rgba(157,111,212,0.4);}
+.link-sub{font-size:11px;letter-spacing:0.12em;color:var(--ink-low);margin-top:2px;}
+.link-arrow{flex-shrink:0;color:var(--ink-dim);transition:color 0.4s,transform 0.3s;}
+.link-card:hover .link-arrow{color:var(--purple);transform:translateX(2px);}
+
+footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
+.footer-text{font-size:11px;color:var(--ink-dim);letter-spacing:0.14em;text-transform:uppercase;}
+@media(max-width:480px){.wrap{padding:0 18px;}.profile{padding:36px 0 28px;}}
+</style>
+</head>
+<body>
+<div class="veil"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="wrap">
+
+  <nav>
+    <a href="/" class="logo">liminl<span class="logo-dot">.</span></a>
+  </nav>
+
+  <div class="profile">
+    <h1 class="profile-name">Reece Hallum</h1>
+    <p class="profile-role">songwriter &middot; topliner</p>
+  </div>
+
+  <div class="section-label">Music</div>
+  <div class="link-list">
+    <a href="/" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.1"/>
+          <line x1="8" y1="1.5" x2="8" y2="5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Hear my music</div>
+        <div class="link-sub">Demos &amp; toplining work</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <!-- UPDATE: Replace # with your Spotify artist URL e.g. https://open.spotify.com/artist/YOUR_ID -->
+    <a href="#" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M5 6.5c1.7-0.5 3.3-0.5 5 0M5.5 8.5c1.3-0.4 2.7-0.4 4 0M6 10.5c1-0.3 2-0.3 3 0" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Spotify</div>
+        <div class="link-sub">Stream my releases</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="section-label">Journal</div>
+  <div class="link-list">
+    <a href="/journal/" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="1.5" width="11" height="13" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          <line x1="5" y1="5.5" x2="11" y2="5.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="5" y1="8" x2="11" y2="8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="5" y1="10.5" x2="8.5" y2="10.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Read the journal</div>
+        <div class="link-sub">Notes from the room</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="/journal/song-moments/" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 2L9.5 6H14L10.5 8.5L12 12.5L8 10L4 12.5L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">What Makes a Song Feel Like a Moment</div>
+        <div class="link-sub">March 2026</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="/journal/scene-test/" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 2L9.5 6H14L10.5 8.5L12 12.5L8 10L4 12.5L5.5 8.5L2 6H6.5L8 2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Why Most Songs Fail the &ldquo;Scene Test&rdquo;</div>
+        <div class="link-sub">March 2026</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="section-label">Connect</div>
+  <div class="link-list">
+    <!-- UPDATE: Replace # with your Instagram URL e.g. https://instagram.com/YOUR_HANDLE -->
+    <a href="#" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="8" cy="8" r="2.8" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="11.2" cy="4.8" r="0.6" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Instagram</div>
+        <div class="link-sub">Behind the sessions</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="mailto:hello@liminl.music" class="link-card">
+      <div class="link-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1.5" y="3.5" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M1.5 5L8 9.5L14.5 5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Get in touch</div>
+        <div class="link-sub">hello@liminl.music</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <footer>
+    <p class="footer-text">liminl. &mdash; &copy; 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
