@@ -588,7 +588,7 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 <div class="bottom-player" id="bottomPlayer">
   <div class="player-inner">
     <div class="player-art" id="playerArt"></div>
-    <div class="player-meta"><p class="player-kicker">Now Playing</p><p class="player-title" id="playerTitle">—</p><p class="player-gender" id="playerGender">—</p></div>
+    <div class="player-meta"><p class="player-kicker">Now Playing</p><p class="player-title" id="playerTitle">—</p></div>
     <div class="player-controls">
       <button class="player-btn" id="playerBtn" onclick="togglePlay()"><span class="play-icon"></span><div class="pause-icon"><span></span><span></span></div></button>
       <button class="player-btn" id="muteBtn" onclick="toggleMute()" aria-label="Toggle mute">
@@ -959,7 +959,6 @@ let currentTrack=null,rafId=null,isSeeking=false;
 const bottomPlayer=document.getElementById('bottomPlayer');
 const playerBtn=document.getElementById('playerBtn');
 const playerTitle=document.getElementById('playerTitle');
-const playerGender=document.getElementById('playerGender');
 const playerScrubber=document.getElementById('playerScrubber');
 const muteBtn=document.getElementById('muteBtn');
 const playerDur=document.getElementById('playerDur');
@@ -1020,7 +1019,6 @@ function loadTrack(el){
   currentTrack=el;
   el.classList.add('playing');
   playerTitle.textContent=el.dataset.title;
-  playerGender.textContent=el.dataset.mood || el.dataset.gender;
   setPlayerArt(el.dataset.art || '');
   if(!bottomPlayer.classList.contains('visible')){document.body.style.paddingBottom='100px';}
   bottomPlayer.classList.add('visible');
