@@ -50,6 +50,15 @@ nav{justify-content:center;}
 .link-arrow{flex-shrink:0;color:var(--ink-dim);transition:color 0.4s,transform 0.3s;}
 .link-card:hover .link-arrow{color:var(--purple);transform:translateX(2px);}
 
+/* About card with UFO */
+.about-card{align-items:center;min-height:80px;}
+.about-card-ufo{position:relative;width:48px;height:60px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+.about-card-ufo-img{width:44px;height:44px;object-fit:contain;display:block;animation:ufoFloatCard 6s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(157,111,212,0.45)) drop-shadow(0 0 18px rgba(157,111,212,0.15));}
+.about-card:hover .about-card-ufo-img{filter:drop-shadow(0 0 14px rgba(157,111,212,0.75)) drop-shadow(0 0 28px rgba(157,111,212,0.3));}
+.about-card-beam{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:16px;height:20px;background:linear-gradient(180deg,rgba(157,111,212,0.3) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulseCard 6s ease-in-out infinite;}
+@keyframes ufoFloatCard{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-5px) rotate(1.5deg);}66%{transform:translateY(-3px) rotate(-0.5deg);}}
+@keyframes beamPulseCard{0%,100%{opacity:0.6;transform:translateX(-50%) scaleX(1);}33%{opacity:1;transform:translateX(-50%) scaleX(1.15);}66%{opacity:0.7;transform:translateX(-50%) scaleX(0.92);}}
+
 /* Post cards (journal entries) */
 .post-card{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--bg2);border:1px solid var(--rule-mid);border-radius:4px;text-decoration:none;color:var(--ink);transition:border-color 0.4s,transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.4s;}
 .post-card:hover{border-color:var(--purple);transform:translateY(-1px);box-shadow:0 4px 24px rgba(157,111,212,0.1);}
@@ -92,6 +101,20 @@ footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
       <div class="link-text">
         <div class="link-label">Hear my music</div>
         <div class="link-sub">Demos &amp; toplining work</div>
+      </div>
+      <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="/#about" class="link-card about-card">
+      <div class="link-text">
+        <div class="link-label">About Reece</div>
+        <div class="link-sub">Who I am &amp; how I work</div>
+      </div>
+      <div class="about-card-ufo" aria-hidden="true">
+        <img src="/images/reece-ufo.png" alt="" class="about-card-ufo-img">
+        <div class="about-card-beam"></div>
       </div>
       <svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
