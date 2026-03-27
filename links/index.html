@@ -51,12 +51,12 @@ nav{justify-content:center;}
 .link-card:hover .link-arrow{color:var(--purple);transform:translateX(2px);}
 
 /* About card with UFO */
-.about-card{align-items:center;min-height:80px;}
-.about-card-ufo{position:relative;width:48px;height:60px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
-.about-card-ufo-img{width:44px;height:44px;object-fit:contain;display:block;animation:ufoFloatCard 6s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(157,111,212,0.45)) drop-shadow(0 0 18px rgba(157,111,212,0.15));}
-.about-card:hover .about-card-ufo-img{filter:drop-shadow(0 0 14px rgba(157,111,212,0.75)) drop-shadow(0 0 28px rgba(157,111,212,0.3));}
-.about-card-beam{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:16px;height:20px;background:linear-gradient(180deg,rgba(157,111,212,0.3) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulseCard 6s ease-in-out infinite;}
-@keyframes ufoFloatCard{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-5px) rotate(1.5deg);}66%{transform:translateY(-3px) rotate(-0.5deg);}}
+.about-card{align-items:center;min-height:96px;}
+.about-card-ufo{position:relative;width:80px;height:88px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+.about-card-ufo-img{width:76px;height:76px;object-fit:contain;display:block;animation:ufoFloatCard 6s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(157,111,212,0.5)) drop-shadow(0 0 22px rgba(157,111,212,0.2));}
+.about-card:hover .about-card-ufo-img{filter:drop-shadow(0 0 16px rgba(157,111,212,0.8)) drop-shadow(0 0 32px rgba(157,111,212,0.35));}
+.about-card-beam{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:26px;height:30px;background:linear-gradient(180deg,rgba(157,111,212,0.3) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulseCard 6s ease-in-out infinite;}
+@keyframes ufoFloatCard{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-7px) rotate(1.5deg);}66%{transform:translateY(-4px) rotate(-0.5deg);}}
 @keyframes beamPulseCard{0%,100%{opacity:0.6;transform:translateX(-50%) scaleX(1);}33%{opacity:1;transform:translateX(-50%) scaleX(1.15);}66%{opacity:0.7;transform:translateX(-50%) scaleX(0.92);}}
 
 /* Post cards (journal entries) */
