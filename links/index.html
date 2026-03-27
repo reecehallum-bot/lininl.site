@@ -43,8 +43,8 @@ nav{justify-content:center;}
 .link-card:hover{border-color:var(--purple);transform:translateY(-1px);box-shadow:0 4px 24px rgba(157,111,212,0.1);}
 .link-icon{flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--ink-low);background:var(--bg3);border-radius:3px;transition:color 0.4s;}
 .link-card:hover .link-icon{color:var(--purple);}
-.link-icon--art{background-image:url('/android-chrome-192x192.png');background-size:cover;background-position:center;position:relative;overflow:hidden;color:rgba(216,226,240,0.85);}
-.link-icon--art::before{content:'';position:absolute;inset:0;background:rgba(7,9,15,0.45);border-radius:3px;}
+.link-icon--art{width:56px;height:56px;background-image:url('/android-chrome-192x192.png');background-size:cover;background-position:center;position:relative;overflow:hidden;border-radius:5px;color:rgba(216,226,240,0.9);}
+.link-icon--art::before{content:'';position:absolute;inset:0;background:rgba(7,9,15,0.35);border-radius:5px;}
 .link-icon--art svg{position:relative;z-index:1;}
 .link-card:hover .link-icon--art{color:#fff;}
 .link-text{flex:1;min-width:0;}
@@ -55,13 +55,13 @@ nav{justify-content:center;}
 .link-card:hover .link-arrow{color:var(--purple);transform:translateX(2px);}
 
 /* About card with UFO */
-.about-card{align-items:center;min-height:130px;}
-.about-card-ufo{position:relative;width:110px;height:130px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;overflow:visible;}
+.about-card{align-items:center;min-height:140px;}
+.about-card-ufo{position:relative;width:120px;height:150px;flex-shrink:0;display:flex;align-items:flex-start;justify-content:center;overflow:visible;}
 /* Inner wrapper animates as one unit so beam stays attached to UFO */
 .about-card-ufo-inner{position:relative;animation:ufoFloatCard 6s ease-in-out infinite;}
-.about-card-ufo-img{width:100px;height:100px;object-fit:contain;display:block;filter:drop-shadow(0 0 10px rgba(157,111,212,0.5)) drop-shadow(0 0 24px rgba(157,111,212,0.2));}
+.about-card-ufo-img{width:120px;height:120px;object-fit:contain;display:block;filter:drop-shadow(0 0 10px rgba(157,111,212,0.5)) drop-shadow(0 0 24px rgba(157,111,212,0.2));}
 .about-card:hover .about-card-ufo-img{filter:drop-shadow(0 0 18px rgba(157,111,212,0.8)) drop-shadow(0 0 36px rgba(157,111,212,0.35));}
-.about-card-beam{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:36px;height:48px;background:linear-gradient(180deg,rgba(157,111,212,0.32) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulseCard 6s ease-in-out infinite;}
+.about-card-beam{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:44px;height:56px;background:linear-gradient(180deg,rgba(157,111,212,0.32) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulseCard 6s ease-in-out infinite;}
 @keyframes ufoFloatCard{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-8px) rotate(1.5deg);}66%{transform:translateY(-4px) rotate(-0.5deg);}}
 @keyframes beamPulseCard{0%,100%{opacity:0.6;transform:translateX(-50%) scaleX(1);}33%{opacity:1;transform:translateX(-50%) scaleX(1.15);}66%{opacity:0.7;transform:translateX(-50%) scaleX(0.92);}}
 
@@ -98,8 +98,8 @@ footer{border-top:1px solid var(--rule);padding:24px 0 36px;text-align:center;}
   <div class="link-list">
     <a href="/#demos" class="link-card">
       <div class="link-icon link-icon--art">
-        <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 2L11 7L2 12V2Z" fill="currentColor"/>
+        <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 1.5L14 9L2 16.5V1.5Z" fill="currentColor"/>
         </svg>
       </div>
       <div class="link-text">
