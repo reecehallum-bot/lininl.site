@@ -214,6 +214,17 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .faq-toggle.open .faq-chevron{transform:rotate(180deg);color:var(--purple);}
 .faq-body{max-height:0;overflow:hidden;transition:max-height 0.42s cubic-bezier(0.16,1,0.3,1);}
 .faq-body p{font-weight:300;font-size:14px;color:var(--ink-faint);line-height:1.85;letter-spacing:0.02em;padding:2px 0 22px 16px;border-left:1px solid rgba(157,111,212,0.28);text-wrap:pretty;}
+.journal-preview-list{margin-top:8px;}
+.journal-preview-item{border-bottom:1px solid var(--rule);transition:border-color 0.4s;}
+.journal-preview-item:first-child{border-top:1px solid var(--rule);}
+.journal-preview-item:hover{border-color:var(--rule-mid);}
+.journal-preview-link{display:block;padding:24px 0;text-decoration:none;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+.journal-preview-item:hover .journal-preview-link{transform:translateX(6px);}
+.journal-preview-title{font-style:italic;font-weight:300;font-size:clamp(18px,2.6vw,22px);color:var(--ink-med);line-height:1.3;margin-bottom:6px;transition:color 0.5s,text-shadow 0.5s;}
+.journal-preview-item:hover .journal-preview-title{color:var(--purple);text-shadow:0 0 24px rgba(157,111,212,0.35);}
+.journal-preview-excerpt{font-weight:300;font-size:14px;color:var(--ink-low);line-height:1.6;text-wrap:pretty;}
+.journal-preview-all{display:inline-block;margin-top:28px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:4px;transition:color 0.4s,border-color 0.4s;}
+.journal-preview-all:hover{color:var(--purple);border-bottom-color:var(--purple);}
 </style>
 <script type="application/ld+json">
 {
@@ -517,6 +528,24 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
         </div>
       </div>
     </div>
+  </section>
+  <section class="about" id="journal">
+    <h2 class="section-label">From the Journal</h2>
+    <div class="journal-preview-list">
+      <div class="journal-preview-item">
+        <a href="/journal/song-moments/" class="journal-preview-link">
+          <div class="journal-preview-title">What Makes a Song Feel Like a Moment, Not a Loop</div>
+          <p class="journal-preview-excerpt">A lot of songs feel good — but they don't take you anywhere. Here's what separates a loop from a moment.</p>
+        </a>
+      </div>
+      <div class="journal-preview-item">
+        <a href="/journal/scene-test/" class="journal-preview-link">
+          <div class="journal-preview-title">Why Most Songs Fail the &#8220;Scene Test&#8221;</div>
+          <p class="journal-preview-excerpt">If you stripped the production away, could you point to a specific moment? Not the vibe — a moment. Something you could film.</p>
+        </a>
+      </div>
+    </div>
+    <a href="/journal/" class="journal-preview-all">Read all notes</a>
   </section>
   <section class="faq" id="faq">
     <h2 class="section-label">Questions</h2>
