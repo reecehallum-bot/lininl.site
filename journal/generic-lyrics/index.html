@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Lyrics Sound Generic (And How to Fix It) — Songwriting | liminl.</title>
+<meta name="description" content="Why do your lyrics sound generic? Learn the real reason most song lyrics feel interchangeable — and how to write lines that actually stand out.">
+<link rel="canonical" href="https://liminl.music/journal/generic-lyrics/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://liminl.music/journal/generic-lyrics/">
+<meta property="og:title" content="Why Your Lyrics Sound Generic (And How to Fix It) — liminl.">
+<meta property="og:description" content="Why do your lyrics sound generic? Learn the real reason most song lyrics feel interchangeable — and how to write lines that actually stand out.">
+<meta property="og:image" content="https://liminl.music/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:site_name" content="liminl.">
+<meta property="article:published_time" content="2026-03-29">
+<meta property="article:author" content="Reece Hallum">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why Your Lyrics Sound Generic (And How to Fix It) — liminl.">
+<meta name="twitter:description" content="Why do your lyrics sound generic? Learn the real reason most song lyrics feel interchangeable — and how to write lines that actually stand out.">
+<meta name="twitter:image" content="https://liminl.music/og-image.jpg">
+<meta name="twitter:creator" content="@liminl.music">
+
+<link rel="stylesheet" href="/shared.css">
+<style>
+.nav-active{color:var(--ink);text-shadow:0 0 12px rgba(157,111,212,0.45);}
+
+/* Post layout */
+.post-wrap{padding:64px 0 80px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;transition:color 0.4s;margin-bottom:48px;}
+.back-link:hover{color:var(--purple);}
+.back-link svg{transition:transform 0.3s;}
+.back-link:hover svg{transform:translateX(-3px);}
+.post-meta{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:16px;}
+.post-title{font-style:italic;font-weight:300;font-size:clamp(26px,5vw,42px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:48px;text-wrap:balance;}
+
+/* Body text */
+.post-body{font-weight:400;font-size:17px;color:var(--ink-med);line-height:1.85;max-width:580px;}
+.post-body p{margin-bottom:20px;text-wrap:pretty;}
+.post-body p:last-child{margin-bottom:0;}
+.post-body em{font-style:italic;color:var(--ink);}
+.post-body strong{font-weight:400;color:var(--ink-hi);}
+.post-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
+.post-body a:hover{border-bottom-color:var(--purple);}
+
+/* Section headings */
+.post-body h2{font-style:italic;font-weight:300;font-size:clamp(21px,3.5vw,26px);letter-spacing:-0.02em;line-height:1.3;color:var(--ink);margin:52px 0 20px;}
+.post-body h2:first-child{margin-top:0;}
+
+/* Blockquote */
+.post-body blockquote{border-left:1px solid rgba(157,111,212,0.35);margin:28px 0;padding:4px 0 4px 24px;color:var(--ink-med);font-style:italic;}
+.post-body blockquote p{margin-bottom:0;}
+
+/* Lists */
+.post-body ul,.post-body ol{padding-left:0;list-style:none;margin-bottom:20px;display:grid;gap:10px;}
+.post-body ul li,.post-body ol li{font-size:17px;color:var(--ink-med);font-weight:400;padding-left:20px;position:relative;line-height:1.75;}
+.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--ink-dim);}
+.post-body ol{counter-reset:ol;}
+.post-body ol li{counter-increment:ol;}
+.post-body ol li::before{content:counter(ol) '.';position:absolute;left:0;color:var(--ink-dim);font-size:14px;top:2px;}
+
+/* Stacked short lines (poem-style) */
+.post-body .lines{display:grid;gap:4px;margin-bottom:20px;}
+.post-body .lines span{display:block;font-style:italic;color:var(--ink-med);font-size:17px;font-weight:300;}
+
+.next-post{margin-top:64px;border-top:1px solid var(--rule);padding-top:32px;}
+.next-post-link{display:block;text-decoration:none;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+.next-post-link:hover{transform:translateX(6px);}
+.next-post-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;}
+.next-post-title{font-style:italic;font-weight:300;font-size:clamp(18px,3vw,24px);line-height:1.2;letter-spacing:-0.01em;color:var(--ink);transition:color 0.5s,text-shadow 0.5s;}
+.next-post-link:hover .next-post-title{color:var(--purple);text-shadow:0 0 30px rgba(157,111,212,0.4);}
+@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}}
+.article-cta{border-top:1px solid rgba(216,226,240,0.07);padding:56px 0 48px;text-align:center;}
+.article-cta-note{font-size:11px;color:var(--ink-low);letter-spacing:0.12em;margin-bottom:20px;}
+.article-cta-link{font-style:italic;font-weight:300;font-size:clamp(20px,3.5vw,28px);color:rgba(216,226,240,0.55);text-decoration:none;letter-spacing:-0.01em;display:inline-block;transition:color 0.6s;}
+.article-cta-link:hover{color:var(--ink);}
+.article-cta-link .cta-name{color:var(--ink);letter-spacing:0.22em;}
+.article-cta-link .cta-dot{color:#9d6fd4;text-shadow:0 0 10px rgba(157,111,212,0.7);}
+.article-cta-social{margin-top:16px;}
+.article-cta-social a{font-size:11px;letter-spacing:0.12em;color:var(--ink-low);text-decoration:none;transition:color 0.3s;}
+.article-cta-social a:hover{color:#9d6fd4;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Your Lyrics Sound Generic (And How to Fix It)",
+  "description": "Why do your lyrics sound generic? Learn the real reason most song lyrics feel interchangeable — and how to write lines that actually stand out.",
+  "author": {
+    "@type": "Person",
+    "name": "Reece Hallum",
+    "url": "https://liminl.music"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "liminl.",
+    "url": "https://liminl.music"
+  },
+  "datePublished": "2026-03-29",
+  "url": "https://liminl.music/journal/generic-lyrics/",
+  "image": "https://liminl.music/og-image.jpg",
+  "mainEntityOfPage": "https://liminl.music/journal/generic-lyrics/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://liminl.music" },
+    { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://liminl.music/journal/" },
+    { "@type": "ListItem", "position": 3, "name": "Why Your Lyrics Sound Generic (And How to Fix It)", "item": "https://liminl.music/journal/generic-lyrics/" }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="veil"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="wrap">
+  <nav>
+    <a href="/" class="logo">liminl<span class="logo-dot">.</span></a>
+    <div class="nav-links">
+      <a href="/journal/" class="nav-email nav-active">Journal</a>
+      <a href="mailto:hello&#64;liminl.music" class="nav-icon" aria-label="Email">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="3" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          <path d="M1 4.5L7.5 9L14 4.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+  <div class="post-wrap">
+    <a href="/journal/" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      All posts
+    </a>
+
+    <div class="post-meta">March 2026</div>
+    <h1 class="post-title">Why Your Lyrics Sound Generic (And How to Fix It)</h1>
+
+    <div class="post-body">
+
+      <p>Most lyrics aren&rsquo;t bad.</p>
+      <p>They just don&rsquo;t belong to anyone.</p>
+      <p>They could be yours.<br>Or mine.<br>Or anyone who&rsquo;s ever tried to write a song about feeling something.</p>
+      <p>They say the right things.<br>They sound like songs.</p>
+      <p>But they don&rsquo;t stick.</p>
+      <p>So why do lyrics sound generic &mdash; even when they&rsquo;re technically &ldquo;good&rdquo;?</p>
+
+      <h2>Why your lyrics sound generic</h2>
+
+      <p>It usually comes down to one thing:</p>
+      <p>You&rsquo;re writing feelings without behaviour.</p>
+
+      <p>Lines like:</p>
+      <div class="lines">
+        <span>&ldquo;I miss you&rdquo;</span>
+        <span>&ldquo;I can&rsquo;t let go&rdquo;</span>
+        <span>&ldquo;You meant everything&rdquo;</span>
+      </div>
+
+      <p>These aren&rsquo;t wrong.</p>
+      <p>They&rsquo;re just interchangeable.</p>
+      <p>There&rsquo;s no context.<br>No action.<br>No moment.</p>
+      <p>Nothing that makes the line yours.</p>
+
+      <h2>The real problem: abstraction</h2>
+
+      <p>Generic lyrics live in abstraction.</p>
+      <p>They describe emotional states without showing what those states look like in the real world.</p>
+      <p>It&rsquo;s the difference between:</p>
+
+      <blockquote><p>&ldquo;I&rsquo;m heartbroken&rdquo;</p></blockquote>
+      <p>and</p>
+      <blockquote><p>&ldquo;I sat outside your house for an hour and didn&rsquo;t go in&rdquo;</p></blockquote>
+
+      <p>One tells you the feeling.<br>The other puts you inside it.</p>
+      <p>That&rsquo;s the gap.</p>
+
+      <h2>Why generic lyrics feel empty</h2>
+
+      <p>When there&rsquo;s no action, there&rsquo;s nothing to hold onto.</p>
+      <p>No image.<br>No movement.<br>No memory.</p>
+      <p>The listener understands what you mean &mdash; but they don&rsquo;t experience anything.</p>
+      <p>And if nothing happens, there&rsquo;s nothing to remember.</p>
+      <p>That&rsquo;s why so many songs feel like they blur together.</p>
+
+      <h2>What good lyrics do instead</h2>
+
+      <p>Strong lyrics don&rsquo;t just express emotion.</p>
+      <p>They embed emotion inside a moment.</p>
+      <p>There&rsquo;s something happening:</p>
+
+      <div class="lines">
+        <span>a decision</span>
+        <span>a reaction</span>
+        <span>a line of dialogue</span>
+        <span>a small, specific behaviour</span>
+      </div>
+
+      <p>Something a listener could picture.</p>
+      <p>Something that could be filmed.</p>
+      <p>If your line can&rsquo;t pass that test, it probably won&rsquo;t stand out.</p>
+
+      <h2>Examples: generic vs memorable lyrics</h2>
+
+      <p>Generic:</p>
+      <blockquote><p>&ldquo;I miss you&rdquo;</p></blockquote>
+      <p>Specific:</p>
+      <blockquote><p>&ldquo;I still take the long way home past your street&rdquo;</p></blockquote>
+
+      <p>Generic:</p>
+      <blockquote><p>&ldquo;You don&rsquo;t care anymore&rdquo;</p></blockquote>
+      <p>Specific:</p>
+      <blockquote><p>&ldquo;You read the message and changed the subject&rdquo;</p></blockquote>
+
+      <p>Generic:</p>
+      <blockquote><p>&ldquo;I can&rsquo;t move on&rdquo;</p></blockquote>
+      <p>Specific:</p>
+      <blockquote><p>&ldquo;I deleted your number and memorised it anyway&rdquo;</p></blockquote>
+
+      <p>The emotion hasn&rsquo;t changed.</p>
+      <p>The delivery has.</p>
+      <p>Now there&rsquo;s a moment.<br>Now there&rsquo;s something to remember.</p>
+
+      <h2>The hidden trap: trying to be relatable</h2>
+
+      <p>Most generic lyrics come from trying to be universal.</p>
+      <p>You strip away the details so more people can connect.</p>
+      <p>But the opposite is true.</p>
+      <p>The more specific a lyric is, the more people see themselves in it.</p>
+      <p>Because real experiences aren&rsquo;t abstract.</p>
+      <p>They&rsquo;re messy.<br>Detailed.<br>Personal.</p>
+      <p>That&rsquo;s what makes them feel true.</p>
+
+      <h2>How to fix generic lyrics</h2>
+
+      <p>If you want to stop writing generic lyrics, don&rsquo;t aim for better words.</p>
+      <p>Aim for clearer moments.</p>
+      <p>Start with this:</p>
+
+      <ol>
+        <li><strong>Replace statements with actions.</strong> Instead of saying how someone feels, show what they do.</li>
+        <li><strong>Anchor the line in something real.</strong> A place. A time. An object. A behaviour.</li>
+        <li><strong>Ask: what would a camera see?</strong> If the answer is unclear, the line isn&rsquo;t grounded yet.</li>
+        <li><strong>Look for interaction.</strong> Someone speaking. Avoiding. Reacting. Choosing. That&rsquo;s where emotion becomes visible.</li>
+      </ol>
+
+      <h2>The shift</h2>
+
+      <p>You don&rsquo;t need deeper feelings.</p>
+      <p>You need something to happen.</p>
+      <p>Because the reason your lyrics sound generic isn&rsquo;t that you&rsquo;re not saying enough.</p>
+      <p>It&rsquo;s that nothing in them can be seen.</p>
+      <p>And if a listener can&rsquo;t picture anything, they won&rsquo;t remember anything.</p>
+
+      <p>If you&rsquo;ve got lyrics that feel right but don&rsquo;t quite land &mdash; that&rsquo;s usually <a href="mailto:hello&#64;liminl.music">the gap I help close</a>.</p>
+
+    </div>
+
+    <div class="next-post">
+      <a href="/journal/scene-test/" class="next-post-link">
+        <div class="next-post-label">Next</div>
+        <div class="next-post-title">Why Most Songs Fail the &ldquo;Scene Test&rdquo;</div>
+      </a>
+    </div>
+  </div>
+
+  </main>
+  <section class="article-cta">
+    <p class="article-cta-note">Working on something? Reach out.</p>
+    <a href="mailto:hello&#64;liminl.music?subject=Inquiry%3A%20%5BProject%20Name%5D%20x%20Liminl" class="article-cta-link">hello@<span class="cta-name">liminl</span><span class="cta-dot">.</span>music</a>
+    <div class="article-cta-social">
+      <a href="https://www.instagram.com/liminl.music" target="_blank" rel="noopener">@liminl.music</a>
+    </div>
+  </section>
+  <footer>
+    <p class="footer-text">liminl. &mdash; &copy; 2026</p>
+  </footer>
+</div>
+<script src="/js/bg.js"></script>
+</body>
+</html>
