@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://liminl.music/journal/generic-lyrics/</loc>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://liminl.music/journal/scene-test/</loc>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
