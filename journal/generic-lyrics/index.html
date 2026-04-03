@@ -32,64 +32,7 @@
 <meta name="twitter:creator" content="@liminl.music">
 
 <link rel="stylesheet" href="/shared.css">
-<style>
-.nav-active{color:var(--ink);text-shadow:0 0 12px rgba(157,111,212,0.45);}
-
-/* Post layout */
-.post-wrap{padding:64px 0 80px;}
-.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;transition:color 0.4s;margin-bottom:48px;}
-.back-link:hover{color:var(--purple);}
-.back-link svg{transition:transform 0.3s;}
-.back-link:hover svg{transform:translateX(-3px);}
-.post-meta{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:16px;}
-.post-title{font-style:italic;font-weight:300;font-size:clamp(26px,5vw,42px);letter-spacing:-0.02em;line-height:1.2;color:var(--ink);margin-bottom:48px;text-wrap:balance;}
-
-/* Body text */
-.post-body{font-weight:400;font-size:17px;color:var(--ink-med);line-height:1.85;max-width:580px;}
-.post-body p{margin-bottom:20px;text-wrap:pretty;}
-.post-body p:last-child{margin-bottom:0;}
-.post-body em{font-style:italic;color:var(--ink);}
-.post-body strong{font-weight:400;color:var(--ink-hi);}
-.post-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
-.post-body a:hover{border-bottom-color:var(--purple);}
-
-/* Section headings */
-.post-body h2{font-style:italic;font-weight:300;font-size:clamp(21px,3.5vw,26px);letter-spacing:-0.02em;line-height:1.3;color:var(--ink);margin:52px 0 20px;}
-.post-body h2:first-child{margin-top:0;}
-
-/* Blockquote */
-.post-body blockquote{border-left:1px solid rgba(157,111,212,0.35);margin:28px 0;padding:4px 0 4px 24px;color:var(--ink-med);font-style:italic;}
-.post-body blockquote p{margin-bottom:0;}
-
-/* Lists */
-.post-body ul,.post-body ol{padding-left:0;list-style:none;margin-bottom:20px;display:grid;gap:10px;}
-.post-body ul li,.post-body ol li{font-size:17px;color:var(--ink-med);font-weight:400;padding-left:20px;position:relative;line-height:1.75;}
-.post-body ul li::before{content:'—';position:absolute;left:0;color:var(--ink-dim);}
-.post-body ol{counter-reset:ol;}
-.post-body ol li{counter-increment:ol;}
-.post-body ol li::before{content:counter(ol) '.';position:absolute;left:0;color:var(--ink-dim);font-size:14px;top:2px;}
-
-/* Stacked short lines (poem-style) */
-.post-body .lines{display:grid;gap:4px;margin-bottom:20px;}
-.post-body .lines span{display:block;font-style:italic;color:var(--ink-med);font-size:17px;font-weight:300;}
-
-.next-post{margin-top:64px;border-top:1px solid var(--rule);padding-top:32px;}
-.next-post-link{display:block;text-decoration:none;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
-.next-post-link:hover{transform:translateX(6px);}
-.next-post-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:10px;}
-.next-post-title{font-style:italic;font-weight:300;font-size:clamp(18px,3vw,24px);line-height:1.2;letter-spacing:-0.01em;color:var(--ink);transition:color 0.5s,text-shadow 0.5s;}
-.next-post-link:hover .next-post-title{color:var(--purple);text-shadow:0 0 30px rgba(157,111,212,0.4);}
-@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}}
-.article-cta{border-top:1px solid rgba(216,226,240,0.07);padding:56px 0 48px;text-align:center;}
-.article-cta-note{font-size:11px;color:var(--ink-low);letter-spacing:0.12em;margin-bottom:20px;}
-.article-cta-link{font-style:italic;font-weight:300;font-size:clamp(20px,3.5vw,28px);color:rgba(216,226,240,0.55);text-decoration:none;letter-spacing:-0.01em;display:inline-block;transition:color 0.6s;}
-.article-cta-link:hover{color:var(--ink);}
-.article-cta-link .cta-name{color:var(--ink);letter-spacing:0.22em;}
-.article-cta-link .cta-dot{color:#9d6fd4;text-shadow:0 0 10px rgba(157,111,212,0.7);}
-.article-cta-social{margin-top:16px;}
-.article-cta-social a{font-size:11px;letter-spacing:0.12em;color:var(--ink-low);text-decoration:none;transition:color 0.3s;}
-.article-cta-social a:hover{color:#9d6fd4;}
-</style>
+<link rel="stylesheet" href="/journal/journal.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

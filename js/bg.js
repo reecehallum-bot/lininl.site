@@ -9,16 +9,16 @@ document.addEventListener('visibilitychange', () => { PERF.active = !document.hi
 function frameLimiter(fps){ return 1000 / fps; }
 
 // ── NEBULA / SPACE DUST ──
-const nbCanvas=document.createElement('canvas');
-nbCanvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;';
-document.body.appendChild(nbCanvas);
-const nbCtx=nbCanvas.getContext('2d');
+const nebulaCanvas=document.createElement('canvas');
+nebulaCanvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+document.body.appendChild(nebulaCanvas);
+const nebulaCtx=nebulaCanvas.getContext('2d');
 function buildNebula(){
   const W=window.innerWidth,H=window.innerHeight;
   const dpr=Math.min(window.devicePixelRatio||1, PERF.staticDpr);
-  nbCanvas.width=Math.round(W*dpr);nbCanvas.height=Math.round(H*dpr);
-  nbCtx.setTransform(dpr,0,0,dpr,0,0);
-  nbCtx.clearRect(0,0,W,H);
+  nebulaCanvas.width=Math.round(W*dpr);nebulaCanvas.height=Math.round(H*dpr);
+  nebulaCtx.setTransform(dpr,0,0,dpr,0,0);
+  nebulaCtx.clearRect(0,0,W,H);
   const bands=[
     {cx:0.3,cy:0.25,rx:0.5,ry:0.25,density:1.0,hue:260},
     {cx:0.7,cy:0.55,rx:0.45,ry:0.3,density:0.8,hue:240},
@@ -36,25 +36,27 @@ function buildNebula(){
     const size=Math.random()*1.1;
     const alpha=(0.04+Math.random()*0.18)*band.density;
     const hue=band.hue+(Math.random()-0.5)*30;
-    nbCtx.beginPath();nbCtx.arc(px,py,size,0,Math.PI*2);
-    nbCtx.fillStyle=`hsla(${hue},${25+Math.random()*30}%,${60+Math.random()*30}%,${alpha})`;
-    nbCtx.fill();
+    nebulaCtx.beginPath();nebulaCtx.arc(px,py,size,0,Math.PI*2);
+    nebulaCtx.fillStyle=`hsla(${hue},${25+Math.random()*30}%,${60+Math.random()*30}%,${alpha})`;
+    nebulaCtx.fill();
   }
 }
 buildNebula();
 window.addEventListener('resize',buildNebula);
 
 // ── STARFIELD ──
-const sfCanvas = document.createElement('canvas');
-sfCanvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;';
-document.body.appendChild(sfCanvas);
-const sfCtx = sfCanvas.getContext('2d');
+const HERO_TIER_MIN=0.992,BRIGHT_TIER_MIN=0.965,STANDARD_TIER_MIN=0.84;
+const FLASH_MIN_INTERVAL=180,FLASH_MAX_INTERVAL=300,FLASH_RISE_DURATION=80;
+const starfieldCanvas = document.createElement('canvas');
+starfieldCanvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+document.body.appendChild(starfieldCanvas);
+const starfieldCtx = starfieldCanvas.getContext('2d');
 let sfScale=1;
 function resizeSF(){
   const W=window.innerWidth,H=window.innerHeight;
   sfScale=Math.min(window.devicePixelRatio||1, PERF.maxDpr);
-  sfCanvas.width=Math.round(W*sfScale);sfCanvas.height=Math.round(H*sfScale);
-  sfCtx.setTransform(sfScale,0,0,sfScale,0,0);
+  starfieldCanvas.width=Math.round(W*sfScale);starfieldCanvas.height=Math.round(H*sfScale);
+  starfieldCtx.setTransform(sfScale,0,0,sfScale,0,0);
 }
 resizeSF();
 window.addEventListener('resize',resizeSF);
@@ -63,10 +65,10 @@ const CLUSTER_COUNT = Math.max(5, Math.round((window.innerWidth * window.innerHe
 let starClusters = [];
 function rebuildStarClusters(){
   starClusters = Array.from({length:CLUSTER_COUNT},()=>({
-    x: Math.random()*sfCanvas.width,
-    y: Math.random()*sfCanvas.height,
+    x: Math.random()*starfieldCanvas.width,
+    y: Math.random()*starfieldCanvas.height,
     strength: 0.75 + Math.random()*0.55,
-    radius: Math.min(sfCanvas.width,sfCanvas.height)*(0.12 + Math.random()*0.12)
+    radius: Math.min(starfieldCanvas.width,starfieldCanvas.height)*(0.12 + Math.random()*0.12)
   }));
 }
 rebuildStarClusters();
@@ -78,7 +80,7 @@ window.addEventListener('scroll',()=>{
   sfLastScrollY=window.scrollY;
 },{passive:true});
 let vpY=0;
-function spawnPoint(W=sfCanvas.width,H=sfCanvas.height){
+function spawnPoint(W=starfieldCanvas.width,H=starfieldCanvas.height){
   const zoneRoll=Math.random();
   let x=(Math.random()-0.5)*W*2;
   let y=(Math.random()-0.5)*H*2;
@@ -115,11 +117,11 @@ function makeStar(){
 
   const classRoll=Math.random();
   let tier='dust',sizeMul=0.62,glowMul=0.0,diffraction=0.0,baseAlpha=0.66,maxRadius=0.9;
-  if(classRoll>0.992){
+  if(classRoll>HERO_TIER_MIN){
     tier='hero';sizeMul=1.15;glowMul=window.innerWidth<520?1.45:1.62;diffraction=1.0;baseAlpha=window.innerWidth<520?0.92:0.98;maxRadius=window.innerWidth<520?2.0:2.35;
-  }else if(classRoll>0.965){
+  }else if(classRoll>BRIGHT_TIER_MIN){
     tier='bright';sizeMul=0.95;glowMul=window.innerWidth<520?0.82:1.16;diffraction=window.innerWidth<520?0.68:0.8;baseAlpha=window.innerWidth<520?0.82:0.92;maxRadius=window.innerWidth<520?1.72:1.95;
-  }else if(classRoll>0.84){
+  }else if(classRoll>STANDARD_TIER_MIN){
     tier='standard';sizeMul=0.78;glowMul=window.innerWidth<520?0.3:0.4;diffraction=0.18;baseAlpha=window.innerWidth<520?0.68:0.8;maxRadius=window.innerWidth<520?1.18:1.35;
   }
 
@@ -162,16 +164,17 @@ let sfLastFrame=0;
   const cx=W/2,cy=H/2+vpY;
   const scrollProgress=Math.min(1,window.scrollY/Math.max(window.innerHeight,1));
   const heroRect=heroCopy?heroCopy.getBoundingClientRect():null;
-  sfCtx.clearRect(0,0,W,H);
+  starfieldCtx.clearRect(0,0,W,H);
   flashTimer--;
   if(flashTimer<=0){
     const flashable=stars.filter(s=>s.tier!=='dust');
-    flashTimer=180+Math.floor(Math.random()*300);
+    flashTimer=FLASH_MIN_INTERVAL+Math.floor(Math.random()*FLASH_MAX_INTERVAL);
     flashStar=flashable[Math.floor(Math.random()*flashable.length)]||stars[Math.floor(Math.random()*stars.length)];
     if(flashStar)flashStar.flash=0;
   }
-  if(flashStar&&flashTimer>0&&flashTimer<=80)flashStar.flash=Math.min(1,(80-flashTimer)/80);
-  if(flashStar&&flashTimer>80&&flashStar.flash>0)flashStar.flash=Math.max(0,flashStar.flash-0.008);
+  // Flash rises over FLASH_RISE_DURATION frames, then decays
+  if(flashStar&&flashTimer>0&&flashTimer<=FLASH_RISE_DURATION)flashStar.flash=Math.min(1,(FLASH_RISE_DURATION-flashTimer)/FLASH_RISE_DURATION);
+  if(flashStar&&flashTimer>FLASH_RISE_DURATION&&flashStar.flash>0)flashStar.flash=Math.max(0,flashStar.flash-0.008);
   stars.forEach(s=>{
     s.z-=speed;
     s.angle+=s.rotSpeed;
@@ -193,9 +196,11 @@ let sfLastFrame=0;
       return;
     }
     const r=Math.max(0.14,scale*0.48*s.sizeMul);
+    // tFar: fades in as star approaches (z→0), tNear: fades out if too close (z<80)
     const tFar=1-s.z/DEPTH,tNear=Math.min(1,s.z/80);
     let alpha=Math.min(tFar*1.35,1)*tNear*s.baseAlpha;
     if(alpha<=0)return;
+    // Dim stars inside the hero text block so they don't obscure copy
     if(heroRect){
       const padX=56,padY=40;
       const insideX=sx>heroRect.left-padX && sx<heroRect.right+padX;
@@ -210,6 +215,7 @@ let sfLastFrame=0;
       }
     }
     const pulse=0.96+0.04*Math.sin(now*s.pulseSpeed+s.pulsePhase);
+    // Twinkle: slow shimmer that varies by depth (z) and horizontal position (x)
     const twinkle=0.93+0.07*Math.sin(now*0.0009*(1+s.z*0.0016)+s.x*0.01+s.pulsePhase);
     const scrollLift=1+scrollProgress*0.08;
     const desktopBoost = window.innerWidth > 768 ? 1.24 : window.innerWidth > 520 ? 1.12 : 1.0;
@@ -217,49 +223,50 @@ let sfLastFrame=0;
     const finalAlpha=Math.min(1,alpha*pulse*twinkle*scrollLift*desktopBoost*tierBoost+s.flash*0.72);
     const flashBoost=s.flash*(s.tier==='hero'?1.2:s.tier==='bright'?0.8:0.45);
     const finalRadius=Math.min(r+flashBoost,s.maxRadius);
-    sfCtx.beginPath();sfCtx.arc(sx,sy,finalRadius,0,Math.PI*2);
-    sfCtx.fillStyle=`rgba(${s.col[0]},${s.col[1]},${s.col[2]},${finalAlpha})`;sfCtx.fill();
+    starfieldCtx.beginPath();starfieldCtx.arc(sx,sy,finalRadius,0,Math.PI*2);
+    starfieldCtx.fillStyle=`rgba(${s.col[0]},${s.col[1]},${s.col[2]},${finalAlpha})`;starfieldCtx.fill();
     // Diffraction spikes
     if((s.diffraction>0.12&&finalRadius>0.58)||s.flash>0){
       const spikeLen=finalRadius*(3.1+s.diffraction*2.3+s.flash*2.5)*(0.7+tFar*0.22);
       const spikeAlpha=finalAlpha*(0.08+s.diffraction*0.12)+(s.flash*0.16);
       [s.angle,s.angle+Math.PI*0.5].forEach(a=>{
         const dx=Math.cos(a),dy=Math.sin(a);
-        const gr=sfCtx.createLinearGradient(sx-dx*spikeLen,sy-dy*spikeLen,sx+dx*spikeLen,sy+dy*spikeLen);
+        const gr=starfieldCtx.createLinearGradient(sx-dx*spikeLen,sy-dy*spikeLen,sx+dx*spikeLen,sy+dy*spikeLen);
         gr.addColorStop(0,`rgba(${s.col[0]},${s.col[1]},${s.col[2]},0)`);
         gr.addColorStop(0.5,`rgba(${s.col[0]},${s.col[1]},${s.col[2]},${spikeAlpha})`);
         gr.addColorStop(1,`rgba(${s.col[0]},${s.col[1]},${s.col[2]},0)`);
-        sfCtx.beginPath();sfCtx.moveTo(sx-dx*spikeLen,sy-dy*spikeLen);sfCtx.lineTo(sx+dx*spikeLen,sy+dy*spikeLen);
-        sfCtx.strokeStyle=gr;sfCtx.lineWidth=0.45;sfCtx.stroke();
+        starfieldCtx.beginPath();starfieldCtx.moveTo(sx-dx*spikeLen,sy-dy*spikeLen);starfieldCtx.lineTo(sx+dx*spikeLen,sy+dy*spikeLen);
+        starfieldCtx.strokeStyle=gr;starfieldCtx.lineWidth=0.45;starfieldCtx.stroke();
       });
     }
     if((s.glowMul>0&&finalRadius>0.68)||s.flash>0){
       const glowBoost = window.innerWidth > 768 ? 1.14 : 1;
       const glowR=finalRadius*(1.36+s.glowMul*1.18+s.flash*1.52)*glowBoost;
-      const grd=sfCtx.createRadialGradient(sx,sy,0,sx,sy,glowR);
+      const grd=starfieldCtx.createRadialGradient(sx,sy,0,sx,sy,glowR);
       grd.addColorStop(0,`rgba(${s.col[0]},${s.col[1]},${s.col[2]},${finalAlpha*(0.095+s.glowMul*0.078)+s.flash*0.12})`);
       grd.addColorStop(0.45,`rgba(${s.col[0]},${s.col[1]},${s.col[2]},${finalAlpha*(0.026+s.glowMul*0.03)})`);
       grd.addColorStop(1,'rgba(255,255,255,0)');
-      sfCtx.beginPath();sfCtx.arc(sx,sy,glowR,0,Math.PI*2);sfCtx.fillStyle=grd;sfCtx.fill();
+      starfieldCtx.beginPath();starfieldCtx.arc(sx,sy,glowR,0,Math.PI*2);starfieldCtx.fillStyle=grd;starfieldCtx.fill();
     }
   });
   requestAnimationFrame(renderSF);
 })(performance.now());
 
 // ── SHOOTING STARS ──
-const ssCanvas=document.createElement('canvas');
-ssCanvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;';
-document.body.appendChild(ssCanvas);
+const FIRST_SHOOTING_STAR_DELAY=2000,SHOOTING_STAR_INTERVAL=20000;
+const shootingStarsCanvas=document.createElement('canvas');
+shootingStarsCanvas.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;';
+document.body.appendChild(shootingStarsCanvas);
 let ssScale=1;
 function resizeSS(){
   const W=window.innerWidth,H=window.innerHeight;
   ssScale=Math.min(window.devicePixelRatio||1, PERF.staticDpr);
-  ssCanvas.width=Math.round(W*ssScale);ssCanvas.height=Math.round(H*ssScale);
+  shootingStarsCanvas.width=Math.round(W*ssScale);shootingStarsCanvas.height=Math.round(H*ssScale);
 }
 
 resizeSS();window.addEventListener('resize',resizeSS);
-const ssCtx=ssCanvas.getContext('2d'),sStars=[];
-ssCtx.setTransform(ssScale,0,0,ssScale,0,0);
+const shootingStarsCtx=shootingStarsCanvas.getContext('2d'),sStars=[];
+shootingStarsCtx.setTransform(ssScale,0,0,ssScale,0,0);
 const alienState={x:-100,y:-100,baseY:-100,vx:0,vy:0,active:false,frame:0,type:0,colorIdx:0,startX:-100,alpha:1,spriteW:0,spriteH:0};
 function spawnStar(){
   const W=window.innerWidth,H=window.innerHeight;
@@ -273,8 +280,8 @@ let ssLastFrame=0;
   ssLastFrame = now;
   const W=window.innerWidth,H=window.innerHeight;
   if(!PERF.active){ requestAnimationFrame(renderSS); return; }
-  ssCtx.setTransform(ssScale,0,0,ssScale,0,0);
-  ssCtx.clearRect(0,0,W,H);
+  shootingStarsCtx.setTransform(ssScale,0,0,ssScale,0,0);
+  shootingStarsCtx.clearRect(0,0,W,H);
   for(let i=sStars.length-1;i>=0;i--){
     const s=sStars[i];const t=Math.min((now-s.born)/s.dur,1);
     if(t>=1){sStars.splice(i,1);continue;}
@@ -282,11 +289,11 @@ let ssLastFrame=0;
     const d=Math.hypot(s.x2-s.x1,s.y2-s.y1),tl=Math.min(t*d,48);
     const tx=hx-((s.x2-s.x1)/d)*tl,ty=hy-((s.y2-s.y1)/d)*tl;
     const alpha=t<0.14?t/0.14:1-(t-0.14)/0.86;
-    const gr=ssCtx.createLinearGradient(tx,ty,hx,hy);
+    const gr=shootingStarsCtx.createLinearGradient(tx,ty,hx,hy);
     gr.addColorStop(0,'rgba(255,255,255,0)');
     gr.addColorStop(1,`rgba(255,255,255,${alpha*0.88})`);
-    ssCtx.beginPath();ssCtx.moveTo(tx,ty);ssCtx.lineTo(hx,hy);
-    ssCtx.strokeStyle=gr;ssCtx.lineWidth=1;ssCtx.stroke();
+    shootingStarsCtx.beginPath();shootingStarsCtx.moveTo(tx,ty);shootingStarsCtx.lineTo(hx,hy);
+    shootingStarsCtx.strokeStyle=gr;shootingStarsCtx.lineWidth=1;shootingStarsCtx.stroke();
   }
   if(alienState.active){
     alienState.x+=alienState.vx;
@@ -299,20 +306,21 @@ let ssLastFrame=0;
     const progress=Math.min(Math.abs(alienState.x-alienState.startX)/travelW,1);
     const fz=0.08;
     alienState.alpha=progress<fz?progress/fz:progress>1-fz?(1-progress)/fz:1;
-    ssCtx.save();ssCtx.globalAlpha=alienState.alpha;
+    shootingStarsCtx.save();shootingStarsCtx.globalAlpha=alienState.alpha;
     drawAlien(ssCtx,alienState.x,drawY,alienState.frame);
-    ssCtx.restore();
+    shootingStarsCtx.restore();
     const hw=alienState.spriteW/2+10;
     if(alienState.x<-hw||alienState.x>W+hw)alienState.active=false;
   }
   requestAnimationFrame(renderSS);
 })(performance.now());
 
-setTimeout(spawnStar,2000);
-setInterval(()=>{spawnStar();},20000);
+setTimeout(spawnStar,FIRST_SHOOTING_STAR_DELAY);
+setInterval(()=>{spawnStar();},SHOOTING_STAR_INTERVAL);
 
 
 // ── ALIEN ──
+const FIRST_ALIEN_DELAY=8000,ALIEN_RESPAWN_MIN=11000,ALIEN_RESPAWN_RANGE=8000;
 const INVADERS=[
   // Type 0 — Squid (classic top-row arcade alien)
   {px:2,bob:{amp:9,freq:0.048},frames:[
@@ -381,8 +389,8 @@ function drawAlien(ctx,x,y,frame){
   ctx.restore();
 }
 
-// Alien spawn: initial 8s delay, then irregular 11–19s intervals
+// Alien spawn: initial delay, then irregular intervals
 function scheduleNext(){
-  setTimeout(()=>{if(!alienState.active)spawnAlien();scheduleNext();},11000+Math.random()*8000);
+  setTimeout(()=>{if(!alienState.active)spawnAlien();scheduleNext();},ALIEN_RESPAWN_MIN+Math.random()*ALIEN_RESPAWN_RANGE);
 }
-setTimeout(()=>{spawnAlien();scheduleNext();},8000);
+setTimeout(()=>{spawnAlien();scheduleNext();},FIRST_ALIEN_DELAY);
