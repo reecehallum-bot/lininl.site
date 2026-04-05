@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""
+update-preview.py — liminl.site
+
+Reads the two most recent articles from journal/index.html and updates
+the "From the Journal" preview section on the home page (index.html).
+
+Run from the site root after adding a new article to journal/index.html:
+    python3 update-preview.py
+"""
+
+import re
+import sys
+from pathlib import Path
+from html.parser import HTMLParser
+
+
+class PostListParser(HTMLParser):
+    """Extract ordered post items from the journal index post-list."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.posts = []
+        self._in_list = False
+        self._current = None
+        self._capture = None  # 'title' | 'excerpt'
+
+    def handle_starttag(self, tag, attrs):
+        classes = dict(attrs).get('class', '').split()
+
+        if 'post-list' in classes:
+            self._in_list = True
+
+        if not self._in_list:
+            return
+
+        if 'post-link' in classes:
+            self._current = {'href': dict(attrs).get('href', ''), 'title': '', 'excerpt': ''}
+
+        if self._current is not None:
+            if 'post-item-title' in classes:
+                self._capture = 'title'
+            elif 'post-excerpt' in classes:
+                self._capture = 'excerpt'
+
+    def handle_endtag(self, tag):
+        if not self._in_list:
+            return
+        if tag == 'div' and self._capture:
+            self._capture = None
+        if tag == 'a' and self._current and self._current['title']:
+            self.posts.append(self._current)
+            self._current = None
+
+    def handle_data(self, data):
+        if self._capture and self._current is not None:
+            self._current[self._capture] += data
+
+    def handle_entityref(self, name):
+        # Preserve named HTML entities (e.g. &rsquo; &mdash;) as-is
+        if self._capture and self._current is not None:
+            self._current[self._capture] += f'&{name};'
+
+    def handle_charref(self, name):
+        # Preserve numeric HTML entities (e.g. &#8212;) as-is
+        if self._capture and self._current is not None:
+            self._current[self._capture] += f'&#{name};'
+
+
+def build_preview_items(posts):
+    items = []
+    for post in posts[:2]:
+        href = post['href']
+        title = post['title'].strip()
+        excerpt = post['excerpt'].strip()
+        items.append(
+            f'      <div class="journal-preview-item">\n'
+            f'        <a href="{href}" class="journal-preview-link">\n'
+            f'          <div class="journal-preview-title">{title}</div>\n'
+            f'          <p class="journal-preview-excerpt">{excerpt}</p>\n'
+            f'          <span class="journal-preview-read">Read \u2192</span>\n'
+            f'        </a>\n'
+            f'      </div>'
+        )
+    return '\n'.join(items)
+
+
+def update_home(home_path, new_items_html):
+    content = home_path.read_text(encoding='utf-8')
+
+    # Match the journal-preview-list div and replace its contents.
+    # The closing </div> is uniquely identified by the <a href="/journal/"> that follows.
+    pattern = re.compile(
+        r'(<div class="journal-preview-list">).*?(</div>\s*\n\s*<a href="/journal/")',
+        re.DOTALL,
+    )
+
+    def replacement(m):
+        return f'{m.group(1)}\n{new_items_html}\n    {m.group(2)}'
+
+    new_content, count = re.subn(pattern, replacement, content, count=1)
+
+    if count == 0:
+        sys.exit('ERROR: Could not locate journal-preview-list in index.html — has the markup changed?')
+
+    home_path.write_text(new_content, encoding='utf-8')
+
+
+def main():
+    root = Path(__file__).parent
+    journal_index = root / 'journal' / 'index.html'
+    home_index = root / 'index.html'
+
+    for path in (journal_index, home_index):
+        if not path.exists():
+            sys.exit(f'ERROR: {path} not found')
+
+    parser = PostListParser()
+    parser.feed(journal_index.read_text(encoding='utf-8'))
+
+    if not parser.posts:
+        sys.exit('ERROR: No posts found in journal/index.html post-list')
+
+    top2 = parser.posts[:2]
+    print('Latest articles:')
+    for i, post in enumerate(top2, 1):
+        print(f'  {i}. {post["title"].strip()} ({post["href"]})')
+
+    update_home(home_index, build_preview_items(top2))
+    print('✓ index.html updated')
+
+
+if __name__ == '__main__':
+    main()
