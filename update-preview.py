@@ -158,7 +158,7 @@ def update_sitemap(sitemap_path, posts, root):
     )
 
     def replacement(m):
-        return f'{m.group(1)}\n{new_articles}\n{m.group(3)}'
+        return f'{m.group(1)}\n{new_articles}\n\n  {m.group(3).lstrip()}'
 
     new_content, count = re.subn(pattern, replacement, content, count=1)
 
