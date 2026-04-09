@@ -149,11 +149,11 @@ def update_sitemap(sitemap_path, posts, root):
     new_articles = build_sitemap_articles(posts, root)
 
     # Replace everything between the end of the /journal/ entry
-    # and the start of the /links/ entry with freshly generated article blocks.
+    # and </urlset> with freshly generated article blocks.
     pattern = re.compile(
         r'(  <url>\s*\n\s*<loc>https://liminl\.music/journal/</loc>.*?</url>)\s*\n'
         r'(.*?)'
-        r'(\s*<url>\s*\n\s*<loc>https://liminl\.music/links/)',
+        r'(\s*</urlset>)',
         re.DOTALL,
     )
 
