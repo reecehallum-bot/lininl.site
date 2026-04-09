@@ -307,7 +307,7 @@ let ssLastFrame=0;
     const fz=0.08;
     alienState.alpha=progress<fz?progress/fz:progress>1-fz?(1-progress)/fz:1;
     shootingStarsCtx.save();shootingStarsCtx.globalAlpha=alienState.alpha;
-    drawAlien(ssCtx,alienState.x,drawY,alienState.frame);
+    drawAlien(shootingStarsCtx,alienState.x,drawY,alienState.frame);
     shootingStarsCtx.restore();
     const hw=alienState.spriteW/2+10;
     if(alienState.x<-hw||alienState.x>W+hw)alienState.active=false;
