@@ -357,8 +357,9 @@ function spawnAlien(){
   const heroEl=document.querySelector('.hero');
   const heroBottom=heroEl?heroEl.offsetTop+heroEl.offsetHeight:H*0.9;
   const heroViewY=heroBottom-window.scrollY;
-  const minY=Math.max(heroViewY+20,sH);
-  const maxY=H-sH-20;
+  let minY=Math.max(heroViewY+20,sH);
+  let maxY=H-sH-20;
+  if(maxY-minY<sH){minY=sH+20;maxY=H-sH-20;}
   if(maxY-minY<sH)return;
   const crossSec=9+Math.random()*5;
   const spd=W/(crossSec*PERF.auxFPS);
