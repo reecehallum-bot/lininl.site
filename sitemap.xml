@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://liminl.music/journal/verse/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://liminl.music/journal/co-writing/</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>never</changefreq>
@@ -48,4 +54,5 @@
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
+
 </urlset>
