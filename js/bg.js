@@ -320,7 +320,7 @@ setInterval(()=>{spawnStar();},SHOOTING_STAR_INTERVAL);
 
 
 // ── ALIEN ──
-const FIRST_ALIEN_DELAY=8000,ALIEN_RESPAWN_MIN=11000,ALIEN_RESPAWN_RANGE=8000;
+const FIRST_ALIEN_DELAY=3000,ALIEN_RESPAWN_MIN=11000,ALIEN_RESPAWN_RANGE=8000;
 const INVADERS=[
   // Type 0 — Squid (classic top-row arcade alien)
   {px:2,bob:{amp:9,freq:0.048},frames:[
