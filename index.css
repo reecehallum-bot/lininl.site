@@ -150,3 +150,5 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));}
 .journal-preview-item:hover .journal-preview-read{color:var(--purple);opacity:1;}
 .journal-preview-all{display:inline-block;margin-top:28px;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:4px;transition:color 0.4s,border-color 0.4s;}
 .journal-preview-all:hover{color:var(--purple);border-bottom-color:var(--purple);}
+.faq-email-link{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.35);transition:border-color 0.3s;}
+.faq-email-link:hover{border-bottom-color:rgba(157,111,212,0.8);}
