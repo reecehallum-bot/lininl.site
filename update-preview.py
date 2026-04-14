@@ -7,11 +7,13 @@ Run from the site root after adding a new article to journal/index.html:
 
 Updates:
   - index.html          "From the Journal" preview (top 2 articles)
+  - links/index.html    Journal section (top 2 articles)
   - sitemap.xml         article entries with <lastmod> dates (all articles)
 """
 
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 from html.parser import HTMLParser
 
@@ -112,6 +114,74 @@ def update_home(home_path, new_items_html):
 
 
 # ---------------------------------------------------------------------------
+# Links page
+# ---------------------------------------------------------------------------
+
+LINK_ARROW_SVG = (
+    '<svg class="link-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" '
+    'xmlns="http://www.w3.org/2000/svg" style="margin-top:2px;flex-shrink:0;">\n'
+    '        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" '
+    'stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>\n'
+    '      </svg>'
+)
+
+
+def iso_to_display_date(iso_date):
+    """Convert '2026-04-14' to 'April 2026'."""
+    try:
+        dt = datetime.strptime(iso_date, '%Y-%m-%d')
+        return dt.strftime('%B %Y')
+    except (ValueError, TypeError):
+        return ''
+
+
+def build_links_items(posts, root):
+    items = []
+    for post in posts[:2]:
+        href = post['href']
+        title = post['title'].strip()
+        excerpt = post['excerpt'].strip()
+        slug_path = href.strip('/')
+        article_file = root / slug_path / 'index.html'
+        iso_date = extract_published_date(article_file)
+        display_date = iso_to_display_date(iso_date) if iso_date else ''
+        date_line = f'\n        <div class="post-date">{display_date}</div>' if display_date else ''
+        items.append(
+            f'    <a href="{href}" class="post-card">\n'
+            f'      <div class="post-body">{date_line}\n'
+            f'        <div class="post-title">{title}</div>\n'
+            f'        <div class="post-excerpt">{excerpt}</div>\n'
+            f'      </div>\n'
+            f'      {LINK_ARROW_SVG}\n'
+            f'    </a>'
+        )
+    return '\n\n'.join(items)
+
+
+def update_links(links_path, posts, root):
+    content = links_path.read_text(encoding='utf-8')
+
+    new_items_html = build_links_items(posts, root)
+
+    pattern = re.compile(
+        r'(<div class="section-label">Journal</div>\s*\n\s*<div class="link-list">)'
+        r'.*?'
+        r'(</div>\s*\n\s*<div class="section-label">Connect)',
+        re.DOTALL,
+    )
+
+    def replacement(m):
+        return f'{m.group(1)}\n{new_items_html}\n  {m.group(2)}'
+
+    new_content, count = re.subn(pattern, replacement, content, count=1)
+
+    if count == 0:
+        sys.exit('ERROR: Could not locate Journal link-list in links/index.html — has the markup changed?')
+
+    links_path.write_text(new_content, encoding='utf-8')
+
+
+# ---------------------------------------------------------------------------
 # Sitemap
 # ---------------------------------------------------------------------------
 
@@ -176,9 +246,10 @@ def main():
     root = Path(__file__).parent
     journal_index = root / 'journal' / 'index.html'
     home_index = root / 'index.html'
+    links_index = root / 'links' / 'index.html'
     sitemap = root / 'sitemap.xml'
 
-    for path in (journal_index, home_index, sitemap):
+    for path in (journal_index, home_index, links_index, sitemap):
         if not path.exists():
             sys.exit(f'ERROR: {path} not found')
 
@@ -195,6 +266,13 @@ def main():
         print(f'  {i}. {post["title"].strip()} ({post["href"]})')
     update_home(home_index, build_preview_items(top2))
     print('✓ index.html updated')
+
+    # Links page (top 2)
+    print('\nLinks page → top 2 articles:')
+    for i, post in enumerate(top2, 1):
+        print(f'  {i}. {post["title"].strip()} ({post["href"]})')
+    update_links(links_index, top2, root)
+    print('✓ links/index.html updated')
 
     # Sitemap (all articles)
     print(f'\nSitemap → {len(parser.posts)} articles:')
