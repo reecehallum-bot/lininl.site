@@ -71,6 +71,25 @@
 .faq-toggle.open .faq-q{color:var(--purple);}
 .faq-body{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.16,1,0.3,1);}
 .faq-body p{font-size:15px;color:var(--ink-med);line-height:1.75;padding:0 0 20px;font-weight:300;}
+
+/* TOC */
+.toc-box{border:1px solid var(--rule-mid);border-left:3px solid rgba(157,111,212,0.45);margin:0 0 56px;border-radius:2px;background:rgba(157,111,212,0.03);}
+.toc-toggle{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;cursor:pointer;list-style:none;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-low);gap:12px;user-select:none;}
+.toc-toggle::-webkit-details-marker{display:none;}
+.toc-toggle::marker{display:none;}
+details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
+.toc-count{color:var(--ink-dim);font-size:10px;}
+.toc-nav{padding:16px 22px 20px;}
+.toc-list{list-style:none;padding:0;margin:0;display:grid;gap:2px;}
+.toc-list>li{padding:3px 0;}
+.toc-list>li>a{font-size:13px;color:var(--ink-med);text-decoration:none;border:none;transition:color 0.2s;}
+.toc-list>li>a:hover{color:var(--purple);}
+.toc-list ul{list-style:none;padding:0 0 4px 14px;margin:2px 0 0;display:grid;gap:1px;border-left:1px solid var(--rule);}
+.toc-list ul li a{font-size:12px;color:var(--ink-low);text-decoration:none;border:none;display:block;padding:2px 0 2px 10px;transition:color 0.2s;}
+.toc-list ul li a:hover{color:var(--purple);}
+
+/* Stat highlight */
+.stat{color:var(--purple);font-weight:400;}
 </style>
 
 <script type="application/ld+json">
@@ -95,7 +114,7 @@
   "mainEntityOfPage": "https://liminl.music/journal/music-marketing/",
   "keywords": ["music marketing for indie artists", "indie artist marketing strategy", "how to promote your music", "Spotify for Artists", "playlist pitching", "music distribution", "sync licensing for musicians", "building a fanbase", "email list for musicians", "TikTok music marketing", "independent artist promotion", "pre-save campaign", "music PR", "live music marketing"],
   "articleSection": "Music Industry",
-  "wordCount": 4500
+  "wordCount": 7150
 }
 </script>
 <script type="application/ld+json">
@@ -209,7 +228,7 @@
       All posts
     </a>
 
-    <div class="post-meta">April 2026</div>
+    <div class="post-meta">April 2026 &nbsp;&middot;&nbsp; ~35 min read</div>
     <h1 class="post-title">Music marketing for indie artists</h1>
 
     <div class="post-body">
@@ -218,25 +237,71 @@
 
       <p>This guide assumes your music is worth finding. If you&rsquo;re not sure it is, <a href="/journal/generic-lyrics/">start here</a>. For everyone else: what follows is a complete picture of how independent artists actually build audiences in 2026 &mdash; from setting up your infrastructure to understanding why your email list matters more than your follower count. Work through it in order the first time, then return to whichever sections apply to where you are.</p>
 
+      <details class="toc-box">
+        <summary class="toc-toggle">In this guide <span class="toc-count">12 sections &mdash; 6 parts</span></summary>
+        <nav class="toc-nav">
+          <ol class="toc-list">
+            <li><a href="#part-foundations">Part I &mdash; Foundations</a>
+              <ul>
+                <li><a href="#brand-identity">Start with the artist, not the algorithm</a></li>
+                <li><a href="#distribution">Your music online &mdash; distribution and DSP presence</a></li>
+              </ul>
+            </li>
+            <li><a href="#part-discovery">Part II &mdash; Playlists and Discovery</a>
+              <ul>
+                <li><a href="#playlist-pitching">The playlist pitching playbook</a></li>
+                <li><a href="#other-platforms">Apple Music, YouTube, and beyond</a></li>
+              </ul>
+            </li>
+            <li><a href="#part-social">Part III &mdash; Social and Content</a>
+              <ul>
+                <li><a href="#social-media">Social media strategy for indie artists in 2026</a></li>
+                <li><a href="#content-strategy">What to actually post &mdash; a content strategy that doesn&rsquo;t burn you out</a></li>
+              </ul>
+            </li>
+            <li><a href="#part-audience">Part IV &mdash; Owned Audience</a>
+              <ul>
+                <li><a href="#owned-audience">Building an audience you actually own</a></li>
+              </ul>
+            </li>
+            <li><a href="#part-press">Part V &mdash; Press, Sync, and Live</a>
+              <ul>
+                <li><a href="#press-pr">PR and press coverage for independent artists</a></li>
+                <li><a href="#sync-licensing">Sync licensing &mdash; getting your music into TV, film, and ads</a></li>
+                <li><a href="#live-performance">Live performance as a marketing tool</a></li>
+              </ul>
+            </li>
+            <li><a href="#part-data">Part VI &mdash; Data and Money</a>
+              <ul>
+                <li><a href="#analytics">Reading your data &mdash; analytics that actually tell you something</a></li>
+                <li><a href="#budget">Budget allocation for indie artists</a></li>
+                <li><a href="#closing">The one thing indie artists get wrong about marketing</a></li>
+              </ul>
+            </li>
+          </ol>
+        </nav>
+      </details>
 
       <!-- ═══════════════════════════════════════════
            PART I — FOUNDATIONS
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part I &mdash; Foundations</div>
+      <div id="part-foundations" class="part-label">Part I &mdash; Foundations</div>
 
 
       <!-- ── H2: Brand identity (Task 2) ──────────── -->
-      <h2>Start with the artist, not the algorithm</h2>
+      <h2 id="brand-identity">Start with the artist, not the algorithm</h2>
 
       <h3>What a brand identity actually means for musicians</h3>
 
       <p>Most musicians hear &ldquo;brand identity&rdquo; and think about logos and colour palettes. That&rsquo;s the surface. Your brand is the answer to a simpler, harder question: why this artist, and not the ten others making similar music in the same genre? It&rsquo;s the specificity of your emotional territory &mdash; the angle you take on your subject matter, the world your music exists in, the image that makes you immediately recognisable once someone finds you.</p>
 
+      <blockquote><p>Marketing doesn&rsquo;t create an audience for music that doesn&rsquo;t have one &mdash; it amplifies whatever signal is already there.</p></blockquote>
+
       <p>Specificity is what separates artists who build audiences from artists who collect streams. You don&rsquo;t need to be dramatically different from everything else &mdash; you need to be specific enough that when the right listener finds you, they feel like the music was made for them. That feeling doesn&rsquo;t happen by accident. It happens because every touchpoint &mdash; your visuals, your bio, your content, the way you talk about your music &mdash; is pointing at the same thing.</p>
 
       <h3>EPK basics: the one document every artist needs</h3>
 
-      <p>An EPK (Electronic Press Kit) is what you send when a music supervisor, playlist curator, festival booker, or journalist asks &ldquo;can you send me your info?&rdquo; The minimum viable version contains: a short bio (80&ndash;150 words) and a long bio (up to 300 words), two or three high-resolution press photos from different settings, links to your streaming profiles, a link to downloadable high-quality audio files, and a direct contact. Keep it as a linked Google Drive folder or a simple PDF &mdash; something you can forward in 30 seconds without hunting for files.</p>
+      <p>An EPK (Electronic Press Kit) is what you send when a music supervisor, playlist curator, festival booker, or journalist asks &ldquo;can you send me your info?&rdquo; The minimum viable version contains: a short bio (<span class="stat">80&ndash;150 words</span>) and a long bio (up to <span class="stat">300 words</span>), two or three high-resolution press photos from different settings, links to your streaming profiles, a link to downloadable high-quality audio files, and a direct contact. Keep it as a linked Google Drive folder or a simple PDF &mdash; something you can forward in 30 seconds without hunting for files.</p>
 
       <p>The mistake most artists make with their EPK is updating it once and then forgetting it exists. Set a reminder to review it after every significant release or booking. A bio that still mentions your debut single from three years ago signals that you&rsquo;re not actively managing your career.</p>
 
@@ -248,7 +313,7 @@
 
 
       <!-- ── H2: Distribution (Task 3) ─────────────── -->
-      <h2>Your music online &mdash; distribution and DSP presence</h2>
+      <h2 id="distribution">Your music online &mdash; distribution and DSP presence</h2>
 
       <h3>Choosing a distributor</h3>
 
@@ -260,15 +325,15 @@
 
       <h3>Release hygiene: metadata, ISRC, artist name consistency</h3>
 
-      <p>Metadata is how the music industry tracks and pays you. Get it wrong once and the downstream effects &mdash; missing royalties, attribution problems, duplicate artist profiles &mdash; take months to fix. The non-negotiables: your artist name must be spelled identically across every platform and every release. Every track needs a unique ISRC code (your distributor assigns these automatically &mdash; make sure they&rsquo;re saved somewhere). Your PRO affiliation, publisher information, and songwriter splits need to be filed correctly before release day, not after.</p>
+      <p>Metadata is how the music industry tracks and pays you. Get it wrong once and the downstream effects &mdash; missing royalties, attribution problems, duplicate artist profiles &mdash; take months to fix. The non-negotiables: your artist name must be spelled <em>identically</em> across every platform and every release. Every track needs a unique ISRC code (your distributor assigns these automatically &mdash; make sure they&rsquo;re saved somewhere). Your PRO affiliation, publisher information, and songwriter splits need to be filed correctly before release day, not after.</p>
 
       <p>Register with a Performing Rights Organisation before you release anything. In New Zealand, that&rsquo;s APRA AMCOS. In the US, ASCAP, BMI, or SESAC. In the UK, PRS. These organisations collect performance and broadcast royalties on your behalf &mdash; royalties you&rsquo;re owed whether you register or not, but which you won&rsquo;t receive if they can&rsquo;t find you.</p>
 
       <h3>Spotify for Artists &mdash; the dashboard metrics that matter</h3>
 
-      <p>Spotify for Artists gives you more data than most artists know what to do with. The metrics that actually tell you something useful: <strong>saves per stream</strong> (how many listeners liked the song enough to save it, as a percentage of total streams &mdash; above 5% is strong), <strong>listener-to-stream ratio</strong> (how many times the average listener plays the track &mdash; above 1.5 suggests genuine engagement, not passive plays), and <strong>source of streams</strong> (what percentage comes from editorial playlists, algorithmic playlists, direct searches, and your own sharing). The source breakdown tells you whether your audience is discovering you or whether you&rsquo;re relying on algorithmic delivery.</p>
+      <p>Spotify for Artists gives you more data than most artists know what to do with. The metrics that actually tell you something useful: <strong>saves per stream</strong> (how many listeners liked the song enough to save it, as a percentage of total streams &mdash; above <span class="stat">5%</span> is strong), <strong>listener-to-stream ratio</strong> (how many times the average listener plays the track &mdash; above <span class="stat">1.5&times;</span> suggests genuine engagement, not passive plays), and <strong>source of streams</strong> (what percentage comes from editorial playlists, algorithmic playlists, direct searches, and your own sharing). The source breakdown tells you whether your audience is discovering you or whether you&rsquo;re relying on algorithmic delivery.</p>
 
-      <p>Ignore total stream counts when you&rsquo;re early stage. They&rsquo;re vanity metrics. A song with 800 streams and a 7% save rate is performing better, in terms of genuine audience-building signal, than a song with 8,000 streams and a 0.8% save rate.</p>
+      <p>Ignore total stream counts when you&rsquo;re early stage. They&rsquo;re vanity metrics. A song with 800 streams and a <span class="stat">7%</span> save rate is performing better, in terms of genuine audience-building signal, than a song with 8,000 streams and a <span class="stat">0.8%</span> save rate.</p>
 
       <h3>Pre-save campaigns and release day mechanics</h3>
 
@@ -280,11 +345,11 @@
       <!-- ═══════════════════════════════════════════
            PART II — PLAYLISTS AND DISCOVERY
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part II &mdash; Playlists and Discovery</div>
+      <div id="part-discovery" class="part-label">Part II &mdash; Playlists and Discovery</div>
 
 
       <!-- ── H2: Playlist pitching (Task 4) ────────── -->
-      <h2>The playlist pitching playbook</h2>
+      <h2 id="playlist-pitching">The playlist pitching playbook</h2>
 
       <h3>Editorial playlists &mdash; what Spotify actually evaluates in a pitch</h3>
 
@@ -293,6 +358,8 @@
       <p>The pitch form asks for genre, mood, style, and a short description of the song. These fields aren&rsquo;t decorative &mdash; Spotify&rsquo;s editorial team uses them to match your track to the playlists their curators manage. Be specific. &ldquo;Cinematic pop with an uplifting feeling&rdquo; is almost useless. &ldquo;Mid-tempo pop with a minor-key verse that resolves to a major chorus &mdash; sits between Phoebe Bridgers and Maggie Rogers in emotional register&rdquo; gives a curator something to work with. Think about which of their existing playlists your track would actually fit, not which ones have the most followers.</p>
 
       <p>Placement isn&rsquo;t guaranteed and there&rsquo;s no rejection notification. Most pitches receive no placement. That&rsquo;s not a reason to skip pitching &mdash; placement on even a mid-tier editorial playlist can add thousands of streams and, more importantly, signals to the algorithm that your track is gaining editorial credibility. Pitch everything. Expect very little. Be pleasantly surprised occasionally.</p>
+
+      <blockquote><p>Pitch at least <span class="stat">7 days</span> before your release date &mdash; once a track goes live, it&rsquo;s no longer eligible for Spotify editorial consideration.</p></blockquote>
 
       <h3>Independent playlist curators &mdash; how to find and approach them</h3>
 
@@ -312,7 +379,7 @@
 
 
       <!-- ── H2: Other platforms (Task 5) ──────────── -->
-      <h2>Apple Music, YouTube, and beyond</h2>
+      <h2 id="other-platforms">Apple Music, YouTube, and beyond</h2>
 
       <h3>Apple Music for Artists and editorial pitching</h3>
 
@@ -336,17 +403,19 @@
       <!-- ═══════════════════════════════════════════
            PART III — SOCIAL AND CONTENT
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part III &mdash; Social and Content</div>
+      <div id="part-social" class="part-label">Part III &mdash; Social and Content</div>
 
 
       <!-- ── H2: Social media (Task 6) ─────────────── -->
-      <h2>Social media strategy for indie artists in 2026</h2>
+      <h2 id="social-media">Social media strategy for indie artists in 2026</h2>
 
       <h3>TikTok &mdash; how music discovery actually works now</h3>
 
       <p>TikTok still drives real music discovery in 2026, but the mechanism has shifted since its peak years. The era of organic viral moments &mdash; a single video blowing up and putting an unknown artist in front of millions overnight &mdash; is harder to manufacture and harder to predict than it was in 2021&ndash;2023. What still works consistently is something different: your sound being used by other creators.</p>
 
-      <p>When other users make videos using your audio as the soundtrack, TikTok&rsquo;s algorithm treats it as a signal of genuine cultural traction and surfaces your sound to more people. This means your strategy on TikTok isn&rsquo;t primarily about posting your own videos &mdash; it&rsquo;s about seeding your audio with a handful of relevant creators in your niche who are likely to use it. Five creators with 50,000 followers each using your sound will usually outperform 50 posts from your own account with 500 followers. Identify those creators before a release, build a relationship, and make it easy for them to use your audio before it&rsquo;s available everywhere.</p>
+      <p>When other users make videos using your audio as the soundtrack, TikTok&rsquo;s algorithm treats it as a signal of genuine cultural traction and surfaces your sound to more people. This means your strategy on TikTok isn&rsquo;t primarily about posting your own videos &mdash; it&rsquo;s about seeding your audio with a handful of relevant creators in your niche who are likely to use it. Identify those creators before a release, build a relationship, and make it easy for them to use your audio before it&rsquo;s available everywhere.</p>
+
+      <blockquote><p>Five creators with 50,000 followers each using your sound will usually outperform 50 posts from your own account.</p></blockquote>
 
       <h3>Instagram &mdash; Reels, Stories, and the follow-up layer</h3>
 
@@ -364,9 +433,9 @@
 
       <!-- Platform priority tabs -->
       <div class="tab-row">
-        <button class="tab active" onclick="switchPlatformTab('starting',this)">Just Starting</button>
-        <button class="tab" onclick="switchPlatformTab('building',this)">Building (1k&ndash;10k)</button>
-        <button class="tab" onclick="switchPlatformTab('established',this)">Established (10k+)</button>
+        <button class="tab active" data-tab="starting">Just Starting</button>
+        <button class="tab" data-tab="building">Building (1k&ndash;10k)</button>
+        <button class="tab" data-tab="established">Established (10k+)</button>
       </div>
       <div id="platform-starting" class="platform-panel active">
         <p class="platform-stage">Priority order for artists just starting out</p>
@@ -401,7 +470,7 @@
 
 
       <!-- ── H2: Content strategy (Task 7) ─────────── -->
-      <h2>What to actually post &mdash; a content strategy that doesn&rsquo;t burn you out</h2>
+      <h2 id="content-strategy">What to actually post &mdash; a content strategy that doesn&rsquo;t burn you out</h2>
 
       <h3>The content pillars framework for musicians</h3>
 
@@ -425,15 +494,17 @@
       <!-- ═══════════════════════════════════════════
            PART IV — OWNED AUDIENCE
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part IV &mdash; Owned Audience</div>
+      <div id="part-audience" class="part-label">Part IV &mdash; Owned Audience</div>
 
 
       <!-- ── H2: Owned audience (Task 8) ───────────── -->
-      <h2>Building an audience you actually own</h2>
+      <h2 id="owned-audience">Building an audience you actually own</h2>
 
       <h3>Why your email list matters more than your follower count</h3>
 
-      <p>Every social platform is rented space. The algorithm decides how many of your followers actually see what you post &mdash; and that percentage has dropped consistently across every platform over the past decade. An email list is yours. When you send an email to 500 subscribers, roughly 500 people receive it. When you post to 5,000 Instagram followers, fewer than 200 will see it in their feed without paid amplification.</p>
+      <p>Every social platform is rented space. The algorithm decides how many of your followers actually see what you post &mdash; and that percentage has dropped consistently across every platform over the past decade.</p>
+
+      <blockquote><p>When you send an email to 500 subscribers, roughly 500 people receive it. When you post to 5,000 Instagram followers, fewer than 200 will see it without paid amplification.</p></blockquote>
 
       <p>The difference compounds over time. <a href="/journal/song-moments/">A fanbase built on email feels like a moment, not a loop</a> &mdash; it moves with you across releases, platforms, and years in a way that social following doesn&rsquo;t. Artists who understood this early have communities that survived multiple platform shifts. Artists who didn&rsquo;t are rebuilding from scratch every time an algorithm changes.</p>
 
@@ -453,15 +524,17 @@
       <!-- ═══════════════════════════════════════════
            PART V — PRESS, SYNC, AND LIVE
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part V &mdash; Press, Sync, and Live</div>
+      <div id="part-press" class="part-label">Part V &mdash; Press, Sync, and Live</div>
 
 
       <!-- ── H2: PR (Task 8) ────────────────────────── -->
-      <h2>PR and press coverage for independent artists</h2>
+      <h2 id="press-pr">PR and press coverage for independent artists</h2>
 
       <h3>What press can and can&rsquo;t do for you</h3>
 
-      <p>Press coverage doesn&rsquo;t drive streams in most cases. A feature in a mid-sized music blog will rarely move your Spotify numbers in a meaningful way. What press does is establish credibility &mdash; it creates a paper trail of third-party validation that makes you easier to take seriously when a music supervisor, booker, or larger curator looks you up. Think of it as background evidence, not a primary growth channel.</p>
+      <blockquote><p>Press coverage doesn&rsquo;t drive streams &mdash; it establishes credibility. Think of it as background evidence that makes you easier to take seriously when a music supervisor, booker, or curator looks you up.</p></blockquote>
+
+      <p>A feature in a mid-sized music blog will rarely move your Spotify numbers in a meaningful way. What press does is create a paper trail of third-party validation. The most useful press targets for independent artists are outlets that also maintain Spotify playlists, because a feature can translate directly into a placement.</p>
 
       <p>The most useful press targets for independent artists are: editorial Spotify playlisting (Spotify&rsquo;s editorial team actively reads coverage from credible outlets), music blogs in your specific genre that also maintain Spotify playlists, and regional press in areas where you&rsquo;re touring or where you have listener concentrations. General music news coverage (&ldquo;premieres&rdquo; on major outlets) matters much more for established artists than for early-stage independents.</p>
 
@@ -483,7 +556,7 @@
 
 
       <!-- ── H2: Sync licensing (Task 9) ───────────── -->
-      <h2>Sync licensing &mdash; getting your music into TV, film, and ads</h2>
+      <h2 id="sync-licensing">Sync licensing &mdash; getting your music into TV, film, and ads</h2>
 
       <h3>How the sync ecosystem works</h3>
 
@@ -505,7 +578,7 @@
 
 
       <!-- ── H2: Live performance (Task 9) ─────────── -->
-      <h2>Live performance as a marketing tool</h2>
+      <h2 id="live-performance">Live performance as a marketing tool</h2>
 
       <h3>Supporting larger acts &mdash; the opening slot strategy</h3>
 
@@ -527,11 +600,13 @@
       <!-- ═══════════════════════════════════════════
            PART VI — DATA AND MONEY
       ════════════════════════════════════════════ -->
-      <div class="part-label">Part VI &mdash; Data and Money</div>
+      <div id="part-data" class="part-label">Part VI &mdash; Data and Money</div>
 
 
       <!-- ── H2: Analytics (Task 10) ───────────────── -->
-      <h2>Reading your data &mdash; analytics that actually tell you something</h2>
+      <h2 id="analytics">Reading your data &mdash; analytics that actually tell you something</h2>
+
+      <blockquote><p>Total stream count is the metric most artists look at first. It&rsquo;s also among the least useful for understanding whether your music is actually connecting.</p></blockquote>
 
       <h3>Spotify for Artists metrics decoded</h3>
 
@@ -551,7 +626,7 @@
 
 
       <!-- ── H2: Budget (Task 10) ──────────────────── -->
-      <h2>Budget allocation for indie artists</h2>
+      <h2 id="budget">Budget allocation for indie artists</h2>
 
       <h3>Where a small budget has the most impact</h3>
 
@@ -581,7 +656,7 @@
 
 
       <!-- ── Closing ─────────────────────────────── -->
-      <h2>The one thing indie artists get wrong about marketing</h2>
+      <h2 id="closing">The one thing indie artists get wrong about marketing</h2>
 
       <p>Most independent artists treat marketing as the thing you do after the music is finished. Upload, then promote. That&rsquo;s one model &mdash; and it works, eventually, if the music is strong enough. But the artists who build audiences fastest treat marketing and making as the same process. They&rsquo;re documenting the work before it&rsquo;s done, building relationships before they have something to promote, testing what their audience responds to between releases instead of only showing up when there&rsquo;s something new to sell.</p>
 
@@ -661,7 +736,7 @@
               <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="faq-body" role="region">
-              <p>The streaming ecosystem rewards consistent releases &mdash; Spotify&rsquo;s algorithm weights recent activity when deciding who gets into Release Radar and radio playlists. But releasing frequently with poor metadata, no pitching strategy, and no content to support the release is worse than releasing less often with full attention on each song. The minimum viable release cadence for most indie artists is roughly one single every six to eight weeks.</p>
+              <p>The streaming ecosystem rewards consistent releases &mdash; Spotify&rsquo;s algorithm weights recent activity when deciding who gets into Release Radar and radio playlists. But releasing frequently with poor metadata, no pitching strategy, and no content to support the release is worse than releasing less often with full attention on each song. The minimum viable release cadence for most indie artists is roughly one single every <span class="stat">six to eight weeks</span>.</p>
             </div>
           </div>
 
@@ -703,35 +778,7 @@
   </footer>
 </div>
 
-<script>
-// ── Platform priority tabs ────────────────────────────────
-function switchPlatformTab(tab, el) {
-  document.querySelectorAll('.tab-row .tab').forEach(function(t) { t.classList.remove('active'); });
-  document.querySelectorAll('.platform-panel').forEach(function(p) { p.classList.remove('active'); });
-  el.classList.add('active');
-  document.getElementById('platform-' + tab).classList.add('active');
-}
-
-// ── FAQ accordion ─────────────────────────────────────────
-function toggleFaq(btn) {
-  var body = btn.nextElementSibling;
-  var isOpen = btn.classList.contains('open');
-  document.querySelectorAll('.faq-toggle.open').forEach(function(b) {
-    b.classList.remove('open');
-    b.setAttribute('aria-expanded', 'false');
-    b.nextElementSibling.style.maxHeight = '';
-  });
-  if (!isOpen) {
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    body.style.maxHeight = body.scrollHeight + 'px';
-  }
-}
-document.querySelectorAll('.faq-toggle').forEach(function(btn) {
-  btn.addEventListener('click', function() { toggleFaq(this); });
-});
-</script>
-
+<script src="/js/article.js"></script>
 <script src="/js/bg.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
