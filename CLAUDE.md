@@ -143,6 +143,7 @@ Copy this exactly. Replace every `{PLACEHOLDER}` before saving.
       <!-- Smart quotes: &rsquo; &lsquo; &rdquo; &ldquo; -->
       <!-- Em dash: &mdash; -->
       <!-- End with email CTA inline link: <a href="mailto:hello&#64;liminl.music">that&rsquo;s worth a conversation</a> -->
+      <!-- Then optionally add FAQ accordion (see below) -->
 
     </div>
 
@@ -258,6 +259,36 @@ Always link new articles to relevant existing ones, and consider whether any exi
 | `{Month YYYY}` | post-meta div, feed.json date | Human-readable |
 | `{WORD_COUNT}` | JSON-LD wordCount | Approximate body word count |
 | `{keywords}` | JSON-LD keywords array | 4–6 specific search terms |
+
+---
+
+## FAQ accordion (optional but recommended for SEO)
+
+When adding a FAQ, place it inside `.post-body` after the email CTA paragraph, and load `article.js`. CSS lives in `journal/journal.css` (shared). FAQPage JSON-LD goes in `<head>`.
+
+```html
+      <div class="faq-section">
+        <div class="faq-section-label">Common questions</div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-toggle" aria-expanded="false">
+              <span class="faq-q">Question text?</span>
+              <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-body" role="region">
+              <p>Answer text.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+```
+
+Add before `</body>`:
+```html
+<script src="/js/article.js"></script>
+```
 
 ---
 
