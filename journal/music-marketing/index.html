@@ -90,6 +90,17 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
 /* Stat highlight */
 .stat{color:var(--purple);font-weight:400;}
+
+/* Distributor comparison table */
+.dist-table{width:100%;border-collapse:collapse;font-size:14px;margin:28px 0;}
+.dist-table th{text-align:left;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-dim);padding:8px 12px 8px 0;border-bottom:1px solid var(--rule-mid);}
+.dist-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);color:var(--ink-med);vertical-align:top;font-weight:300;line-height:1.5;}
+.dist-table tr:last-child td{border-bottom:none;}
+.dist-table td:first-child{color:var(--ink);font-weight:400;}
+
+/* Inline CTA */
+.inline-cta{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:20px 0;margin:40px 0;}
+.inline-cta p{font-size:15px;color:var(--ink-low);margin-bottom:0;font-weight:300;}
 </style>
 
 <script type="application/ld+json">
@@ -109,6 +120,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
     "url": "https://liminl.music"
   },
   "datePublished": "2026-04-15",
+  "dateModified": "2026-04-17",
   "url": "https://liminl.music/journal/music-marketing/",
   "image": "https://liminl.music/og-image.jpg",
   "mainEntityOfPage": "https://liminl.music/journal/music-marketing/",
@@ -175,7 +187,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
     },
     {
       "@type": "Question",
-      "name": "How to write an artist bio that gets you noticed",
+      "name": "How do you write an artist bio that gets you noticed?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A bio that does work is specific, not comprehensive. Skip the list of influences and the origin story unless they\u2019re genuinely unusual. Lead with what your music is actually about \u2014 not the genre, the emotional territory. Include one or two real-world markers (location, notable collaborations, sync placements, press coverage) that give a music supervisor or curator a reason to take you seriously. Keep it under 150 words for the short version."
@@ -290,10 +302,10 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <p>This guide assumes your music is worth finding. If you&rsquo;re not sure it is, start with <a href="/journal/generic-lyrics/">writing more specific lyrics</a>. For everyone else: what follows is a complete picture of how independent artists actually build audiences in 2026 &mdash; from setting up your infrastructure to understanding why your email list matters more than your follower count. Work through it in order the first time, then return to whichever sections apply to where you are.</p>
 
-      <details class="toc-box">
-        <summary class="toc-toggle">In this guide <span class="toc-count">12 sections &mdash; 6 parts</span></summary>
+      <details class="toc-box" open>
+        <summary class="toc-toggle">In this guide <span class="toc-count">13 sections &mdash; 6 parts</span></summary>
         <nav class="toc-nav">
-          <ol class="toc-list">
+          <ul class="toc-list">
             <li><a href="#part-foundations">Part I &mdash; Foundations</a>
               <ul>
                 <li><a href="#brand-identity">Start with the artist, not the algorithm</a></li>
@@ -331,7 +343,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
                 <li><a href="#closing">The one thing indie artists get wrong about marketing</a></li>
               </ul>
             </li>
-          </ol>
+          </ul>
         </nav>
       </details>
 
@@ -375,6 +387,45 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
       <p><a href="https://distrokid.com" target="_blank" rel="noopener noreferrer"><strong>DistroKid</strong></a> charges a flat annual fee (around $22.99/year for unlimited releases) and pays out 100% of royalties. It&rsquo;s fast &mdash; usually 1&ndash;3 days to go live. The trade-off is that if you stop paying, your music comes down. <a href="https://www.tunecore.com" target="_blank" rel="noopener noreferrer"><strong>TuneCore</strong></a> charges per release (around $14.99 per single, $29.99 per album, annually) but also passes through 100% of royalties and keeps your music live as long as you keep paying per-release fees. <strong>CD Baby</strong> charges a one-time upfront fee per release and takes a 9% cut of royalties &mdash; useful if you prefer a one-and-done payment with no recurring fees. <strong>Amuse</strong> has a free tier but takes a percentage; it&rsquo;s worth considering for artists releasing early material with no budget, but the royalty split becomes expensive quickly as streams grow.</p>
 
       <p>For most working independent artists, DistroKid is the default. The flat annual model is predictable, the speed is better than most alternatives, and the unlimited release structure suits artists who release singles regularly.</p>
+
+      <div style="overflow-x:auto;">
+        <table class="dist-table">
+          <thead>
+            <tr>
+              <th>Distributor</th>
+              <th>Fee model</th>
+              <th>Your royalties</th>
+              <th>Music stays live if you stop paying?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DistroKid</td>
+              <td>~$22.99/year, unlimited releases</td>
+              <td>100%</td>
+              <td>No &mdash; music comes down</td>
+            </tr>
+            <tr>
+              <td>TuneCore</td>
+              <td>~$14.99/single, ~$29.99/album per year</td>
+              <td>100%</td>
+              <td>No &mdash; requires ongoing per-release fees</td>
+            </tr>
+            <tr>
+              <td>CD Baby</td>
+              <td>One-time fee per release</td>
+              <td>91%</td>
+              <td>Yes &mdash; one-and-done model</td>
+            </tr>
+            <tr>
+              <td>Amuse</td>
+              <td>Free tier / paid upgrades</td>
+              <td>Varies</td>
+              <td>Yes (free tier &mdash; check current terms)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>Release hygiene: metadata, ISRC, artist name consistency</h3>
 
@@ -434,11 +485,9 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
       <!-- ── H2: Other platforms (Task 5) ──────────── -->
       <h2 id="other-platforms">Apple Music, YouTube, and beyond</h2>
 
-      <h3>Apple Music for Artists and editorial pitching</h3>
+      <h3>Apple Music for Artists</h3>
 
-      <p>Apple Music runs its own editorial operation, separate from Spotify. The pitching process is less formalised &mdash; there&rsquo;s no self-serve tool equivalent to Spotify for Artists&rsquo; pitch form. Apple Music editorial is reached primarily through distributors (DistroKid, TuneCore, and CD Baby all have Apple Music editorial submission options) or through direct relationships with regional Apple Music curators, which most independent artists don&rsquo;t have early in their careers.</p>
-
-      <p>Apple Music for Artists (the analytics dashboard) is worth setting up regardless. It gives you a second data set alongside Spotify for Artists and often shows meaningful differences in listener geography &mdash; useful if you&rsquo;re planning touring or targeting a specific market.</p>
+      <p>Apple Music&rsquo;s editorial pitching is less formalised than Spotify&rsquo;s &mdash; there&rsquo;s no self-serve pitch form. Submissions go through distributors (DistroKid, TuneCore, and CD Baby all have Apple Music submission options) or direct curator relationships, which most independent artists don&rsquo;t have early on. Set up Apple Music for Artists regardless: it gives you a second analytics data set that often shows meaningful listener geography differences, useful for touring decisions.</p>
 
       <h3>YouTube as a long-term catalogue asset</h3>
 
@@ -446,11 +495,9 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <p>Official audio videos or lyric videos for every release are worth uploading, not because they&rsquo;ll generate immediate streams but because they compound over time. A track you released three years ago will keep getting found on YouTube in ways it won&rsquo;t on Spotify. Optimise your video titles and descriptions for search &mdash; include the song title, your artist name, and the genre or mood in both. YouTube&rsquo;s Content ID system also catches third-party uses of your music on the platform and routes the ad revenue to you, provided you&rsquo;ve registered correctly through your distributor.</p>
 
-      <h3>SoundCloud, Bandcamp, and the niche-first strategy</h3>
+      <h3>Bandcamp &mdash; direct-to-fan sales</h3>
 
-      <p>SoundCloud still matters for certain niches &mdash; electronic music, hip-hop, lo-fi, and underground scenes where the culture of direct artist-to-listener sharing remained long after Spotify became dominant. If your genre has an active SoundCloud community, it&rsquo;s worth maintaining a presence. If it doesn&rsquo;t, SoundCloud adds maintenance overhead for limited return.</p>
-
-      <p><a href="https://bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a> operates on a different logic entirely. It&rsquo;s a direct-to-fan sales platform, not a streaming discovery platform &mdash; which means it rewards artists who already have an audience willing to pay for music and merch. If you&rsquo;re early stage and don&rsquo;t yet have that audience, Bandcamp is a long-term destination, not an immediate priority. Once you do have fans who want to support you financially, Bandcamp&rsquo;s economics are significantly better than streaming &mdash; an album sale pays the equivalent of thousands of streams.</p>
+      <p><a href="https://bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a> operates on a different logic to streaming platforms. It&rsquo;s a direct-to-fan sales platform, which means it rewards artists who already have an audience willing to pay for music and merch. If you&rsquo;re early stage, Bandcamp is a long-term destination, not an immediate priority. Once you have fans who want to support you financially, the economics are significantly better than streaming &mdash; an album sale pays the equivalent of thousands of streams. This is why it appears at the top of the platform priority list for established artists.</p>
 
 
       <!-- ═══════════════════════════════════════════
@@ -573,6 +620,10 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <p>Neither replaces the email list. Both complement it at the right stage.</p>
 
+      <div class="inline-cta">
+        <p>Writing about this stuff regularly. If you want new guides when they go up, <a href="mailto:hello&#64;liminl.music?subject=Mailing%20list">drop your email</a> and I&rsquo;ll add you to the list.</p>
+      </div>
+
 
       <!-- ═══════════════════════════════════════════
            PART V — PRESS, SYNC, AND LIVE
@@ -587,9 +638,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <blockquote><p>Press coverage doesn&rsquo;t drive streams &mdash; it establishes credibility. Think of it as background evidence that makes you easier to take seriously when a music supervisor, booker, or curator looks you up.</p></blockquote>
 
-      <p>A feature in a mid-sized music blog will rarely move your Spotify numbers in a meaningful way. What press does is create a paper trail of third-party validation. The most useful press targets for independent artists are outlets that also maintain Spotify playlists, because a feature can translate directly into a placement.</p>
-
-      <p>The most useful press targets for independent artists are: editorial Spotify playlisting (Spotify&rsquo;s editorial team actively reads coverage from credible outlets), music blogs in your specific genre that also maintain Spotify playlists, and regional press in areas where you&rsquo;re touring or where you have listener concentrations. General music news coverage (&ldquo;premieres&rdquo; on major outlets) matters much more for established artists than for early-stage independents.</p>
+      <p>A feature in a mid-sized music blog will rarely move your Spotify numbers in a meaningful way. What press does is create a paper trail of third-party validation. The highest-value targets: music blogs in your specific genre that also maintain active Spotify playlists (a feature can translate directly into a placement), regional press in areas where you&rsquo;re touring or where listener concentrations are building, and outlets whose coverage Spotify&rsquo;s editorial team reads. General music news premieres matter much more for established artists than for early-stage independents.</p>
 
       <h3>How to write a press release that editors read</h3>
 
@@ -673,9 +722,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <p>A post that reaches 10,000 people and generates 500 likes is performing well by most metrics. A post that reaches 2,000 people and generates 300 saves or 150 new follows is performing better for your career. Optimise for the metric that moves the thing you care about &mdash; and the thing you care about is people who want more of your music, not people who scrolled past and tapped a heart.</p>
 
-      <h3>What the numbers mean for your next decision</h3>
-
-      <p>Data is useful when it changes what you do next. A low save rate on a recent release is a signal to listen back to the song critically &mdash; is the hook as strong as it should be? Is the first 30 seconds holding attention? A geographic concentration in an unexpected city is a signal to consider routing a future tour through there. A consistently high engagement rate on process content is a signal to post more of it. Use the numbers as questions, not just reports.</p>
+      <p>Data is useful when it changes what you do next. A low save rate on a recent release is a signal to listen back critically &mdash; is the hook strong? Is the first 30 seconds holding attention? A geographic concentration in an unexpected city suggests routing a future tour through there. Consistently high engagement on process content is a signal to post more of it. Use the numbers as questions, not just reports.</p>
 
 
       <!-- ── H2: Budget (Task 10) ──────────────────── -->
@@ -720,7 +767,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
       <!-- ── FAQ Accordion (Task 10) ───────────────── -->
       <div class="faq-section">
-        <div class="faq-section-label">Questions</div>
+        <div class="faq-section-label">Common questions</div>
         <div class="faq-list">
 
           <div class="faq-item">
@@ -775,7 +822,7 @@ details[open] .toc-toggle{border-bottom:1px solid var(--rule);}
 
           <div class="faq-item">
             <button class="faq-toggle" aria-expanded="false">
-              <span class="faq-q">How to write an artist bio that gets you noticed</span>
+              <span class="faq-q">How do you write an artist bio that gets you noticed?</span>
               <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="faq-body" role="region">
