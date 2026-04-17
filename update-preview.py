@@ -259,20 +259,12 @@ def main():
     if not parser.posts:
         sys.exit('ERROR: No posts found in journal/index.html post-list')
 
-    # Home preview (top 2)
+    # Home preview — populated dynamically from feed.json via JS; skip HTML injection
     top2 = parser.posts[:2]
-    print('Home preview → top 2 articles:')
-    for i, post in enumerate(top2, 1):
-        print(f'  {i}. {post["title"].strip()} ({post["href"]})')
-    update_home(home_index, build_preview_items(top2))
-    print('✓ index.html updated')
+    print('Home preview → driven by feed.json (skipping index.html injection)')
 
-    # Links page (top 2)
-    print('\nLinks page → top 2 articles:')
-    for i, post in enumerate(top2, 1):
-        print(f'  {i}. {post["title"].strip()} ({post["href"]})')
-    update_links(links_index, top2, root)
-    print('✓ links/index.html updated')
+    # Links page — populated dynamically from feed.json via JS; skip HTML injection
+    print('Links page → driven by feed.json (skipping links/index.html injection)')
 
     # Sitemap (all articles)
     print(f'\nSitemap → {len(parser.posts)} articles:')
