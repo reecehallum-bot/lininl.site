@@ -50,8 +50,13 @@
 .post-link:hover .post-item-title{color:var(--purple);text-shadow:0 0 30px rgba(157,111,212,0.4);}
 .post-excerpt{font-weight:300;font-size:14px;color:var(--ink-low);line-height:1.6;text-wrap:pretty;}
 .post-empty{padding:60px 0;color:var(--ink-low);font-size:15px;font-weight:300;font-style:italic;}
-.cluster-section{margin-top:48px;}
-@media(max-width:520px){.wrap{padding:0 22px;}.blog-header{padding:48px 0 32px;}}
+.tabs{display:flex;gap:32px;margin-bottom:0;border-bottom:1px solid var(--rule);}
+.tab{font-size:11px;letter-spacing:0.22em;color:var(--ink-low);cursor:pointer;padding:8px 10px 16px;margin-bottom:-1px;border-bottom:1px solid transparent;transition:color 0.4s,border-color 0.4s;user-select:none;text-transform:uppercase;}
+.tab.active{color:var(--ink);border-bottom-color:var(--purple);}
+.tab:hover:not(.active){color:var(--ink);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+@media(max-width:520px){.wrap{padding:0 22px;}.blog-header{padding:48px 0 32px;}.tabs{gap:18px;}}
 </style>
 <script type="application/ld+json">
 {
@@ -112,10 +117,12 @@
     <p class="blog-desc">On writing better songs and building a career around them.</p>
   </div>
 
-  <div class="post-list">
+  <div class="tabs">
+    <span class="tab active" data-tab="craft">Craft</span>
+    <span class="tab" data-tab="career">Career</span>
+  </div>
 
-    <div class="section-label">Songwriting</div>
-
+  <div class="post-list tab-panel active" id="tab-craft">
     <div class="post-item">
       <a href="/journal/parts-of-a-song/" class="post-link">
         <div class="post-date">April 2026</div>
@@ -179,9 +186,9 @@
         <div class="post-excerpt">If you stripped the production away, could you point to a specific moment? Not the vibe &mdash; a moment. Something you could film.</div>
       </a>
     </div>
+  </div>
 
-    <div class="section-label cluster-section">Music Business</div>
-
+  <div class="post-list tab-panel" id="tab-career">
     <div class="post-item">
       <a href="/journal/music-marketing/" class="post-link">
         <div class="post-date">April 2026</div>
@@ -210,7 +217,6 @@
         <div class="post-excerpt">Most Spotify growth advice is built around fake numbers. Here&rsquo;s how the algorithm actually works &mdash; and what drives real, organic stream growth.</div>
       </a>
     </div>
-
   </div>
 
   </main>
@@ -218,6 +224,19 @@
     <p class="footer-text">liminl. &mdash; &copy; 2026</p>
   </footer>
 </div>
+<script>
+(function(){
+  document.querySelectorAll('.tab[data-tab]').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var t=this.dataset.tab;
+      document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('active');});
+      document.querySelectorAll('.tab-panel').forEach(function(el){el.classList.remove('active');});
+      this.classList.add('active');
+      document.getElementById('tab-'+t).classList.add('active');
+    });
+  });
+}());
+</script>
 <script src="/js/bg.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
