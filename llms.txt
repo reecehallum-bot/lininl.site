@@ -35,7 +35,18 @@ Responds to inquiries within 48 hours.
 - [What Is a Pre-Chorus? (And How to Write One That Actually Lands)](https://liminl.music/journal/pre-chorus/): What a pre-chorus does and how to write one that makes the chorus unavoidable
 - [How to Co-Write a Song](https://liminl.music/journal/co-writing/): Co-writing tips and session dynamics — what makes songwriting collaboration actually work
 - [What the Verse Is Actually For](https://liminl.music/journal/verse/): How to write a verse that works — building stakes and situation so the chorus has something to resolve
+- [What a Bridge Is Actually For](https://liminl.music/journal/bridge/): What the bridge section actually does in a song — why most bridges fail by restating the chorus emotion instead of shifting it
+- [The Parts of a Song (And What Each One Is Actually For)](https://liminl.music/journal/parts-of-a-song/): What verse, pre-chorus, chorus, bridge, and post-chorus each need to achieve structurally for the song to work
+- [Music Marketing for Indie Artists — The 2026 Guide](https://liminl.music/journal/music-marketing/): A complete framework covering playlists, sync, social platforms, fanbases, and where most indie marketing goes wrong
+- [How to Promote Your Music as an Indie Artist (Step-by-Step)](https://liminl.music/journal/promote-your-music/): Ten actionable steps for independent music promotion — from identity clarity to Spotify pitching to sync placement
+- [How to Promote Your Music on TikTok (Without Going Cringe)](https://liminl.music/journal/tiktok-music-promotion/): How TikTok actually works for indie artists, what content gets traction, and the framing mistake that tanks most music TikToks
+- [How to Get Spotify Streams Organically (No Bots, No Playlists)](https://liminl.music/journal/spotify-streams-organically/): How Spotify's algorithm actually works, what drives real stream growth, and what matters before pitching to any playlist
 
 ## Contact
 
 hello&#64;liminl.music
+
+## Optional
+
+- [Sitemap](https://liminl.music/sitemap.xml)
+- [Feed](https://liminl.music/journal/feed.json)
