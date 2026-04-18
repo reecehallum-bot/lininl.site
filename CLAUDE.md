@@ -86,6 +86,7 @@ Copy this exactly. Replace every `{PLACEHOLDER}` before saving.
     "url": "https://liminl.music"
   },
   "datePublished": "{YYYY-MM-DD}",
+  "dateModified": "{YYYY-MM-DD}",
   "url": "https://liminl.music/journal/{SLUG}/",
   "image": "https://liminl.music/og-image.jpg",
   "mainEntityOfPage": "https://liminl.music/journal/{SLUG}/",

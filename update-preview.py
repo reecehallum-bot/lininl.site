@@ -208,7 +208,7 @@ def build_sitemap_articles(posts, root):
         entry = f'  <url>\n    <loc>{loc}</loc>\n'
         if date:
             entry += f'    <lastmod>{date}</lastmod>\n'
-        entry += '    <changefreq>never</changefreq>\n    <priority>0.6</priority>\n  </url>'
+        entry += '    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>'
         entries.append(entry)
     return '\n'.join(entries)
 
