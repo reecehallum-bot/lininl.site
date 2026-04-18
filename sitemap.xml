@@ -19,30 +19,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://liminl.music/journal/tiktok-music-promotion/</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://liminl.music/journal/spotify-streams-organically/</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://liminl.music/journal/promote-your-music/</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://liminl.music/journal/music-marketing/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://liminl.music/journal/bridge/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>never</changefreq>
@@ -87,6 +63,30 @@
   <url>
     <loc>https://liminl.music/journal/scene-test/</loc>
     <lastmod>2026-03-22</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://liminl.music/journal/music-marketing/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://liminl.music/journal/promote-your-music/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://liminl.music/journal/tiktok-music-promotion/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://liminl.music/journal/spotify-streams-organically/</loc>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
