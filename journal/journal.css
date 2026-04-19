@@ -1,5 +1,12 @@
 .nav-active{color:var(--ink);text-shadow:0 0 12px rgba(157,111,212,0.45);}
 
+/* Hero image */
+.post-hero{margin:0 0 48px;width:100%;}
+.post-hero img{width:100%;height:auto;display:block;border-radius:2px;aspect-ratio:16/9;object-fit:cover;object-position:center;}
+.post-hero-caption{font-size:11px;color:var(--ink-low);letter-spacing:0.08em;margin-top:10px;line-height:1.5;}
+.post-hero-caption a{color:var(--ink-low);text-decoration:none;border-bottom:1px solid rgba(216,226,240,0.15);transition:color 0.3s,border-color 0.3s;}
+.post-hero-caption a:hover{color:var(--ink);border-bottom-color:rgba(216,226,240,0.4);}
+
 /* Post layout */
 .post-wrap{padding:64px 0 80px;}
 .back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);text-decoration:none;transition:color 0.4s;margin-bottom:48px;}
