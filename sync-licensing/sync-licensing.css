@@ -31,7 +31,9 @@
 .sl-process-body p{margin-bottom:20px;text-wrap:pretty;}
 .sl-process-body p:last-child{margin-bottom:0;}
 .sl-process-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
+.sl-process-body a:visited{color:var(--purple);}
 .sl-process-body a:hover{border-bottom-color:var(--purple);}
+.sl-journal-link:visited{color:var(--ink-med);}
 .sl-process-body em{font-style:italic;color:var(--ink);}
 
 /* Who this serves list */
