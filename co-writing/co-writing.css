@@ -31,7 +31,9 @@
 .cw-process-body p{margin-bottom:20px;text-wrap:pretty;}
 .cw-process-body p:last-child{margin-bottom:0;}
 .cw-process-body a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;}
+.cw-process-body a:visited{color:var(--purple);}
 .cw-process-body a:hover{border-bottom-color:var(--purple);}
+.cw-journal-link:visited{color:var(--ink-med);}
 .cw-process-body em{font-style:italic;color:var(--ink);}
 
 /* Who it's for list */

@@ -61,20 +61,24 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));}
 .ufo-beam{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:60px;height:90px;background:linear-gradient(180deg,rgba(157,111,212,0.22) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulse 6s ease-in-out infinite;pointer-events:none;}
 @keyframes ufoFloat{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-14px) rotate(1.5deg);}66%{transform:translateY(-7px) rotate(-0.5deg);}}
 @keyframes beamPulse{0%,100%{opacity:0.6;transform:translateX(-50%) scaleX(1);}33%{opacity:1;transform:translateX(-50%) scaleX(1.1);}66%{opacity:0.7;transform:translateX(-50%) scaleX(0.95);}}
-.lane-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}
-.lane-card{padding:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:linear-gradient(180deg,rgba(11,13,21,0.5),rgba(15,17,32,0.35));min-height:220px;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;}
+.lane-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:8px;}
+.lane-card{padding:24px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:linear-gradient(180deg,rgba(11,13,21,0.5),rgba(15,17,32,0.35));transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;}
 @media(hover:hover){.lane-card:hover{transform:translateY(-4px);border-top-color:rgba(157,111,212,0.28);border-bottom-color:rgba(157,111,212,0.28);box-shadow:0 8px 28px rgba(157,111,212,0.08);}}
 .lane-kicker{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-low);margin-bottom:12px;}
 .lane-title{font-style:italic;font-weight:300;font-size:24px;line-height:1.2;color:var(--ink);margin-bottom:12px;text-wrap:balance;}
 .lane-copy{font-weight:300;font-size:15px;color:var(--ink-low);line-height:1.75;text-wrap:pretty;}
 .lane-cta{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(157,111,212,0.3);padding-bottom:2px;transition:border-color 0.3s,color 0.3s;}
 .lane-cta:hover{border-bottom-color:var(--purple);}
+.lane-cta:visited{color:var(--purple);}
 .about-grid{display:grid;grid-template-columns:1.35fr 0.9fr;gap:24px;align-items:start;}
 .offer-card{padding:24px;border:1px solid var(--rule);background:rgba(11,13,21,0.42);}
 .offer-title{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-low);margin-bottom:14px;}
 .offer-list{display:grid;gap:10px;}
 .offer-item{font-size:14px;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--rule);}
 .offer-item:last-child{border-bottom:none;padding-bottom:0;}
+a.offer-item{display:block;text-decoration:none;color:var(--ink);transition:color 0.3s;}
+a.offer-item:visited{color:var(--ink);}
+a.offer-item:hover{color:var(--purple);}
 .about p{font-weight:300;font-size:17px;color:var(--ink-low);line-height:1.8;max-width:520px;letter-spacing:0.02em;margin-bottom:20px;text-wrap:pretty;}
 .about p:last-child{margin-bottom:0;}
 .about p em{font-style:italic;color:var(--ink);font-weight:300;}
@@ -120,8 +124,8 @@ body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));}
 .player-btn.playing .pause-icon{display:flex;}
 .player-duration{font-size:11px;color:var(--ink-low);letter-spacing:0.06em;flex-shrink:0;min-width:34px;width:34px;text-align:right;font-variant-numeric:tabular-nums;}
 .vol-on,.vol-off{display:block;pointer-events:none;}.player-btn.muted .vol-on{display:none;}.player-btn:not(.muted) .vol-off{display:none;}
-@media(max-width:720px){.player-inner{padding:0 16px;}.about-grid{grid-template-columns:1fr;}.ufo-container{width:140px;top:35px;right:20px;}.ufo-img{width:140px;height:140px;}.ufo-beam{width:54px;height:82px;bottom:-26px;}.lane-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:0 40px 8px;margin-left:-40px;margin-right:-40px;scrollbar-width:none;-ms-overflow-style:none;}.lane-grid::-webkit-scrollbar{display:none;}.lane-card{flex:0 0 80%;scroll-snap-align:start;}nav{padding:24px 0 20px;}}
-@media(max-width:520px){.wrap{padding:0 22px;}.ufo-container{width:130px;top:35px;right:20px;}.ufo-img{width:130px;height:130px;}.eclipse-canvas{width:220px;height:220px;}.hero{min-height:auto;padding:44px 0 52px;}.hero-copy{margin-top:8px;padding:14px 14px 10px;}.hero-copy::before{inset:-18px -16px -14px;filter:blur(6px);}.contact{text-align:left;}.contact-note{text-align:left;}footer{text-align:left;}.player-inner{padding:0 16px;gap:12px;grid-template-columns:44px 1fr 82px;}.player-duration{display:none;}.tabs{gap:18px;}.social-links{justify-content:flex-start;}.swipe-hint{text-align:left;}.lane-grid{padding-left:22px;padding-right:22px;margin-left:-22px;margin-right:-22px;}.hero-ctas{justify-content:center;}.contact{padding:52px 0;}}
+@media(max-width:720px){.player-inner{padding:0 16px;}.about-grid{grid-template-columns:1fr;}.ufo-container{width:140px;top:35px;right:20px;}.ufo-img{width:140px;height:140px;}.ufo-beam{width:54px;height:82px;bottom:-26px;}.lane-grid{grid-template-columns:1fr;}.swipe-hint{display:none !important;}nav{padding:24px 0 20px;}}
+@media(max-width:520px){.wrap{padding:0 22px;}.ufo-container{width:130px;top:35px;right:20px;}.ufo-img{width:130px;height:130px;}.eclipse-canvas{width:220px;height:220px;}.hero{min-height:auto;padding:44px 0 52px;}.hero-copy{margin-top:8px;padding:14px 14px 10px;}.hero-copy::before{inset:-18px -16px -14px;filter:blur(6px);}.contact{text-align:left;}.contact-note{text-align:left;}footer{text-align:left;}.player-inner{padding:0 16px;gap:12px;grid-template-columns:44px 1fr 82px;}.player-duration{display:none;}.tabs{gap:18px;}.social-links{justify-content:flex-start;}.swipe-hint{text-align:left;}.hero-ctas{justify-content:center;}.contact{padding:52px 0;}}
 @media(min-width:721px){.offer-card{padding-top:64px;}}
 .swipe-hint{display:none;}
 @media(max-width:720px){.swipe-hint{display:block;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-low);margin-top:14px;text-align:right;padding-right:2px;}}
