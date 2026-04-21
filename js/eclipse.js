@@ -2,10 +2,11 @@
   const canvas=document.getElementById('eclipse');
   if(!canvas)return;
   const wrap=canvas.closest('.service-eclipse-wrap');
+  const isMobile=window.innerWidth<=600;
   const _PERF=typeof PERF!=='undefined'?PERF:{active:true,auxFPS:30};
   const _frameLimiter=typeof frameLimiter!=='undefined'?frameLimiter:function(fps){return 1000/fps;};
   const dpr=Math.min(window.devicePixelRatio||1,1.35);
-  const SIZE=window.innerWidth<=520?150:180;
+  const SIZE=isMobile?150:180;
   canvas.style.width=SIZE+'px';canvas.style.height=SIZE+'px';
   canvas.width=SIZE*dpr;canvas.height=SIZE*dpr;
   const ctx=canvas.getContext('2d');
@@ -44,13 +45,25 @@
     });
   }
   function drawDisc(){ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fillStyle='#000';ctx.fill();}
+
+  // Canvas render loop — frame-limited via PERF.auxFPS
   let frame=0,last=0;
   (function render(now){
     if(!_PERF.active){requestAnimationFrame(render);return;}
     if(now-last<_frameLimiter(_PERF.auxFPS)){requestAnimationFrame(render);return;}
     last=now;
-    if(wrap)wrap.style.transform='scale('+(1+Math.sin(now*0.00042)*0.016).toFixed(4)+')';
     ctx.clearRect(0,0,SIZE,SIZE);drawBase();drawAurora(frame);drawDisc();
     frame++;requestAnimationFrame(render);
   })(performance.now());
+
+  // Desktop: breathing + scroll parallax on wrap at native rAF rate
+  if(wrap&&!isMobile){
+    let targetY=0,currentY=0;
+    window.addEventListener('scroll',function(){targetY=window.scrollY*0.4;},{passive:true});
+    (function animateWrap(now){
+      currentY+=(targetY-currentY)*0.12;
+      wrap.style.transform='translateY(-'+currentY.toFixed(2)+'px) scale('+(1+Math.sin(now*0.00042)*0.016).toFixed(4)+')';
+      requestAnimationFrame(animateWrap);
+    })(performance.now());
+  }
 })();
