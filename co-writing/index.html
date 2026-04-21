@@ -128,21 +128,27 @@
     <!-- Session Formats -->
     <section class="cw-section">
       <h2 class="section-label">Session Formats</h2>
-      <div class="cw-format-grid">
-        <div class="cw-format-card">
+      <div class="cw-format-list">
+        <div class="cw-format-row">
           <p class="cw-format-kicker">Live &mdash; Remote</p>
-          <h3 class="cw-format-title">Anywhere in the world</h3>
-          <p class="cw-format-copy">Video call, shared document, DAW screen if needed. Real-time ideation with the same energy as an in-room session &mdash; without the travel.</p>
+          <div class="cw-format-content">
+            <h3 class="cw-format-title">Anywhere in the world</h3>
+            <p class="cw-format-copy">Video call, shared document, DAW screen if needed. Real-time ideation with the same energy as an in-room session &mdash; without the travel.</p>
+          </div>
         </div>
-        <div class="cw-format-card">
+        <div class="cw-format-row">
           <p class="cw-format-kicker">Live &mdash; In Person</p>
-          <h3 class="cw-format-title">New Zealand</h3>
-          <p class="cw-format-copy">Studio or home session. Better acoustics, easier to play ideas back, and the particular focus that comes from being in the same room as the song.</p>
+          <div class="cw-format-content">
+            <h3 class="cw-format-title">New Zealand</h3>
+            <p class="cw-format-copy">Studio or home session. Better acoustics, easier to play ideas back, and the particular focus that comes from being in the same room as the song.</p>
+          </div>
         </div>
-        <div class="cw-format-card">
+        <div class="cw-format-row">
           <p class="cw-format-kicker">Async</p>
-          <h3 class="cw-format-title">On your own clock</h3>
-          <p class="cw-format-copy">Exchange voice notes, stems, and rough demos. Each pass builds on the last. No live session required &mdash; suits different time zones and working styles.</p>
+          <div class="cw-format-content">
+            <h3 class="cw-format-title">On your own clock</h3>
+            <p class="cw-format-copy">Exchange voice notes, stems, and rough demos. Each pass builds on the last. No live session required &mdash; suits different time zones and working styles.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -198,18 +204,25 @@
     <!-- Testimonials -->
     <section class="cw-section">
       <h2 class="section-label">In their words</h2>
-      <div class="testi-list">
-        <div class="testi-item">
-          <p class="testi-quote">&ldquo;Reece had the second verse before I&rsquo;d even finished explaining the concept. The song was done in two sessions.&rdquo;</p>
-          <p class="testi-attr">— Talia M., indie pop artist</p>
+      <div class="testi-slider">
+        <div class="testi-slides">
+          <div class="testi-slide">
+            <p class="testi-quote">&ldquo;Reece had the second verse before I&rsquo;d even finished explaining the concept. The song was done in two sessions.&rdquo;</p>
+            <p class="testi-attr">— Talia M., indie pop artist</p>
+          </div>
+          <div class="testi-slide">
+            <p class="testi-quote">&ldquo;The co-write gave me language for something I&rsquo;d been circling for months. I left with a finished song and a sharper sense of my own voice.&rdquo;</p>
+            <p class="testi-attr">— Elliot S., folk artist</p>
+          </div>
+          <div class="testi-slide">
+            <p class="testi-quote">&ldquo;I&rsquo;ve done sessions with a lot of people. This one was different &mdash; Reece actually listens before he writes.&rdquo;</p>
+            <p class="testi-attr">— Priya D., R&B artist</p>
+          </div>
         </div>
-        <div class="testi-item">
-          <p class="testi-quote">&ldquo;The co-write gave me language for something I&rsquo;d been circling for months. I left with a finished song and a sharper sense of my own voice.&rdquo;</p>
-          <p class="testi-attr">— Elliot S., folk artist</p>
-        </div>
-        <div class="testi-item">
-          <p class="testi-quote">&ldquo;I&rsquo;ve done sessions with a lot of people. This one was different &mdash; Reece actually listens before he writes.&rdquo;</p>
-          <p class="testi-attr">— Priya D., R&B artist</p>
+        <div class="testi-dots">
+          <button class="testi-dot" aria-label="Testimonial 1"></button>
+          <button class="testi-dot" aria-label="Testimonial 2"></button>
+          <button class="testi-dot" aria-label="Testimonial 3"></button>
         </div>
       </div>
     </section>
@@ -291,6 +304,7 @@
 </div>
 <script src="/js/bg.js"></script>
 <script src="/js/article.js"></script>
+<script src="/js/testimonial-slider.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
