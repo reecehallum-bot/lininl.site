@@ -216,12 +216,21 @@ Always link new articles to relevant existing ones, and consider whether any exi
 
 | Slug | Title | Topic |
 |------|-------|-------|
+| `/journal/music-distribution/` | Music Distribution for Independent Artists | Distributor comparison, metadata, Spotify for Artists, pre-saves |
+| `/journal/music-social-media/` | Social Media Strategy for Musicians | TikTok, Instagram, YouTube Shorts, content pillars |
 | `/journal/promote-your-music/` | How to Promote Your Music as an Indie Artist | Indie promotion, step-by-step |
-| `/journal/music-marketing/` | Music Marketing for Indie Artists — The 2026 Guide | Full marketing guide, fanbases, playlists, sync |
+| `/journal/music-marketing/` | Music Marketing for Indie Artists — The 2026 Guide | Full marketing guide hub — brand, fanbase, sync, PR, analytics |
+| `/journal/spotify-playlist-pitch/` | How to Pitch to Spotify Playlists | Editorial pitching, independent curators, algorithm signals |
+| `/journal/tiktok-music-promotion/` | How to Promote Your Music on TikTok | TikTok growth, audio seeding, creator strategy |
+| `/journal/spotify-streams-organically/` | How to Get Spotify Streams Organically | Algorithm, save rate, organic stream growth |
+| `/journal/why-nobody-cares-about-your-music/` | Nobody Cares About Your Music (Here's Why) | Audience attention, signal, context |
+| `/journal/ai-music-flood/` | AI Music Is About to Flood the Internet | AI music landscape, identity as advantage |
+| `/journal/how-to-write-a-song/` | How to Write a Song | Songwriting process, where to start |
+| `/journal/parts-of-a-song/` | The Parts of a Song (And What Each One Is Actually For) | Song structure overview — verse, chorus, pre-chorus, bridge |
 | `/journal/bridge/` | What a Bridge Is Actually For | Song structure, bridge writing |
 | `/journal/verse/` | What the Verse Is Actually For | Verse writing, building stakes |
-| `/journal/co-writing/` | How to Co-Write a Song | Collaboration, co-writing sessions |
 | `/journal/pre-chorus/` | What Is a Pre-Chorus? | Pre-chorus function and writing |
+| `/journal/co-writing/` | How to Co-Write a Song | Collaboration, co-writing sessions |
 | `/journal/what-makes-a-hook/` | What Makes a Hook Land | Hook writing, compression |
 | `/journal/generic-lyrics/` | Why Your Lyrics Sound Generic | Specificity, ownership in lyrics |
 | `/journal/song-moments/` | What Makes a Song Feel Like a Moment | Song arc, movement vs. loop |
