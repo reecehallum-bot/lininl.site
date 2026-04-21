@@ -53,6 +53,12 @@ nav{padding:32px 0;display:flex;align-items:baseline;justify-content:space-betwe
 .nav-icon:hover{color:var(--ink);}
 footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .footer-text{font-size:11px;color:var(--ink-low);letter-spacing:0.14em;text-transform:uppercase;}
+/* Testimonials */
+.testi-list{margin-top:0;}
+.testi-item{padding:22px 0;border-bottom:1px solid var(--rule);}
+.testi-item:first-child{border-top:1px solid var(--rule);}
+.testi-quote{font-style:italic;color:var(--ink-med);line-height:var(--lh-relaxed);font-size:var(--fs-base);margin:0;}
+.testi-attr{font-size:var(--fs-2xs);color:var(--ink-low);letter-spacing:var(--ls-wide);text-transform:uppercase;margin:10px 0 0;}
 /* Keyboard focus */
 :focus-visible{outline:2px solid var(--purple);outline-offset:3px;border-radius:2px;}
 /* Respect reduced motion for page transition */
