@@ -76,6 +76,6 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
   *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
 }
 /* Service page eclipse */
-.service-eclipse-wrap{flex-shrink:0;display:flex;align-items:center;pointer-events:none;opacity:0.72;}
+.service-eclipse-wrap{flex-shrink:0;display:flex;align-items:center;pointer-events:none;opacity:0.72;will-change:transform;}
 .service-eclipse-wrap canvas{width:180px;height:180px;display:block;}
 @media(max-width:760px){.service-eclipse-wrap{display:none;}}
