@@ -76,7 +76,6 @@
 .article-cta-social a:hover{color:#9d6fd4;}
 
 /* Responsive */
-@media(max-width:600px){.cw-hero{position:relative;overflow:hidden;}}
 @media(max-width:520px){
   .wrap{padding:0 22px;}
   .cw-hero{padding:56px 0 52px;display:block;}
