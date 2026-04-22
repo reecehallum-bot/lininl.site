@@ -115,6 +115,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://liminl.music/journal/streaming-royalties/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://liminl.music/journal/sync-licensing-guide/</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
