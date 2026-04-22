@@ -13,28 +13,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liminl.music/co-writing/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <loc>https://liminl.music/journal/chorus/</loc>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://liminl.music/music-marketing/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <loc>https://liminl.music/journal/melody/</loc>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://liminl.music/sync-licensing/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <loc>https://liminl.music/journal/song-endings/</loc>
+    <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://liminl.music/links/</loc>
-    <lastmod>2026-04-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://liminl.music/journal/how-to-write-a-song/</loc>
