@@ -115,6 +115,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://liminl.music/journal/music-release-checklist/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://liminl.music/journal/music-release-strategy/</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
