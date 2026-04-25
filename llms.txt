@@ -27,6 +27,7 @@ Responds to inquiries within 48 hours.
 ## Content
 
 - [Homepage](https://liminl.music): Full profile, demos, services, FAQ — freelance songwriter and topliner for hire, dark pop, cinematic pop, sync
+- [Artist Development](https://liminl.music/artist-development/): Identity, sound direction, release strategy, and a long-term roadmap — artist development for independent artists who know what they want to build.
 - [Journal](https://liminl.music/journal/): Writing on songwriting craft — how to write better lyrics, stronger hooks, and songs that move
 - [Why Most Songs Fail the "Scene Test"](https://liminl.music/journal/scene-test/): How to write specific song lyrics — using the scene test to ground abstract feelings in concrete moments and behaviour
 - [What Makes a Song Feel Like a Moment, Not a Loop](https://liminl.music/journal/song-moments/): How to write a song that moves — structural progression and why some choruses land differently the second time
@@ -41,6 +42,26 @@ Responds to inquiries within 48 hours.
 - [How to Promote Your Music as an Indie Artist (Step-by-Step)](https://liminl.music/journal/promote-your-music/): Ten actionable steps for independent music promotion — from identity clarity to Spotify pitching to sync placement
 - [How to Promote Your Music on TikTok (Without Going Cringe)](https://liminl.music/journal/tiktok-music-promotion/): How TikTok actually works for indie artists, what content gets traction, and the framing mistake that tanks most music TikToks
 - [How to Get Spotify Streams Organically (No Bots, No Playlists)](https://liminl.music/journal/spotify-streams-organically/): How Spotify's algorithm actually works, what drives real stream growth, and what matters before pitching to any playlist
+- [Nobody Cares About Your Music (Here's Why)](https://liminl.music/journal/why-nobody-cares-about-your-music/): People don't ignore your music because it's bad — they ignore it because it lacks signal, context, and a reason to care. Here's the real problem.
+- [AI Music Is About to Flood the Internet (Here's What Happens Next)](https://liminl.music/journal/ai-music-flood/): AI won't kill music — it will drown it. Here's what the AI music flood means for independent artists, and what to do before discovery collapses.
+- [How to Write a Song](https://liminl.music/journal/how-to-write-a-song/): A step-by-step guide for writing a song: what to start with, how to structure a verse and chorus, and how to finish what you start.
+- [The Parts of a Song (And What Each One Is Actually For)](https://liminl.music/journal/parts-of-a-song/): What verse, pre-chorus, chorus, bridge, and post-chorus each need to achieve structurally for the song to work
+- [What the Chorus Is Actually For](https://liminl.music/journal/chorus/): Most choruses echo what the verse already showed. A chorus that works pays off the stakes built before it — here's what that means and how to write one.
+- [How Melody Carries What Lyrics Can't](https://liminl.music/journal/melody/): Melody makes a second emotional argument alongside the words. Here's what that means for contour, top notes, and why rhythm matters more than pitch.
+- [How to End a Song](https://liminl.music/journal/song-endings/): Most songs don't end — they stop or fade by default. Here's what a real ending does, when each type works, and how to write one that actually lands.
+- [How to Promote a New Song](https://liminl.music/journal/promote-new-song/): Promoting a new song isn't announcing it — it's making people want to find it. Here's how the mechanics differ before release, on release day, and after.
+- [Music Release Checklist for Independent Artists](https://liminl.music/journal/music-release-checklist/): Most release checklists start at release day. This one starts 8 weeks out — where the decisions that actually determine whether a release builds traction are made.
+- [How to Release Music Independently](https://liminl.music/journal/music-release-strategy/): Most indie artists treat a release as a day. It's a campaign. Here's what the timeline looks like and what actually determines whether it builds traction.
+- [How to Find Your Sound as an Artist](https://liminl.music/journal/find-your-sound/): Your sound isn't invented — it's already present in patterns across your work. Here's how to recognise it, make it consistent, and turn it into identity.
+- [How to Write an Artist Bio That Actually Works](https://liminl.music/journal/artist-bio/): Your artist bio isn't a writing problem — it's a positioning problem. Here's what a bio is actually for, the three formats, the three failure modes, and what works.
+- [How to Define Your Artist Identity](https://liminl.music/journal/artist-identity/): Artist identity isn't genre or aesthetics — it's the emotional territory only you can own. Here's how to define it across sonic, lyrical, and contextual dimensions.
+- [The Streaming Math Is Broken](https://liminl.music/journal/streaming-royalties/): Spotify's royalty pool is zero-sum. Every AI track uploaded shrinks your slice. Here's why streaming pays less each year — and what to do instead.
+- [The Sync Licensing Guide for Independent Artists](https://liminl.music/journal/sync-licensing-guide/): How sync licensing works, what supervisors want, and how to get your music placed in TV, film, and advertising — the complete guide for indie artists.
+- [What Is Sync Licensing?](https://liminl.music/journal/what-is-sync-licensing/): Sync licensing explained without the jargon: what a sync fee is, who collects it, and how your music ends up in TV, film, advertising, and games.
+- [How to Write Sync-Ready Music](https://liminl.music/journal/sync-ready-music/): Most sync rejections are craft problems, not business ones. Here's what makes a track hold a scene — and what kills a placement before it starts.
+- [How to Pitch Your Music to a Music Supervisor](https://liminl.music/journal/music-supervisor-pitch/): Most pitches to music supervisors are ignored — not because the music is bad, but because the pitch is wrong. Here's what they actually need from you.
+- [Music Distribution for Independent Artists](https://liminl.music/journal/music-distribution/): How to choose a distributor, set up metadata correctly, and run a release that gets algorithmic pickup — the complete guide for indie artists in 2026.
+- [Social Media Strategy for Musicians](https://liminl.music/journal/music-social-media/): TikTok, Instagram, and YouTube Shorts work differently for musicians. Here's how each platform builds audiences in 2026 — and what to actually post.
 
 ## Contact
 

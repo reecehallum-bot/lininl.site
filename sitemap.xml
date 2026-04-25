@@ -25,6 +25,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://liminl.music/artist-development/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://liminl.music/links/</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
