@@ -1,3 +1,9 @@
+/* Full-bleed page hero */
+.page-hero{position:absolute;top:0;left:0;right:0;height:500px;background-size:cover;background-position:60% center;z-index:0;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,9,15,0.78) 0%,rgba(7,9,15,0.3) 35%,rgba(7,9,15,0.78) 68%,rgba(7,9,15,1) 100%);}
+.nav-over-hero{border-bottom-color:transparent;}
+@media(max-width:760px){.page-hero{height:440px;}}
+
 /* Section label */
 .section-label{font-size:11px;letter-spacing:0.32em;color:var(--ink-low);margin-bottom:32px;display:flex;align-items:center;gap:18px;text-transform:uppercase;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--rule);}
