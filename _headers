@@ -17,5 +17,8 @@
 /shared.css
   Cache-Control: public, max-age=86400, must-revalidate
 
+/journal/journal.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
 /index.css
   Cache-Control: public, max-age=31536000, immutable
