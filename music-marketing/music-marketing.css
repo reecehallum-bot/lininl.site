@@ -83,8 +83,8 @@
 /* Responsive */
 @media(max-width:520px){
   .wrap{padding:0 22px;}
-  .mm-hero{padding:200px 0 44px;}
-  .page-hero{background-position:60% 25%;}
+  .mm-hero{padding:290px 0 44px;}
+  .page-hero{height:65vh;background-position:60% top;}
   .mm-card-row{grid-template-columns:1fr;gap:6px;}
   .mm-section{padding:48px 0;}
 }
