@@ -96,5 +96,6 @@
 .post-hero-text .back-link{margin-bottom:24px;}
 .post-hero-text .post-meta{margin-bottom:12px;}
 .post-hero-text .post-title{margin-bottom:0;}
+.post-hero-text .post-subtitle{margin-top:8px;margin-bottom:0;}
 
 @media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}.page-hero{height:480px;}.post-hero-text{padding-top:210px;}}
