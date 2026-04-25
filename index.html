@@ -666,6 +666,7 @@
 <script src="/js/bg.js?v=3"></script>
 <script src="/js/main.js?v=1"></script>
 <script src="/js/testimonial-slider.js?v=2"></script>
+<script>(function(){var cards=document.querySelectorAll('.lane-card');cards.forEach(function(c){c.classList.add('lane-ready');});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay='';e.target.classList.replace('lane-ready','lane-visible');obs.unobserve(e.target);}});},{threshold:0.12});cards.forEach(function(c,i){c.style.transitionDelay=(i*80)+'ms';obs.observe(c);});}());</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
