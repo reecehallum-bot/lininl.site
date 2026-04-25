@@ -79,3 +79,17 @@ footer{border-top:1px solid var(--rule);padding:28px 0 40px;text-align:center;}
 .service-eclipse-wrap{flex-shrink:0;display:flex;align-items:center;pointer-events:none;opacity:0.72;will-change:transform;}
 .service-eclipse-wrap canvas{width:180px;height:180px;display:block;}
 @media(max-width:760px){.service-eclipse-wrap{display:none;}}
+/* UFO keyframes (also in index.css for homepage; duplicating here for service pages) */
+@keyframes ufoFloat{0%,100%{transform:translateY(0px) rotate(-1deg);}33%{transform:translateY(-14px) rotate(1.5deg);}66%{transform:translateY(-7px) rotate(-0.5deg);}}
+@keyframes beamPulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+/* About extract — compact bio block on service pages */
+.about-extract{padding:52px 0 0;}
+.about-extract-inner{display:flex;align-items:flex-start;gap:28px;}
+.about-extract-ufo{position:relative;flex-shrink:0;width:100px;padding-bottom:30px;}
+.about-extract-img{width:100px;height:100px;object-fit:contain;display:block;animation:ufoFloat 6s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(157,111,212,0.35)) drop-shadow(0 0 30px rgba(157,111,212,0.12));}
+.about-extract-ufo .ufo-beam{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40px;height:60px;background:linear-gradient(180deg,rgba(157,111,212,0.22) 0%,rgba(157,111,212,0) 100%);clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);animation:beamPulse 6s ease-in-out infinite;pointer-events:none;}
+.about-extract-text{padding-top:8px;}
+.about-extract-text p{font-size:16px;color:var(--ink-low);line-height:1.8;font-weight:300;letter-spacing:0.02em;margin-bottom:14px;max-width:480px;text-wrap:pretty;}
+.about-extract-link{font-size:13px;color:var(--ink-dim);letter-spacing:0.05em;text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px;transition:color 0.2s,border-color 0.2s;}
+.about-extract-link:hover{color:var(--ink-low);border-color:var(--ink-low);}
+@media(max-width:520px){.about-extract-inner{flex-direction:column;gap:20px;}.about-extract-ufo{width:80px;}.about-extract-img{width:80px;height:80px;}.about-extract-ufo .ufo-beam{width:32px;height:48px;}}
