@@ -90,11 +90,11 @@
 
 /* Full-bleed page hero */
 .page-hero{position:absolute;top:0;left:0;right:0;height:560px;background-size:cover;background-position:center 40%;z-index:0;}
-.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,9,15,0.7) 0%,rgba(7,9,15,0.04) 38%,rgba(7,9,15,0.8) 72%,rgba(7,9,15,1) 100%);}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,9,15,0.78) 0%,rgba(7,9,15,0.52) 35%,rgba(7,9,15,0.78) 68%,rgba(7,9,15,1) 100%);}
 .nav-over-hero{border-bottom-color:transparent;}
-.post-hero-text{display:flex;flex-direction:column;justify-content:space-between;height:420px;margin-bottom:52px;}
-.post-hero-text .back-link{margin-bottom:0;}
+.post-hero-text{padding-top:340px;margin-bottom:52px;}
+.post-hero-text .back-link{margin-bottom:24px;}
 .post-hero-text .post-meta{margin-bottom:12px;}
 .post-hero-text .post-title{margin-bottom:0;}
 
-@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}.page-hero{height:480px;}.post-hero-text{height:340px;}}
+@media(max-width:520px){.wrap{padding:0 22px;}.post-wrap{padding:48px 0 60px;}.page-hero{height:480px;}.post-hero-text{padding-top:260px;}}
