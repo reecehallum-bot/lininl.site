@@ -19,7 +19,7 @@ nav{justify-content:center;}
 .link-icon--art{width:56px;height:56px;background-image:url('/android-chrome-192x192.png');background-size:cover;background-position:center;position:relative;overflow:hidden;border-radius:5px;color:rgba(216,226,240,0.9);}
 .link-icon--art::before{content:'';position:absolute;inset:0;background:rgba(7,9,15,0.35);border-radius:5px;}
 .link-icon--art svg{position:relative;z-index:1;}
-.link-card:hover .link-icon--art{color:#fff;}
+.link-card:hover .link-icon--art{color:var(--ink);}
 .link-text{flex:1;min-width:0;}
 .link-label{font-weight:300;font-size:15px;letter-spacing:-0.01em;color:var(--ink);transition:color 0.4s,text-shadow 0.4s;}
 .link-card:hover .link-label{color:var(--purple);text-shadow:0 0 20px rgba(157,111,212,0.4);}
