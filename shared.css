@@ -3,14 +3,14 @@
   --bg2:      #0b0d15;
   --bg3:      #0f1120;
   --purple:   #9d6fd4;
-  --ink:      #d8e2f0;
-  --ink-low:  #8896a8;
-  --ink-dim:  #3a4a5a;
-  --rule:     rgba(216,226,240,0.07);
-  --rule-mid: rgba(216,226,240,0.12);
-  --ink-hi:    rgba(216,226,240,0.92);
-  --ink-med:   rgba(216,226,240,0.68);
-  --ink-faint: rgba(216,226,240,0.55);
+  --ink:      #EDE8E1;
+  --ink-low:  #9A9088;
+  --ink-dim:  #4A4038;
+  --rule:     rgba(237,232,225,0.07);
+  --rule-mid: rgba(237,232,225,0.12);
+  --ink-hi:    rgba(237,232,225,0.92);
+  --ink-med:   rgba(237,232,225,0.68);
+  --ink-faint: rgba(237,232,225,0.55);
   /* Type scale */
   --fs-2xs: 11px;
   --fs-xs:  12px;
