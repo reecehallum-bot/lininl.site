@@ -80,8 +80,6 @@ footer{border-top:1px solid var(--rule);padding:48px 0 56px;text-align:center;}
   .logo-dot{animation:none;}
   *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
 }
-/* Hero parallax */
-.page-hero{will-change:transform;}
 /* Service page eclipse */
 .service-eclipse-wrap{flex-shrink:0;display:flex;align-items:center;pointer-events:none;opacity:0.72;will-change:transform;}
 .service-eclipse-wrap canvas{width:180px;height:180px;display:block;}
