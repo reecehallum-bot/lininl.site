@@ -8,16 +8,11 @@
 
   function applyParallax() {
     ticking = false;
-    if (window.innerWidth <= 520) { hero.style.transform = ''; return; }
     hero.style.transform = 'translateY(' + (lastY * FACTOR) + 'px)';
   }
 
   window.addEventListener('scroll', function() {
     lastY = window.scrollY;
     if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
-  }, { passive: true });
-
-  window.addEventListener('resize', function() {
-    if (window.innerWidth <= 520) hero.style.transform = '';
   }, { passive: true });
 })();
