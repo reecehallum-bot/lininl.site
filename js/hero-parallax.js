@@ -2,17 +2,20 @@
   var hero = document.querySelector('.page-hero');
   if (!hero) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var FACTOR = 0.35;
+  var FACTOR = 0.3;
   var ticking = false;
-  var lastY = window.scrollY;
+  var baseY = getComputedStyle(hero).backgroundPositionY || '50%';
+  if (baseY === 'center') baseY = '50%';
 
   function applyParallax() {
     ticking = false;
-    hero.style.transform = 'translateY(' + (lastY * FACTOR) + 'px)';
+    var sy = window.pageYOffset || window.scrollY;
+    hero.style.backgroundPositionY = 'calc(' + baseY + ' + ' + (sy * FACTOR) + 'px)';
   }
 
   window.addEventListener('scroll', function() {
-    lastY = window.scrollY;
     if (!ticking) { requestAnimationFrame(applyParallax); ticking = true; }
   }, { passive: true });
+
+  applyParallax();
 })();
