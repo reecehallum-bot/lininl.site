@@ -38,7 +38,7 @@
 <meta name="twitter:image" content="https://liminl.music/og-image.jpg">
 <meta name="twitter:creator" content="@liminl.music">
 <link rel="stylesheet" href="/shared.css?v=8">
-<link rel="stylesheet" href="/index.css?v=7">
+<link rel="stylesheet" href="/index.css?v=8">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -438,10 +438,22 @@
         </a>
       </div>
     </div>
-    <div class="lanes-dots">
-      <button class="lanes-dot active" data-lane="0" aria-label="Artist Development"></button>
-      <button class="lanes-dot" data-lane="1" aria-label="Co-Writing Sessions"></button>
-      <button class="lanes-dot" data-lane="2" aria-label="Sync Licensing"></button>
+    <div class="lanes-nav">
+      <button class="lanes-arrow lanes-prev" aria-label="Previous service" disabled>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lanes-dots">
+        <button class="lanes-dot active" data-lane="0" aria-label="Artist Development"></button>
+        <button class="lanes-dot" data-lane="1" aria-label="Co-Writing Sessions"></button>
+        <button class="lanes-dot" data-lane="2" aria-label="Sync Licensing"></button>
+      </div>
+      <button class="lanes-arrow lanes-next" aria-label="Next service">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </section>
   <section class="about" style="padding-top:0;">
@@ -675,7 +687,7 @@
 <script src="/js/bg.js?v=3"></script>
 <script src="/js/main.js?v=1"></script>
 <script src="/js/testimonial-slider.js?v=2"></script>
-<script>(function(){var carousel=document.getElementById('lanesCarousel');var dots=document.querySelectorAll('.lanes-dot');var cards=document.querySelectorAll('.lane-card[data-lane]');if(!carousel)return;dots.forEach(function(d){d.addEventListener('click',function(){var idx=parseInt(this.dataset.lane);if(cards[idx])cards[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});});});var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=0.5){var idx=e.target.dataset.lane;dots.forEach(function(d){d.classList.remove('active');});var ad=document.querySelector('.lanes-dot[data-lane="'+idx+'"]');if(ad)ad.classList.add('active');}});},{root:carousel,threshold:0.5});cards.forEach(function(c){io.observe(c);});var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){carousel.classList.add('lanes-visible');so.unobserve(e.target);}});},{threshold:0.1});so.observe(carousel);}());</script>
+<script>(function(){var carousel=document.getElementById('lanesCarousel');var dots=document.querySelectorAll('.lanes-dot');var cards=document.querySelectorAll('.lane-card[data-lane]');var prevBtn=document.querySelector('.lanes-prev');var nextBtn=document.querySelector('.lanes-next');if(!carousel)return;var activeIdx=0;function scrollToCard(idx){if(idx<0||idx>=cards.length)return;cards[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});}function updateArrows(){if(prevBtn)prevBtn.disabled=activeIdx===0;if(nextBtn)nextBtn.disabled=activeIdx===cards.length-1;}if(prevBtn)prevBtn.addEventListener('click',function(){scrollToCard(activeIdx-1);});if(nextBtn)nextBtn.addEventListener('click',function(){scrollToCard(activeIdx+1);});dots.forEach(function(d){d.addEventListener('click',function(){scrollToCard(parseInt(this.dataset.lane));});});var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=0.5){activeIdx=parseInt(e.target.dataset.lane);dots.forEach(function(d){d.classList.remove('active');});cards.forEach(function(c){c.classList.remove('lane-active');});e.target.classList.add('lane-active');var ad=document.querySelector('.lanes-dot[data-lane="'+activeIdx+'"]');if(ad)ad.classList.add('active');carousel.classList.add('has-active');updateArrows();}});},{root:carousel,threshold:0.5});cards.forEach(function(c){io.observe(c);});var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){carousel.classList.add('lanes-visible');so.unobserve(e.target);}});},{threshold:0.1});so.observe(carousel);var dragging=false,dragStartX=0,dragScrollLeft=0,dragMoved=0;carousel.addEventListener('mousedown',function(e){dragging=true;dragMoved=0;dragStartX=e.pageX;dragScrollLeft=carousel.scrollLeft;carousel.classList.add('dragging');});document.addEventListener('mouseup',function(){if(!dragging)return;dragging=false;carousel.classList.remove('dragging');});carousel.addEventListener('mousemove',function(e){if(!dragging)return;e.preventDefault();dragMoved=Math.abs(e.pageX-dragStartX);carousel.scrollLeft=dragScrollLeft-(e.pageX-dragStartX);});carousel.addEventListener('click',function(e){if(dragMoved>5)e.preventDefault();},true);}());</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
