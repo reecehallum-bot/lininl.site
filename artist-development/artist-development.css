@@ -60,8 +60,8 @@
 .contact-form-el{max-width:440px;}
 .contact-fields{display:block;}
 .contact-field{display:block;margin-bottom:40px;}
-.contact-label{display:block;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
-.contact-optional{font-style:italic;letter-spacing:0;text-transform:none;font-size:9px;opacity:0.6;margin-left:6px;}
+.contact-label{display:block;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-low);margin-bottom:12px;}
+.contact-optional{font-style:italic;letter-spacing:0;text-transform:none;font-size:9px;opacity:0.55;margin-left:6px;color:var(--ink-dim);}
 .contact-input,.contact-textarea{
   display:block;
   width:100%;
@@ -69,7 +69,7 @@
   appearance:none;
   background:transparent;
   border:none;
-  border-bottom:1px solid rgba(237,232,225,0.10);
+  border-bottom:1px solid rgba(237,232,225,0.14);
   border-radius:0;
   color:var(--ink-med);
   font-size:15px;
@@ -86,7 +86,7 @@
   box-shadow:0 1px 0 0 rgba(157,111,212,0.18);
   color:var(--ink);
 }
-.contact-input::placeholder,.contact-textarea::placeholder{color:var(--ink-dim);font-style:italic;}
+.contact-input::placeholder,.contact-textarea::placeholder{color:rgba(237,232,225,0.28);font-style:italic;}
 .contact-textarea{resize:none;line-height:1.7;}
 .contact-actions{margin-top:32px;}
 .contact-submit{
