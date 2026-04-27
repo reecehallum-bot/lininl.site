@@ -109,7 +109,7 @@
 </script>
 
 <link rel="stylesheet" href="/shared.css?v=8">
-<link rel="stylesheet" href="/artist-development/artist-development.css?v=2">
+<link rel="stylesheet" href="/artist-development/artist-development.css?v=3">
 </head>
 <body>
 <div class="veil"></div>
@@ -321,17 +321,25 @@
         <div class="contact-fields">
           <div class="contact-field">
             <label class="contact-label" for="ad-name">Name</label>
-            <input class="contact-input" type="text" id="ad-name" name="name" placeholder="Optional" autocomplete="name">
+            <input class="contact-input" type="text" id="ad-name" name="name" placeholder="Your name" required autocomplete="name">
           </div>
           <div class="contact-field">
             <label class="contact-label" for="ad-email">Email</label>
-            <input class="contact-input" type="email" id="ad-email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <input class="contact-input" type="email" id="ad-email" name="email" placeholder="your best email" required autocomplete="email">
           </div>
           <div class="contact-field">
-            <label class="contact-label" for="ad-message">What are you working on?</label>
-            <textarea class="contact-textarea" id="ad-message" name="message" placeholder="Optional, a line or two is plenty" rows="3"></textarea>
+            <label class="contact-label" for="ad-link">A link to your music <span class="contact-optional">optional</span></label>
+            <input class="contact-input" type="text" id="ad-link" name="link" placeholder="Spotify, SoundCloud, anywhere it lives" inputmode="url" autocomplete="off">
           </div>
-          <button type="submit" class="cw-cta contact-submit">Send</button>
+          <div class="contact-field">
+            <label class="contact-label" for="ad-message">What are you working on? <span class="contact-optional">optional</span></label>
+            <textarea class="contact-textarea" id="ad-message" name="message" placeholder="whatever&apos;s relevant" rows="2"></textarea>
+          </div>
+          <div class="contact-actions">
+            <button type="submit" class="contact-submit">Send inquiry</button>
+            <p class="contact-escape">or email directly &mdash; <a href="mailto:hello&#64;liminl.music">hello@liminl.music</a></p>
+            <p class="contact-privacy">Your details are used only to respond to your inquiry.</p>
+          </div>
         </div>
         <p class="contact-status" aria-live="polite"></p>
       </form>
@@ -438,7 +446,7 @@
       .then(function(json) {
         if (json.success) {
           fields.style.display = 'none';
-          status.textContent = 'Sent. I’ll be in touch.';
+          status.textContent = 'Sent — I’ll listen and be in touch.';
           status.style.fontSize = '17px';
           status.style.color = 'var(--ink-med)';
         } else {
