@@ -416,25 +416,32 @@
   </section>
   <section class="lanes" id="services">
     <h2 class="section-label">Services</h2>
-    <div class="lane-grid">
-      <a href="/artist-development/" class="lane-card">
-        <p class="lane-kicker">01</p>
-        <h3 class="lane-title">Artist Development</h3>
-        <p class="lane-copy">Identity, sound direction, release strategy, and a long-term roadmap &mdash; built around where you want to take your music.</p>
-        <span class="lane-cta">Learn more</span>
-      </a>
-      <a href="/co-writing/" class="lane-card">
-        <p class="lane-kicker">02</p>
-        <h3 class="lane-title">Co-Writing Sessions</h3>
-        <p class="lane-copy">Remote, in-person (NZ), or async. Bring a half-finished song, a title, or a beat that needs a vocal &mdash; and we write it together.</p>
-        <span class="lane-cta">Learn more</span>
-      </a>
-      <a href="/sync-licensing/" class="lane-card">
-        <p class="lane-kicker">03</p>
-        <h3 class="lane-title">Sync Licensing</h3>
-        <p class="lane-copy">Custom briefs, stems, and fully cleared licensing for TV, film, streaming, and brand campaigns. The stranger the brief, the better.</p>
-        <span class="lane-cta">Learn more</span>
-      </a>
+    <div class="lanes-overflow-host">
+      <div class="lanes-carousel" id="lanesCarousel">
+        <a href="/artist-development/" class="lane-card" data-lane="0">
+          <p class="lane-kicker">01</p>
+          <h3 class="lane-title">Artist Development</h3>
+          <p class="lane-copy">Identity, sound direction, release strategy, and a long-term roadmap &mdash; built around where you want to take your music.</p>
+          <span class="lane-cta">Learn more</span>
+        </a>
+        <a href="/co-writing/" class="lane-card" data-lane="1">
+          <p class="lane-kicker">02</p>
+          <h3 class="lane-title">Co-Writing Sessions</h3>
+          <p class="lane-copy">Remote, in-person (NZ), or async. Bring a half-finished song, a title, or a beat that needs a vocal &mdash; and we write it together.</p>
+          <span class="lane-cta">Learn more</span>
+        </a>
+        <a href="/sync-licensing/" class="lane-card" data-lane="2">
+          <p class="lane-kicker">03</p>
+          <h3 class="lane-title">Sync Licensing</h3>
+          <p class="lane-copy">Custom briefs, stems, and fully cleared licensing for TV, film, streaming, and brand campaigns. The stranger the brief, the better.</p>
+          <span class="lane-cta">Learn more</span>
+        </a>
+      </div>
+    </div>
+    <div class="lanes-dots">
+      <button class="lanes-dot active" data-lane="0" aria-label="Artist Development"></button>
+      <button class="lanes-dot" data-lane="1" aria-label="Co-Writing Sessions"></button>
+      <button class="lanes-dot" data-lane="2" aria-label="Sync Licensing"></button>
     </div>
   </section>
   <section class="about" style="padding-top:0;">
@@ -668,7 +675,7 @@
 <script src="/js/bg.js?v=3"></script>
 <script src="/js/main.js?v=1"></script>
 <script src="/js/testimonial-slider.js?v=2"></script>
-<script>(function(){var cards=document.querySelectorAll('.lane-card');cards.forEach(function(c){c.classList.add('lane-ready');});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.style.transitionDelay='';e.target.classList.replace('lane-ready','lane-visible');obs.unobserve(e.target);}});},{threshold:0.12});cards.forEach(function(c,i){c.style.transitionDelay=(i*80)+'ms';obs.observe(c);});}());</script>
+<script>(function(){var carousel=document.getElementById('lanesCarousel');var dots=document.querySelectorAll('.lanes-dot');var cards=document.querySelectorAll('.lane-card[data-lane]');if(!carousel)return;dots.forEach(function(d){d.addEventListener('click',function(){var idx=parseInt(this.dataset.lane);if(cards[idx])cards[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});});});var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=0.5){var idx=e.target.dataset.lane;dots.forEach(function(d){d.classList.remove('active');});var ad=document.querySelector('.lanes-dot[data-lane="'+idx+'"]');if(ad)ad.classList.add('active');}});},{root:carousel,threshold:0.5});cards.forEach(function(c){io.observe(c);});var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){carousel.classList.add('lanes-visible');so.unobserve(e.target);}});},{threshold:0.1});so.observe(carousel);}());</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
