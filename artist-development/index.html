@@ -111,7 +111,7 @@
 <link rel="stylesheet" href="/shared.css?v=8">
 <link rel="stylesheet" href="/artist-development/artist-development.css?v=4">
 </head>
-<body>
+<body data-no-aliens="true">
 <div class="veil"></div>
 <div class="grain"></div>
 <div class="vignette"></div>
@@ -208,7 +208,7 @@
       <h2 class="section-label">From artists I&rsquo;ve worked with</h2>
       <div class="testi-slider">
         <div class="testi-slides">
-          <div class="testi-slide">
+          <div class="testi-slide active">
             <p class="testi-quote">&ldquo;I&rsquo;d been circling the same questions for two years. After one session with Reece I had a document I could actually use. The clarity was immediate.&rdquo;</p>
             <p class="testi-attr">— Seren V., indie pop artist</p>
           </div>
@@ -226,7 +226,7 @@
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="testi-dots">
-            <button class="testi-dot" aria-label="Testimonial 1"></button>
+            <button class="testi-dot active" aria-label="Testimonial 1"></button>
             <button class="testi-dot" aria-label="Testimonial 2"></button>
             <button class="testi-dot" aria-label="Testimonial 3"></button>
           </div>
@@ -243,68 +243,68 @@
       <h2 class="faq-section-label">Common questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-1" aria-expanded="false" aria-controls="faq-body-1">
             <span class="faq-q">What does an artist development engagement look like, practically?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-1" role="region" aria-labelledby="faq-toggle-1">
             <p>It starts with a discovery session where we go through your music, your references, what has landed well and what hasn&rsquo;t, and where you want to be in a year. From there you get a written artist brief &mdash; a short document covering identity, positioning, and direction. Development continues monthly: check-ins, release reviews, and adjustments as the work starts moving.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-2" aria-expanded="false" aria-controls="faq-body-2">
             <span class="faq-q">How long does it take before something changes?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-2" role="region" aria-labelledby="faq-toggle-2">
             <p>Most artists leave the first session with a clearer sense of direction than they&rsquo;ve had in years &mdash; not because we&rsquo;ve solved everything, but because the frame is finally in place. Structural changes to a career take longer. Think in quarters, not weeks.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-3" aria-expanded="false" aria-controls="faq-body-3">
             <span class="faq-q">Is this for artists who are just starting out?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-3" role="region" aria-labelledby="faq-toggle-3">
             <p>Not primarily. This works best for artists who already have material &mdash; who have put music out, have some sense of what they make, but still can&rsquo;t clearly articulate what they&rsquo;re building toward. If you&rsquo;re just starting, a co-writing session or single release is probably a better first step.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-4" aria-expanded="false" aria-controls="faq-body-4">
             <span class="faq-q">What if I already have a manager or team?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-4" role="region" aria-labelledby="faq-toggle-4">
             <p>Development and management serve different functions. A manager handles relationships and deals. Development is about the artistic frame &mdash; who you are, what you make, and in what order you build it. The two work well together.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-5" aria-expanded="false" aria-controls="faq-body-5">
             <span class="faq-q">What do I leave the first session with?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-5" role="region" aria-labelledby="faq-toggle-5">
             <p>A written artist brief: identity, positioning, sound direction, and an initial roadmap for the next six months. A document you can actually hand to a photographer, a label, or a sync agent so they immediately understand who you are.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-6" aria-expanded="false" aria-controls="faq-body-6">
             <span class="faq-q">Can this be done internationally?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-6" role="region" aria-labelledby="faq-toggle-6">
             <p>Yes. Everything runs remotely. Time zone differences are workable &mdash; sessions are scheduled around your location. The work is the same regardless of where you are.</p>
           </div>
         </div>
@@ -349,7 +349,7 @@
           </div>
           <div class="contact-field">
             <label class="contact-label" for="ad-message">What are you working on? <span class="contact-optional">optional</span></label>
-            <textarea class="contact-textarea" id="ad-message" name="message" placeholder="whatever&apos;s relevant" rows="2"></textarea>
+            <textarea class="contact-textarea" id="ad-message" name="message" placeholder="whatever&apos;s relevant" rows="4"></textarea>
           </div>
           <div class="contact-actions">
             <button type="submit" class="contact-submit">Send inquiry</button>
