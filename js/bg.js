@@ -349,6 +349,7 @@ const ALIEN_COLORS=[
 
 function spawnAlien(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(document.body.dataset.noAliens)return;
   const W=window.innerWidth,H=window.innerHeight;
   const type=Math.floor(Math.random()*3);
   const colorIdx=Math.floor(Math.random()*ALIEN_COLORS.length);
