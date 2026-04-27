@@ -141,7 +141,7 @@
         <p class="cw-kicker">Artist Development</p>
         <h1 class="cw-headline">Build the artist<br>behind the music.</h1>
         <p class="cw-sub">Identity, sound, and strategy &mdash; developed in sequence, not all at once.</p>
-        <a href="mailto:hello&#64;liminl.music?subject=Artist%20Development%20Inquiry" class="cw-cta">Get in touch</a>
+        <a href="#contact" class="cw-cta">Start a project</a>
       </div>
     </section>
 
@@ -310,6 +310,33 @@
       </div>
     </section>
 
+    <!-- Start a project -->
+    <section class="cw-section" id="contact">
+      <h2 class="section-label">Start a project</h2>
+      <p class="contact-intro">Tell me what you&rsquo;re working on &mdash; I&rsquo;ll respond within a day or two.</p>
+      <form class="contact-form-el" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="4cfaa805-5392-49c2-9bc6-6f60ca718d63">
+        <input type="hidden" name="subject" value="Artist Development Inquiry &mdash; liminl.">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="contact-fields">
+          <div class="contact-field">
+            <label class="contact-label" for="ad-name">Name</label>
+            <input class="contact-input" type="text" id="ad-name" name="name" placeholder="Optional" autocomplete="name">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="ad-email">Email</label>
+            <input class="contact-input" type="email" id="ad-email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="ad-message">What are you working on?</label>
+            <textarea class="contact-textarea" id="ad-message" name="message" placeholder="Optional, a line or two is plenty" rows="3"></textarea>
+          </div>
+          <button type="submit" class="cw-cta contact-submit">Send</button>
+        </div>
+        <p class="contact-status" aria-live="polite"></p>
+      </form>
+    </section>
+
     <!-- From the Journal -->
     <section class="cw-section">
       <h2 class="section-label">From the Journal</h2>
@@ -391,6 +418,43 @@
 <script src="/js/bg.js"></script>
 <script src="/js/hero-parallax.js?v=2"></script>
 <script src="/js/article.js"></script>
-<script src="/js/testimonial-slider.js?v=2"></script><!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/js/testimonial-slider.js?v=2"></script>
+<script>
+(function(){
+  var form = document.querySelector('.contact-form-el');
+  if (!form) return;
+  var fields = form.querySelector('.contact-fields');
+  var btn = form.querySelector('.contact-submit');
+  var status = form.querySelector('.contact-status');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!form.querySelector('[name="email"]').value) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var data = new FormData(form);
+    data.append('redirect', 'false');
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          fields.style.display = 'none';
+          status.textContent = 'Sent. I’ll be in touch.';
+          status.style.fontSize = '17px';
+          status.style.color = 'var(--ink-med)';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send';
+          status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send';
+        status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+      });
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
