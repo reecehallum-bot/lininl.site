@@ -122,7 +122,7 @@
 
 
 /* Service descriptor in Also Available section */
-.cw-service-desc{font-size:13px;font-weight:300;color:var(--ink-dim);line-height:1.6;margin-top:5px;font-style:italic;}
+.cw-service-desc{font-size:13px;font-weight:300;color:var(--ink-faint);line-height:1.6;margin-top:5px;font-style:italic;}
 
 /* Responsive */
 @media(max-width:520px){
