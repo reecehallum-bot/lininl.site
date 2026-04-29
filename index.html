@@ -287,7 +287,7 @@
       <div class="hero-ctas">
         <!-- songs CTA hidden temporarily -->
         <!-- <a href="#demos" class="hero-cta">Listen to Fragments</a> -->
-        <a href="mailto:hello&#64;liminl.music?subject=Inquiry%3A%20%5BProject%20Name%5D%20x%20Liminl" class="hero-cta hero-cta--secondary">Start a Project</a>
+        <a href="#contact" class="hero-cta hero-cta--secondary">Start a Project</a>
       </div>
     </div>
   </section>
@@ -394,7 +394,7 @@
     <h2 class="section-label">In their words</h2>
     <div class="testi-slider">
       <div class="testi-slides">
-        <div class="testi-slide">
+        <div class="testi-slide active">
           <p class="testi-quote">&ldquo;Working with Reece reshaped how I write. He found the emotional centre of the song faster than I could &mdash; the result was the best thing I&rsquo;d recorded.&rdquo;</p>
           <p class="testi-attr">— Maya H., indie artist</p>
         </div>
@@ -556,8 +556,35 @@
   </section>
   <section class="contact" id="contact">
     <p class="contact-note" style="max-width:460px;margin-left:auto;margin-right:auto;line-height:1.9;letter-spacing:0.06em;">If your songs feel close &mdash; but not quite landing &mdash; that&rsquo;s usually the issue. They&rsquo;re describing something, not capturing a moment. That&rsquo;s what I help fix.</p>
-    <a href="mailto:hello&#64;liminl.music?subject=Inquiry%3A%20%5BProject%20Name%5D%20x%20Liminl" class="contact-link">Start a project &rarr;</a>
-    <p class="contact-note" style="margin-top:18px;margin-bottom:0;">or <a href="mailto:hello&#64;liminl.music?subject=Song%20Draft%20x%20Liminl" style="color:var(--purple);text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid rgba(157,111,212,0.3);transition:border-color 0.3s;" onmouseover="this.style.borderBottomColor='rgba(157,111,212,0.8)'" onmouseout="this.style.borderBottomColor='rgba(157,111,212,0.3)'">send a draft &rarr;</a></p>
+    <form class="contact-form-el home-contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="4cfaa805-5392-49c2-9bc6-6f60ca718d63">
+      <input type="hidden" name="subject" value="Project Inquiry &mdash; liminl.">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="contact-fields">
+        <div class="contact-field">
+          <label class="contact-label" for="home-name">Name</label>
+          <input class="contact-input" type="text" id="home-name" name="name" placeholder="Your name" required autocomplete="name">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="home-email">Email</label>
+          <input class="contact-input" type="email" id="home-email" name="email" placeholder="" required autocomplete="email">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="home-link">A link to your music <span class="contact-optional">optional</span></label>
+          <input class="contact-input" type="text" id="home-link" name="link" placeholder="Spotify, SoundCloud, anywhere it lives" inputmode="url" autocomplete="off">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="home-message">What are you working on? <span class="contact-optional">optional</span></label>
+          <textarea class="contact-textarea" id="home-message" name="message" placeholder="whatever&apos;s relevant" rows="4"></textarea>
+        </div>
+        <div class="contact-actions">
+          <button type="submit" class="contact-submit">Send inquiry</button>
+          <p class="contact-escape">or email directly &mdash; <a href="mailto:hello&#64;liminl.music">hello@liminl.music</a></p>
+          <p class="contact-privacy">Your details are used only to respond to your inquiry.</p>
+        </div>
+      </div>
+      <p class="contact-status" aria-live="polite"></p>
+    </form>
     <div class="social-links">
       <a href="https://www.instagram.com/liminl.music" class="social-link" target="_blank" rel="noopener noreferrer">@liminl.music</a>
     </div>
@@ -582,6 +609,42 @@
 <script src="/js/bg.js?v=3"></script>
 <script src="/js/main.js?v=1"></script>
 <script src="/js/testimonial-slider.js?v=2"></script>
+<script>
+(function(){
+  var form = document.querySelector('.home-contact-form');
+  if (!form) return;
+  var fields = form.querySelector('.contact-fields');
+  var btn = form.querySelector('.contact-submit');
+  var status = form.querySelector('.contact-status');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!form.querySelector('[name="email"]').value) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var data = new FormData(form);
+    data.append('redirect', 'false');
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          fields.style.display = 'none';
+          status.textContent = 'Sent — I’ll be in touch.';
+          status.style.fontSize = '17px';
+          status.style.color = 'var(--ink-med)';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send inquiry';
+          status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send inquiry';
+        status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+      });
+  });
+})();
+</script>
 <script>(function(){var carousel=document.getElementById('lanesCarousel');var dots=document.querySelectorAll('.lanes-dot');var cards=document.querySelectorAll('.lane-card[data-lane]');var prevBtn=document.querySelector('.lanes-prev');var nextBtn=document.querySelector('.lanes-next');if(!carousel)return;var activeIdx=0;var dragging=false,dragStartX=0,dragScrollLeft=0,dragMoved=0;function scrollToCard(idx){if(idx<0||idx>=cards.length)return;cards[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});}function getNearestIdx(){var snapLeft=carousel.scrollLeft+40;var best=0,bestDist=Infinity;cards.forEach(function(c,i){var dist=Math.abs(c.offsetLeft-snapLeft);if(dist<bestDist){bestDist=dist;best=i;}});return best;}function updateArrows(){if(prevBtn)prevBtn.disabled=activeIdx===0;if(nextBtn)nextBtn.disabled=activeIdx===cards.length-1;}if(prevBtn)prevBtn.addEventListener('click',function(){scrollToCard(activeIdx-1);});if(nextBtn)nextBtn.addEventListener('click',function(){scrollToCard(activeIdx+1);});dots.forEach(function(d){d.addEventListener('click',function(){scrollToCard(parseInt(this.dataset.lane));});});cards.forEach(function(card){card.addEventListener('click',function(e){if(dragMoved>5){e.preventDefault();}else if(!card.classList.contains('lane-active')){e.preventDefault();scrollToCard(parseInt(card.dataset.lane));}});});document.addEventListener('keydown',function(e){var s=document.getElementById('services');if(!s)return;var r=s.getBoundingClientRect();if(r.bottom<0||r.top>window.innerHeight)return;if(e.key==='ArrowRight'){e.preventDefault();scrollToCard(activeIdx+1);}if(e.key==='ArrowLeft'){e.preventDefault();scrollToCard(activeIdx-1);}});var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=0.5){activeIdx=parseInt(e.target.dataset.lane);dots.forEach(function(d){d.classList.remove('active');});cards.forEach(function(c){c.classList.remove('lane-active');});e.target.classList.add('lane-active');var ad=document.querySelector('.lanes-dot[data-lane="'+activeIdx+'"]');if(ad)ad.classList.add('active');carousel.classList.add('has-active');updateArrows();}});},{root:carousel,threshold:0.5});cards.forEach(function(c){io.observe(c);});var so=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){carousel.classList.add('lanes-visible');so.unobserve(e.target);}});},{threshold:0.1});so.observe(carousel);carousel.addEventListener('mousedown',function(e){dragging=true;dragMoved=0;dragStartX=e.pageX;dragScrollLeft=carousel.scrollLeft;carousel.classList.add('dragging');e.preventDefault();});document.addEventListener('mouseup',function(){if(!dragging)return;dragging=false;carousel.classList.remove('dragging');scrollToCard(getNearestIdx());});carousel.addEventListener('mousemove',function(e){if(!dragging)return;dragMoved=Math.abs(e.pageX-dragStartX);carousel.scrollLeft=dragScrollLeft-(e.pageX-dragStartX);});}());</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
