@@ -159,7 +159,14 @@ Copy this exactly. Replace every `{PLACEHOLDER}` before saving.
     </div>
   </section>
   <footer>
-    <p class="footer-text">liminl. &mdash; &copy; 2026</p>
+    <nav class="footer-nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/journal/">Journal</a>
+      <a href="/co-writing/">Co-Writing</a>
+      <a href="/sync-licensing/">Sync Licensing</a>
+      <a href="/artist-development/">Artist Development</a>
+    </nav>
+    <p class="footer-text"><a href="/">liminl.music</a> &mdash; Aotearoa NZ &mdash; &copy; 2026</p>
   </footer>
 </div>
 <script src="/js/bg.js"></script>
