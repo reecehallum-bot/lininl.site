@@ -555,8 +555,9 @@
     </div>
   </section>
   <section class="contact" id="contact">
-    <p class="contact-note" style="max-width:460px;margin-left:auto;margin-right:auto;line-height:1.9;letter-spacing:0.06em;">If your songs feel close &mdash; but not quite landing &mdash; that&rsquo;s usually the issue. They&rsquo;re describing something, not capturing a moment. That&rsquo;s what I help fix.</p>
-    <form class="contact-form-el home-contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <h2 class="section-label">Start a project</h2>
+    <p class="contact-intro">If your songs feel close &mdash; but not quite landing &mdash; that&rsquo;s usually the issue. They&rsquo;re describing something, not capturing a moment. That&rsquo;s what I help fix.</p>
+    <form class="contact-form-el" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="4cfaa805-5392-49c2-9bc6-6f60ca718d63">
       <input type="hidden" name="subject" value="Project Inquiry &mdash; liminl.">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
@@ -612,7 +613,7 @@
 <script src="/js/testimonial-slider.js?v=2"></script>
 <script>
 (function(){
-  var form = document.querySelector('.home-contact-form');
+  var form = document.querySelector('.contact .contact-form-el');
   if (!form) return;
   var fields = form.querySelector('.contact-fields');
   var btn = form.querySelector('.contact-submit');
