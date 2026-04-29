@@ -106,7 +106,7 @@
 <link rel="stylesheet" href="/shared.css?v=8">
 <link rel="stylesheet" href="/co-writing/co-writing.css?v=1">
 </head>
-<body>
+<body data-no-aliens="true">
 <div class="veil"></div>
 <div class="grain"></div>
 <div class="vignette"></div>
@@ -136,7 +136,7 @@
         <p class="cw-kicker">Co-Writing</p>
         <h1 class="cw-headline">Bring your half-finished song.<br>Leave with something finished.</h1>
         <p class="cw-sub">Professional co-writing sessions for artists and producers &mdash; remote, in-person (NZ), or async.</p>
-        <a href="mailto:hello&#64;liminl.music?subject=Co-writing%20Session%20Inquiry" class="cw-cta">Get in touch</a>
+        <a href="#contact" class="cw-cta">Start a session</a>
       </div>
     </section>
 
@@ -189,6 +189,7 @@
         <li class="cw-for-item">Writers who work alone and keep hitting the same walls.</li>
         <li class="cw-for-item">Anyone who&rsquo;s tried to finish a song twelve times and still can&rsquo;t hear it clearly &mdash; <a href="/journal/generic-lyrics/">often a sign the lyrics need a second perspective</a>.</li>
       </ul>
+      <p class="cw-for-cta">If that sounds like where you are &mdash; <a href="#contact">start a session</a>.</p>
     </section>
 
     <!-- Testimonials -->
@@ -196,7 +197,7 @@
       <h2 class="section-label">In their words</h2>
       <div class="testi-slider">
         <div class="testi-slides">
-          <div class="testi-slide">
+          <div class="testi-slide active">
             <p class="testi-quote">&ldquo;Reece had the second verse before I&rsquo;d even finished explaining the concept. The song was done in two sessions.&rdquo;</p>
             <p class="testi-attr">— Talia M., indie pop artist</p>
           </div>
@@ -223,6 +224,7 @@
           </button>
         </div>
       </div>
+      <p class="cw-for-cta">Sounds like what you need? &mdash; <a href="#contact">start a session</a>.</p>
     </section>
 
     <!-- FAQ -->
@@ -230,61 +232,111 @@
       <div class="faq-section-label">Common questions</div>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-1" aria-expanded="false" aria-controls="faq-body-1">
             <span class="faq-q">Do I need to bring something to a session?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-1" role="region" aria-labelledby="faq-toggle-1">
             <p>No. A title, a feeling, a reference track, or just a blank page all work. Something concrete to react to helps &mdash; a rough melody, a track with a gap &mdash; but it&rsquo;s not required. We find the starting point together.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-2" aria-expanded="false" aria-controls="faq-body-2">
             <span class="faq-q">How long is a typical session?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-2" role="region" aria-labelledby="faq-toggle-2">
             <p>Live sessions &mdash; remote or in-person &mdash; typically run two to three hours. Async exchanges don&rsquo;t have a fixed clock; we go until the song is somewhere worth stopping, then pick it up again if needed.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-3" aria-expanded="false" aria-controls="faq-body-3">
             <span class="faq-q">How do publishing splits work?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-3" role="region" aria-labelledby="faq-toggle-3">
             <p>Standard starting point is 50/50, agreed at the end of the session while everything is still fresh. If the split needs adjusting based on what actually happened in the room, we discuss it then &mdash; openly, without it becoming a thing.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-4" aria-expanded="false" aria-controls="faq-body-4">
             <span class="faq-q">Can we work across different genres?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-4" role="region" aria-labelledby="faq-toggle-4">
             <p>Yes. Cinematic pop, conceptual pop, dark pop, and sync-ready writing are home territory &mdash; but the session follows the song, not a style guide. If the song wants to go somewhere else, we go there.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-5" aria-expanded="false" aria-controls="faq-body-5">
             <span class="faq-q">What if the song needs another session?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-5" role="region" aria-labelledby="faq-toggle-5">
             <p>Common. Book one session and see what comes out of it. We can continue from wherever it lands &mdash; no pressure to wrap everything in a single sitting if the song isn&rsquo;t ready.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-extract">
+      <h2 class="section-label">About</h2>
+      <div class="about-extract-inner">
+        <div class="ae-ufo-wrap" aria-hidden="true">
+          <div class="ae-beam"></div>
+          <img src="/images/reece-ufo.png" alt="" class="ae-ufo" width="130" height="130">
+        </div>
+        <div class="about-extract-body">
+          <p>I&rsquo;m Reece &mdash; songwriter, topliner, and producer based in Aotearoa New Zealand. I grew up arranging pop songs to perform them &mdash; learning what made them work by trying to recreate them exactly. That&rsquo;s still how I approach a co-write: find what the song is actually doing, then build from there.</p>
+          <a href="/about/" class="about-extract-link">More about Reece</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Start a session -->
+    <section class="cw-section" id="contact">
+      <h2 class="section-label">Start a session</h2>
+      <p class="contact-intro">A short note is plenty &mdash; no pitch deck required.</p>
+      <form class="contact-form-el" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="4cfaa805-5392-49c2-9bc6-6f60ca718d63">
+        <input type="hidden" name="subject" value="Co-Writing Session Inquiry &mdash; liminl.">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="contact-fields">
+          <div class="contact-field">
+            <label class="contact-label" for="cw-name">Name</label>
+            <input class="contact-input" type="text" id="cw-name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="cw-email">Email</label>
+            <input class="contact-input" type="email" id="cw-email" name="email" placeholder="" required autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="cw-link">A link to your music <span class="contact-optional">optional</span></label>
+            <input class="contact-input" type="text" id="cw-link" name="link" placeholder="Spotify, SoundCloud, anywhere it lives" inputmode="url" autocomplete="off">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="cw-message">What are you working on? <span class="contact-optional">optional</span></label>
+            <textarea class="contact-textarea" id="cw-message" name="message" placeholder="whatever&apos;s relevant" rows="4"></textarea>
+          </div>
+          <div class="contact-actions">
+            <button type="submit" class="contact-submit">Send inquiry</button>
+            <p class="contact-escape">or email directly &mdash; <a href="mailto:hello&#64;liminl.music">hello@liminl.music</a></p>
+            <p class="contact-privacy">Your details are used only to respond to your inquiry.</p>
+          </div>
+        </div>
+        <p class="contact-status" aria-live="polite"></p>
+      </form>
     </section>
 
     <!-- From the Journal -->
@@ -318,32 +370,19 @@
       <nav class="cw-journal-list" aria-label="Related services">
         <div class="cw-journal-item">
           <a href="/artist-development/" class="cw-journal-link">
-            <div class="cw-journal-label">Service</div>
+            <div class="cw-journal-label">Artist Development</div>
             <div class="cw-journal-title">Artist Development</div>
+            <div class="cw-service-desc">Identity, sound direction, and release strategy &mdash; a frame to build from.</div>
           </a>
         </div>
         <div class="cw-journal-item">
           <a href="/sync-licensing/" class="cw-journal-link">
-            <div class="cw-journal-label">Service</div>
+            <div class="cw-journal-label">Sync Licensing</div>
             <div class="cw-journal-title">Sync Licensing</div>
+            <div class="cw-service-desc">Songs cleared for TV, film, and brand campaigns &mdash; custom briefs and one-stop licensing.</div>
           </a>
         </div>
       </nav>
-    </section>
-
-    <!-- About -->
-    <section class="about-extract">
-      <h2 class="section-label">About</h2>
-      <div class="about-extract-inner">
-        <div class="ae-ufo-wrap" aria-hidden="true">
-          <div class="ae-beam"></div>
-          <img src="/images/reece-ufo.png" alt="" class="ae-ufo" width="130" height="130">
-        </div>
-        <div class="about-extract-body">
-          <p>I&rsquo;m Reece &mdash; songwriter, topliner, and producer based in Aotearoa New Zealand. I grew up arranging pop songs to perform them &mdash; learning what made them work by trying to recreate them exactly. That&rsquo;s still how I approach a co-write: find what the song is actually doing, then build from there.</p>
-          <a href="/about/" class="about-extract-link">More about Reece</a>
-        </div>
-      </div>
     </section>
 
   </main>
@@ -368,6 +407,43 @@
 <script src="/js/bg.js"></script>
 <script src="/js/hero-parallax.js?v=2"></script>
 <script src="/js/article.js"></script>
-<script src="/js/testimonial-slider.js?v=2"></script><!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/js/testimonial-slider.js?v=2"></script>
+<script>
+(function(){
+  var form = document.querySelector('.contact-form-el');
+  if (!form) return;
+  var fields = form.querySelector('.contact-fields');
+  var btn = form.querySelector('.contact-submit');
+  var status = form.querySelector('.contact-status');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!form.querySelector('[name="email"]').value) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var data = new FormData(form);
+    data.append('redirect', 'false');
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          fields.style.display = 'none';
+          status.textContent = 'Sent — I’ll be in touch.';
+          status.style.fontSize = '17px';
+          status.style.color = 'var(--ink-med)';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send';
+          status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send';
+        status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+      });
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

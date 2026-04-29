@@ -103,7 +103,7 @@
 <link rel="stylesheet" href="/shared.css?v=8">
 <link rel="stylesheet" href="/sync-licensing/sync-licensing.css?v=1">
 </head>
-<body>
+<body data-no-aliens="true">
 <div class="veil"></div>
 <div class="grain"></div>
 <div class="vignette"></div>
@@ -133,7 +133,7 @@
         <p class="sl-kicker">Sync Licensing</p>
         <h1 class="sl-headline">Songs built to carry the scene.</h1>
         <p class="sl-sub">Sync licensing for TV, film, streaming, and brand campaigns &mdash; custom briefs and one-stop clearance.</p>
-        <a href="mailto:hello&#64;liminl.music?subject=Sync%20Brief%20Inquiry" class="sl-cta">Submit a brief</a>
+        <a href="#contact" class="sl-cta">Submit a brief</a>
       </div>
     </section>
 
@@ -190,6 +190,7 @@
         <li class="sl-for-item">Ad agencies and brand campaign teams looking for original composition or catalogue.</li>
         <li class="sl-for-item">Indie artists and labels seeking sync placement &mdash; <a href="/journal/music-marketing/">sync is one of the few revenue streams still growing for independent artists</a>.</li>
       </ul>
+      <p class="sl-for-cta">If that sounds like your project &mdash; <a href="#contact">submit a brief</a>.</p>
     </section>
 
     <!-- Testimonials -->
@@ -197,7 +198,7 @@
       <h2 class="section-label">In their words</h2>
       <div class="testi-slider">
         <div class="testi-slides">
-          <div class="testi-slide">
+          <div class="testi-slide active">
             <p class="testi-quote">&ldquo;I sent over three tracks and got a placement within six weeks. The brief matching was spot on.&rdquo;</p>
             <p class="testi-attr">— Nina B., film composer</p>
           </div>
@@ -224,6 +225,7 @@
           </button>
         </div>
       </div>
+      <p class="sl-for-cta">Ready to place? &mdash; <a href="#contact">submit a brief</a>.</p>
     </section>
 
     <!-- FAQ -->
@@ -231,61 +233,111 @@
       <div class="faq-section-label">Common questions</div>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-1" aria-expanded="false" aria-controls="faq-body-1">
             <span class="faq-q">Do you accept sync briefs directly?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-1" role="region" aria-labelledby="faq-toggle-1">
             <p>Yes. Send the brief directly &mdash; scene description, genre, tempo, mood, deadline, and territory or exclusivity requirements if you have them. The more detail, the better the fit. Open to both direct briefs and referrals from music supervisors.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-2" aria-expanded="false" aria-controls="faq-body-2">
             <span class="faq-q">What&rsquo;s included in a stem pack?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-2" role="region" aria-labelledby="faq-toggle-2">
             <p>Full stem separation as standard: lead vocal, backing vocals, lead instrumental, rhythm section (drums, bass), and harmonic elements (keys, guitar, synths). Additional splits &mdash; underscore, a cappella, stripped &mdash; available on request.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-3" aria-expanded="false" aria-controls="faq-body-3">
             <span class="faq-q">Can you deliver one-stop licensing?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-3" role="region" aria-labelledby="faq-toggle-3">
             <p>Yes. Both sync (composition) and master rights available to clear in a single deal. No separate label or publisher to negotiate. Terms are agreed upfront and confirmed before delivery.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-4" aria-expanded="false" aria-controls="faq-body-4">
             <span class="faq-q">How quickly can you turn around a brief?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-4" role="region" aria-labelledby="faq-toggle-4">
             <p>Turnaround depends on the brief and your deadline. Include the deadline and I&rsquo;ll confirm whether it&rsquo;s workable before committing &mdash; I won&rsquo;t take a brief I can&rsquo;t deliver on.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-toggle" aria-expanded="false">
+          <button class="faq-toggle" id="faq-toggle-5" aria-expanded="false" aria-controls="faq-body-5">
             <span class="faq-q">What genres and moods do you work in?</span>
             <svg class="faq-chevron" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2.5 5l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="faq-body" role="region">
+          <div class="faq-body" id="faq-body-5" role="region" aria-labelledby="faq-toggle-5">
             <p>Cinematic emotional pop, conceptual pop, dark pop, and atmospheric underscore are home territory &mdash; but the brief leads. If the scene needs something specific, that&rsquo;s the starting point, not the genre list.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-extract">
+      <h2 class="section-label">About</h2>
+      <div class="about-extract-inner">
+        <div class="ae-ufo-wrap" aria-hidden="true">
+          <div class="ae-beam"></div>
+          <img src="/images/reece-ufo.png" alt="" class="ae-ufo" width="130" height="130">
+        </div>
+        <div class="about-extract-body">
+          <p>I&rsquo;m Reece &mdash; songwriter, topliner, and producer based in Aotearoa New Zealand. I&rsquo;ve worked in film and TV and have ongoing relationships with music supervisors &mdash; which means I understand how a song needs to behave before it reaches a brief. I think visually: what the scene is doing, not just what it feels like.</p>
+          <a href="/about/" class="about-extract-link">More about Reece</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submit a brief -->
+    <section class="sl-section" id="contact">
+      <h2 class="section-label">Submit a brief</h2>
+      <p class="contact-intro">Include the deadline &mdash; that&rsquo;s the most important detail.</p>
+      <form class="contact-form-el" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="4cfaa805-5392-49c2-9bc6-6f60ca718d63">
+        <input type="hidden" name="subject" value="Sync Brief Inquiry &mdash; liminl.">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="contact-fields">
+          <div class="contact-field">
+            <label class="contact-label" for="sl-name">Name</label>
+            <input class="contact-input" type="text" id="sl-name" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="sl-email">Email</label>
+            <input class="contact-input" type="email" id="sl-email" name="email" placeholder="" required autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="sl-link">A link to your project or reference <span class="contact-optional">optional</span></label>
+            <input class="contact-input" type="text" id="sl-link" name="link" placeholder="Scene description, mood board, reference track" inputmode="url" autocomplete="off">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="sl-message">Brief details <span class="contact-optional">optional</span></label>
+            <textarea class="contact-textarea" id="sl-message" name="message" placeholder="genre, tempo, duration, territory, deadline" rows="4"></textarea>
+          </div>
+          <div class="contact-actions">
+            <button type="submit" class="contact-submit">Send brief</button>
+            <p class="contact-escape">or email directly &mdash; <a href="mailto:hello&#64;liminl.music">hello@liminl.music</a></p>
+            <p class="contact-privacy">Your details are used only to respond to your inquiry.</p>
+          </div>
+        </div>
+        <p class="contact-status" aria-live="polite"></p>
+      </form>
     </section>
 
     <!-- From the Journal -->
@@ -319,32 +371,19 @@
       <nav class="sl-journal-list" aria-label="Related services">
         <div class="sl-journal-item">
           <a href="/co-writing/" class="sl-journal-link">
-            <div class="sl-journal-label">Service</div>
+            <div class="sl-journal-label">Co-Writing</div>
             <div class="sl-journal-title">Co-Writing Sessions</div>
+            <div class="sl-service-desc">Work on a song together &mdash; from a bare idea to a finished topliner.</div>
           </a>
         </div>
         <div class="sl-journal-item">
           <a href="/artist-development/" class="sl-journal-link">
-            <div class="sl-journal-label">Service</div>
+            <div class="sl-journal-label">Artist Development</div>
             <div class="sl-journal-title">Artist Development</div>
+            <div class="sl-service-desc">Identity, sound direction, and release strategy &mdash; a frame to build from.</div>
           </a>
         </div>
       </nav>
-    </section>
-
-    <!-- About -->
-    <section class="about-extract">
-      <h2 class="section-label">About</h2>
-      <div class="about-extract-inner">
-        <div class="ae-ufo-wrap" aria-hidden="true">
-          <div class="ae-beam"></div>
-          <img src="/images/reece-ufo.png" alt="" class="ae-ufo" width="130" height="130">
-        </div>
-        <div class="about-extract-body">
-          <p>I&rsquo;m Reece &mdash; songwriter, topliner, and producer based in Aotearoa New Zealand. I&rsquo;ve worked in film and TV and have ongoing relationships with music supervisors &mdash; which means I understand how a song needs to behave before it reaches a brief. I think visually: what the scene is doing, not just what it feels like.</p>
-          <a href="/about/" class="about-extract-link">More about Reece</a>
-        </div>
-      </div>
     </section>
 
   </main>
@@ -369,6 +408,43 @@
 <script src="/js/bg.js"></script>
 <script src="/js/hero-parallax.js?v=2"></script>
 <script src="/js/article.js"></script>
-<script src="/js/testimonial-slider.js?v=2"></script><!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/js/testimonial-slider.js?v=2"></script>
+<script>
+(function(){
+  var form = document.querySelector('.contact-form-el');
+  if (!form) return;
+  var fields = form.querySelector('.contact-fields');
+  var btn = form.querySelector('.contact-submit');
+  var status = form.querySelector('.contact-status');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!form.querySelector('[name="email"]').value) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var data = new FormData(form);
+    data.append('redirect', 'false');
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.success) {
+          fields.style.display = 'none';
+          status.textContent = 'Sent — I'll be in touch.';
+          status.style.fontSize = '17px';
+          status.style.color = 'var(--ink-med)';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send';
+          status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Send';
+        status.textContent = 'Something went wrong — try hello@liminl.music directly.';
+      });
+  });
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b4095234e95b45ee91b00a4fd16a1f0b"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
